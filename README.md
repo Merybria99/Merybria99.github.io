@@ -69,33 +69,44 @@ GitHub Pages serves.
 
 ## Your photo, and where the disk went
 
-The portrait sits in the hero. Rather than crowd it in next to the Poincaré
-disk, the disk moved down into the *geometry of representation space* thread,
-where it stops being decoration and starts illustrating the two papers next to
-it. It is still draggable.
+The portrait sits in the hero as a plain rectangle with a 3px radius. The disk
+moved down into the *geometry of representation space* thread, where it
+illustrates the two papers next to it instead of decorating the top.
 
-Three image files, all with metadata stripped:
+Four image files, all with metadata stripped:
 
 | file | size | use |
 |---|---|---|
-| `portrait-640.jpg` | 98 KB | portrait, retina screens |
-| `portrait-320.jpg` | 29 KB | portrait, standard screens |
-| `og.jpg` | 71 KB | link previews on LinkedIn, Slack, WhatsApp |
+| `portrait-640.jpg` | 65 KB | portrait, retina screens |
+| `portrait-320.jpg` | 21 KB | portrait, standard screens |
+| `og.jpg` | 47 KB | link previews on LinkedIn, Slack, WhatsApp |
+| `portrait-courtyard-640.jpg` | 106 KB | the earlier photo, unused but kept |
 
-`figures.py` joins `build.py`, `template.html` and `site.json` as the optional
-generator. `index.html` still stands alone.
+The `<img>` uses `srcset`, so phones fetch the 21 KB file. All must sit next to
+`index.html` in the repo root or the photo breaks.
 
-The `<img>` uses `srcset`, so phones download the 29 KB file rather than the
-98 KB one. All three must sit next to `index.html` in the repo root, or the
-photo breaks.
+### Changing the shape
 
-Your original had no EXIF — LinkedIn had already stripped it — so there was no
-GPS or device data to remove. Worth checking if you ever swap in a photo
-straight off your phone, since those usually do carry coordinates. The crop also
-took the passer-by out of the background.
+One line, in `.portrait img`. The alternatives are listed in a comment right
+above it: `0` for hard edges, `3px` as now, `14px` for softly rounded, `50%` for
+a circle — though the crop is 4:5, so a circle reads as an oval unless you also
+change the export to square.
 
-To replace it: crop square-ish, export at 640x800 and 320x400, keep the same
-filenames. Or send me a new photo.
+### About the photo itself
+
+The one you sent was lit by something very warm — red was hitting 233 at the
+highlights against 127 green and 115 blue, so your white shirt was rendering
+orange. I corrected the white balance in linear light at 45% strength with a
+slight magenta pull; full correction turned your skin olive. Neither photo had
+EXIF, so there was no GPS to strip.
+
+`portrait-courtyard-640.jpg` is the earlier shot, colour untouched. Better light
+and more context, and it says something about where you are. To switch back,
+rename it to `portrait-640.jpg` and regenerate the 320px version. It's a
+stronger photo for a conference badge or a talk slide.
+
+To use something else entirely: export at 640x800 and 320x400 with those exact
+filenames, or send it to me.
 
 ## Papers under submission are hidden
 

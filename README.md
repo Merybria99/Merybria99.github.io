@@ -1,95 +1,133 @@
-# Academic site — Maria Rosaria Briglia
+# merybria99.github.io
 
-One self-contained HTML file. No build step, no dependencies, no framework.
+Personal academic site for Maria Rosaria Briglia. One self-contained HTML file,
+no build step and no dependencies.
 
-## Put it online
+## What changed in this version
 
-Create a **public** repo named exactly `yourusername.github.io`, put `index.html` in the
-root, and wait about a minute. It publishes at `https://yourusername.github.io` with no
-settings to change. Dragging the file into the GitHub web UI is enough.
+The first version rendered all of its content with JavaScript from a config
+object. That was a mistake on a site whose job is to make papers findable: a
+crawler that doesn't execute JS saw four headings and nothing else. Google runs
+JS, but Bing, DuckDuckGo, most academic aggregators and archive.org snapshots
+don't, and neither does anyone browsing with JS off.
 
-From the command line:
+This version is static. Every word is in the markup — 2,172 words visible with
+JavaScript disabled, against roughly 30 before. Specifically:
+
+- All content, including the eleven abstracts, is plain HTML.
+- The Poincaré disk's 32 geodesics are pre-computed and written into the SVG.
+  The intro animation is pure CSS. JavaScript only adds the drag, and the page
+  is complete without it.
+- Abstracts use native `<details>`, so they expand with no script at all.
+- Research-theme paper references are real anchors, so they work as permalinks —
+  `#p-not-all-latent-spaces-are-flat-hyperbolic-concept-control` links straight
+  to that paper, which is handy in an email.
+- Added `schema.org` JSON-LD describing you and all eleven papers, plus a
+  canonical URL and Open Graph tags for link previews.
+
+## Deploying an update
+
+You already have the repo. To publish a change:
 
 ```sh
-git init
 git add index.html
-git commit -m "Add academic site"
-git branch -M main
-git remote add origin git@github.com:yourusername/yourusername.github.io.git
-git push -u origin main
+git commit -m "Update publications"
+git push
 ```
 
-If you'd rather use a normal repo, push there instead and set **Settings → Pages** to deploy
-from `main` / `/ (root)`. The URL becomes `https://yourusername.github.io/reponame`.
+Live in under a minute. If you uploaded through the GitHub web UI and your local
+clone is now behind, run `git pull --rebase origin main` before pushing.
 
-Sapienza may also give you space at `di.uniroma1.it` — worth asking, since an institutional
-URL carries weight on a paper. This file works unchanged wherever you host it.
+For a one-line change, editing the file directly on GitHub (click it, hit the
+pencil icon) is entirely reasonable.
 
 ## Editing
 
-Open `index.html`. The first thing in the file is a `window.SITE` block holding every piece
-of content: your statement, the four research themes, all eleven publications, and your
-background. Nothing below that block needs touching.
+**For small changes**, edit `index.html`. It's readable HTML — to add an arXiv
+link to a paper, find its `<article class="pub">` block and add:
 
-**Adding a paper.** Copy any existing entry in `publications` and edit it. Keep them ordered
-newest first — the page renders them in array order and does not sort. `status` takes
-`"published"`, `"preprint"`, or `"submitted"`; only the last two draw a tag.
-
-**Adding links to a paper.** Each entry accepts an optional `links` array:
-
-```js
-links: [
-  { label: "arXiv", url: "https://arxiv.org/abs/2406.xxxxx" },
-  { label: "PDF",   url: "https://..." },
-  { label: "Code",  url: "https://github.com/..." }
-]
+```html
+<p class="pub-links">
+  <a href="https://arxiv.org/abs/2406.xxxxx" rel="noopener">arXiv</a>
+  <a href="https://github.com/Merybria99/..." rel="noopener">Code</a>
+</p>
 ```
 
-This is the single highest-value thing you can add. Right now a reader who wants to actually
-read a paper has nowhere to click.
+right after the `<p class="pub-v">` line.
 
-**Research themes.** Each theme lists papers by title. The titles must match the
-`publications` entries *character for character* — that's what makes them clickable and
-scrolls to the paper with its abstract open. A typo silently degrades the link to plain text,
-so paste rather than retype.
+**For bigger changes**, the three optional files regenerate the page:
 
-**Empty sections disappear.** `teaching` and `service` are empty arrays and render nothing
-until you add entries. Same for the `Code` section: set `githubUser` and it appears, filled
-from the GitHub API; leave it blank and it stays hidden.
+```sh
+python3 build.py    # reads site.json + template.html, writes index.html
+```
 
-## What I left out of your CV, and why
+`site.json` holds all the content, `template.html` the markup and styling.
+Adding a paper there is cleaner than hand-editing HTML. You never have to use
+this — `index.html` stands alone, and the generator is only a convenience.
+If you do use it, commit the regenerated `index.html`, since that's what
+GitHub Pages serves.
 
-- **Home address, both phone numbers, date of birth, gender.** A public page gets scraped.
-  Keep these for the PDF you send to named people.
-- **Full exam lists with grades, and language certifications.** Standard on an Italian CV,
-  unusual on an academic homepage — the publication list is doing that work now.
-- **The soft-skills list** (proactive, problem solving, team working). These don't carry
-  information on a page that has eleven papers on it.
-- **The technical skills list.** I can add it back as a short line if you want it; I'd
-  suggest keeping it off, since PyTorch and Linux are assumed at this level.
-- **Your CV PDF.** Not included on purpose. Make a public version with the personal details
-  stripped, commit it as `cv.pdf`, then set `links.cv` to `"cv.pdf"`.
+## Papers under submission are hidden
 
-## Three things in your CV worth fixing
+The three papers under review are excluded from the page: *Architectural
+Backdoors*, *Mind the Modality Gap*, and *Anchored Protein Engineering*. They
+carry `"hidden": true` in `site.json` and are skipped everywhere — the list, the
+research-thread references, and the structured data.
 
-1. **Two papers are dated 2025 but list ICLR 2026 as the venue** — *What is Adversarial
-   Training for Diffusion Models?* and *Implicit Inversion turns CLIP into a Decoder*. I kept
-   your years verbatim, so they currently sort below the 2026 entries. If ICLR 2026 is right,
-   change `year` to `"2026"` for both.
-2. **Your M.Sc. entry still reads as in progress**, with an expected graduation date of
-   September 2023 and a "minimum expected grade" of 110. Two years stale. I rewrote it as
-   completed but left the final grade out, since I don't know what it was — worth adding.
-3. **Two awards didn't make it across**: the courses reserved for excellent students (2023),
-   and the recognition for an outstanding academic career, which I folded into the B.Sc.
-   note. If you'd like an Awards section of its own, say so.
+They are **not** left in as HTML comments. A commented-out abstract is still
+readable in view-source, and a reviewer searching a distinctive phrase from your
+own paper would find it on your site. Hiding it has to mean absent, not folded.
+
+To un-hide one on acceptance, delete its `"hidden": true` line, update `venue`
+and `status`, and rebuild:
+
+```sh
+python3 build.py
+git add index.html site.json && git commit -m "Add accepted paper" && git push
+```
+
+If you'd rather not use the generator, copy the paper's block from an older
+`index.html` and paste it into the publication list in the right year order.
+
+Two threads now cite a single paper each, because most of their work is under
+review. That reads as thin. Options when you want to address it: fold *Threats
+to generative media* into the geometry thread, or leave it — the prose describes
+the direction honestly without naming unpublished work, which is what a research
+statement is for.
+
+## Still open
+
+1. **Co-authors.** The list shows titles only. An academic bibliography normally
+   gives the full author line with your own name in bold. For the multi-author
+   collaborations this reads as an omission.
+2. **Links to the papers.** Nobody can currently read any of them from this page.
+   The highest-value thing to add.
+3. **Your email.** The site shows `briglia@di.uniroma1.it`, from your CV, but you
+   configured git with `mariarosaria.briglia@uniroma1.it`. Pick one.
+4. **Advisor and lab.** Almost every PhD page names both; yours names neither.
+5. **Scholar, ORCID, LinkedIn.** `links` in `site.json` has slots waiting.
+6. Two papers are dated 2025 but list ICLR 2026 as the venue — *What is
+   Adversarial Training for Diffusion Models?* and *Implicit Inversion turns CLIP
+   into a Decoder*. They currently sort below the 2026 entries.
+7. Your M.Sc. final grade, which I left out because your CV only gave an
+   expected minimum.
+8. Your photo. Send a JPEG or PNG, 800px or more on the short side, and I'll
+   crop, generate a 2x version, and add `og:image` for link previews.
+
+## Deliberately left off your CV
+
+Home address, both phone numbers, date of birth, gender, the full exam lists,
+and the soft-skills list. A public page gets scraped.
+
+**Don't commit your current CV PDF.** Git keeps every version permanently, so
+deleting it later would not remove it from a public repo's history. Strip the
+personal details first, then commit it as `cv.pdf` and set `links.cv` to
+`"cv.pdf"`.
 
 ## Notes
 
-- Fonts come from Google Fonts (Faustina and Archivo). To drop that dependency, delete the
-  two `preconnect` tags and the stylesheet link — the CSS falls back to system fonts.
-- A dark palette follows the visitor's system setting. The print stylesheet hides the
-  navigation and the disk and collapses abstracts, so the page prints as a clean CV-like
-  summary.
-- The Poincaré disk is computed, not drawn: geodesics are circular arcs orthogonal to the
-  boundary, and dragging applies a Möbius isometry. It degrades to a static figure under
-  `prefers-reduced-motion`.
+Fonts are Faustina and Archivo from Google Fonts; delete the two `preconnect`
+tags and the stylesheet link to drop that dependency and fall back to system
+fonts. A dark palette follows the visitor's system setting. The print stylesheet
+hides the navigation and the disk and collapses abstracts, so the page prints as
+a clean summary.

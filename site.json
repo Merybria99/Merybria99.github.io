@@ -1,0 +1,180 @@
+{
+ "name": "Maria Rosaria Briglia",
+ "shortName": "M. R. Briglia",
+ "role": "PhD student in AI for Government and Public Security",
+ "affiliation": "Sapienza University of Rome",
+ "statement": [
+  "I work on the safety and robustness of generative models. My research asks what breaks when a model is attacked, and what a principled defense would look like — through the geometry of representation space, the energy landscape of adversarial training, and the supply chain that model artifacts travel through.",
+  "Before Sapienza I completed an M.Sc. in Computer Engineering at the University of Salerno, specialising in artificial intelligence and intelligent robotics."
+ ],
+ "location": "Rome, Italy",
+ "email": "briglia@di.uniroma1.it",
+ "links": {
+  "scholar": "",
+  "github": "",
+  "linkedin": "",
+  "orcid": "",
+  "bluesky": "",
+  "cv": ""
+ },
+ "githubUser": "",
+ "research": [
+  {
+   "title": "Adversarial training through an energy lens",
+   "body": "Reinterpreting robust classifiers as energy-based models, which reframes catastrophic overfitting and robust overfitting as behaviour of the energy landscape rather than isolated training pathologies — and turns that reading into concrete regularizers and sample weighting schemes.",
+   "papers": [
+    "Shedding More Light on Robust Classifiers under the Lens of Energy-based Models",
+    "Understanding Adversarial Training with Energy-based Models",
+    "What is Adversarial Training for Diffusion Models?"
+   ]
+  },
+  {
+   "title": "The geometry of representation space",
+   "body": "Concept control and prompt safety depend on the shape of the space you are steering in. Euclidean adjustments to text embeddings are the standard tool; hyperbolic space, with parallel transport in place of vector arithmetic, gives more expressive and more stable manipulation of concepts.",
+   "papers": [
+    "Not All Latent Spaces Are Flat: Hyperbolic Concept Control",
+    "Harnessing Hyperbolic Geometry for Harmful Prompt Detection and Sanitization",
+    "Implicit Inversion turns CLIP into a Decoder"
+   ]
+  },
+  {
+   "title": "Threats to generative media, and defenses that hold",
+   "body": "Proactive image protection rests on an assumed threat model, and I test those assumptions — whether watermark-style defenses survive diffusion-based reconstruction that re-synthesises an image while preserving how it looks. The broader question is what a defense is actually promising once the attacker has generative models of their own.",
+   "papers": [
+    "Architectural Backdoors in Vision-Language Model Supply Chains via Representation Steering",
+    "Neutralizing Proactive Defense using Diffusion-based Upsampling",
+    "Mind the Modality Gap: From Constitutional AI to Contextual Safety Through Language Bridging"
+   ]
+  },
+  {
+   "title": "Generative models for structural biology",
+   "body": "A newer thread, applying large-scale benchmarking to antibody–antigen structure prediction, where familiar questions about confidence calibration reappear in an unfamiliar domain: a model that ranks its own predictions badly is a problem whether the output is an image or a fold.",
+   "papers": [
+    "Anchored Protein Engineering",
+    "Folding scFv–Antigen Complexes at Scale"
+   ]
+  }
+ ],
+ "publications": [
+  {
+   "year": "2026",
+   "title": "Architectural Backdoors in Vision-Language Model Supply Chains via Representation Steering",
+   "venue": "Under submission",
+   "status": "submitted",
+   "abstract": "Vision–Language Models (VLMs) are increasingly deployed through a model supply chain in which pretrained checkpoints, architecture definitions, text encoders, and exported computation graphs are distributed by third parties and reused across downstream services. This reuse model creates a security-critical trust boundary: VLM deployments inherit not only learned parameters but also executable behavior encoded in shared model artifacts. In this paper, we show that a malicious provider can exploit this trust boundary by embedding architectural backdoors into VLM supply chains through representation steering. Our attack introduces dormant steering logic into the model architecture through a trigger-gated additive modification of an intermediate representation, without poisoning training data, controlling downstream fine-tuning, or modifying prompts at deployment time. When the trigger is absent, the modification reduces to zero and the model follows its normal computation, preserving clean utility. When the trigger is present, a steering direction shifts the internal representation toward an attacker-defined objective. We evaluate the attack across multiple VLM families, including CLIP, BLIP, T5, LLaVA, Qwen3-VL, and diffusion-based architectures, and across multiple downstream tasks, including visual question answering, text-to-image generation, retrieval, and semantic response biasing, showing that the same architectural steering primitive compromises integrity, safety enforcement, and ranking fairness while preserving normal behavior on clean inputs. These results show that shared VLM artifacts can carry dormant steering logic that acts as an architectural backdoor against downstream services. Representation steering is a practical architectural backdoor payload for VLM supply chains, and securing VLM deployments requires auditing the executable logic distributed with model artifacts, rather than only their weights.",
+   "hidden": true
+  },
+  {
+   "year": "2026",
+   "title": "Mind the Modality Gap: From Constitutional AI to Contextual Safety Through Language Bridging",
+   "venue": "Under submission",
+   "status": "submitted",
+   "abstract": "Safety is context-dependent across cultures, jurisdictions, and use cases, yet existing alignment approaches embed a fixed notion of safety and require a separate bespoke pipeline per modality. We propose AnyCAI, a framework that generalizes Constitutional AI's generate-critique-revise paradigm to any generative modality through a language bridge: safety principles are expressed as natural-language constitutions, a language-capable model critiques outputs regardless of their modality, and a language-only reviser rewrites the prompt accordingly. We validate AnyCAI across four modalities. On text-to-image, text-to-video, and vision-language generation, AnyCAI Pareto-dominates every safety-aligned baseline: text-to-image generation, where HR improves from 42.6% to 90.3% while preserving image fidelity; text-to-video generation, where HR improves from 75.6% to 96.3% with minimal utility penalty; vision-language models, where HR improves from 85.1% to 99.0%; and text-to-music generation, where AnyCAI demonstrates proof-of-concept alignment, improving HR from 0% to 20% with near-zero false refusal. To properly measure contextual definitions of safety, we further propose a constitution-driven evaluation protocol that auto-generates standardised test sets from any constitution, eliminating the need for human-curated datasets that cannot keep pace with policy changes.",
+   "hidden": true
+  },
+  {
+   "year": "2026",
+   "title": "Neutralizing Proactive Defense using Diffusion-based Upsampling",
+   "venue": "ACM Workshop on Information Hiding and Multimedia Security (IH&MMSec)",
+   "status": "published",
+   "abstract": "The rapid spread of open-source generative models has made it easy to create highly realistic manipulated media, posing a critical threat to content authenticity and provenance. Proactive image protection mechanisms have recently emerged as a promising defense, embedding imperceptible or characteristic signals into images to enable reliable manipulation detection. However, their robustness under realistic and adversarial post-release conditions remains largely unexplored. In this work, we present a systematic evaluation of the robustness of recent state-of-the-art proactive image protection schemes in a black-box setting. We analyze the resilience of PADL and DiffVax protections against a broad range of attacks, including classical image transformations and diffusion-based reconstruction attacks that implicitly re-synthesize image content while preserving perceptual quality. Our results reveal that, despite strong performance under limited perturbations, current proactive defenses are vulnerable to unseen image manipulations and generative reconstruction attacks. Considering PADL, we empirically demonstrate that adding diffusion-based upsampling attacks in the training does not improve robustness, without increasing protection intensity. These findings expose critical gaps between assumed and real-world threat models, highlighting the need for more robust proactive protection designs and standardized evaluation protocols for trustworthy digital media."
+  },
+  {
+   "year": "2026",
+   "title": "Harnessing Hyperbolic Geometry for Harmful Prompt Detection and Sanitization",
+   "venue": "ICLR 2026",
+   "status": "published",
+   "abstract": "Vision–Language Models (VLMs) have become essential for tasks such as image synthesis, captioning, and retrieval by aligning textual and visual information in a shared embedding space. Yet, this flexibility also makes them vulnerable to malicious prompts designed to produce unsafe content, raising critical safety concerns. Existing defenses either rely on blacklist filters, which are easily circumvented, or on heavy classifier-based systems, both of which are costly and fragile under embedding-level attacks. We address these challenges with two complementary components: Hyperbolic Prompt Espial (HyPE) and Hyperbolic Prompt Sanitization (HyPS). HyPE is a lightweight anomaly detector that leverages the structured geometry of hyperbolic space to model benign prompts and detect harmful ones as outliers. HyPS builds on this detection by applying explainable attribution methods to identify and selectively modify harmful words, neutralizing unsafe intent while preserving the original semantics of user prompts. Through extensive experiments across multiple datasets and adversarial scenarios, we prove that our framework consistently outperforms prior defenses in both detection accuracy and robustness. Together, HyPE and HyPS offer an efficient, interpretable, and resilient approach to safeguarding VLMs against malicious prompt misuse."
+  },
+  {
+   "year": "2026",
+   "title": "Not All Latent Spaces Are Flat: Hyperbolic Concept Control",
+   "venue": "arXiv preprint",
+   "status": "preprint",
+   "abstract": "As modern text-to-image (T2I) models draw closer to synthesizing highly realistic content, the threat of unsafe content generation grows, and it becomes paramount to exercise control. Existing approaches steer these models by applying Euclidean adjustments to text embeddings, redirecting the generation away from unsafe concepts. In this work, we introduce hyperbolic control (HyCon): a novel control mechanism based on parallel transport that leverages semantically aligned hyperbolic representation space to yield more expressive and stable manipulation of concepts. HyCon reuses off-the-shelf generative models and a state-of-the-art hyperbolic text encoder, linked via a lightweight adapter. HyCon achieves state-of-the-art results across four safety benchmarks and four T2I backbones, showing that hyperbolic steering is a practical and flexible approach for more reliable T2I generation."
+  },
+  {
+   "year": "2026",
+   "title": "Anchored Protein Engineering",
+   "venue": "Under submission",
+   "status": "submitted",
+   "abstract": "Inspired by recent work on discrete diffusion for anchored unmasking, we introduce a new training-free framework for protein engineering that can generate higher-order variants that improve one or more phenotypes while exhibiting favorable epistatic interactions. Prior approaches require mutation sites to be specified in advance and can drive sequences away from the natural protein manifold. We address these limitations with Anchored Protein Engineering via quantized eXpectation (APEX), a decoding-time method consisting of anchor selection, tilted decoding, and iterative refinement. APEX selects anchor residues using a reward-gradient score with an explicit correction for pairwise epistasis, decodes substitutions for anchors by tilting the base model's per-site predictive distributions along reward gradients, and revisits low-scoring anchors iteratively for optional test-time scaling. All phases query the base model only through masked-conditional logits, a primitive shared by masked language models, discrete-diffusion models, and inverse-folding networks; as a result, APEX works out of the box across commonly used model families. Across various protein-engineering benchmarks, including thermostability and solubility, APEX achieves state-of-the-art results and avoids the predictor-gaming artifacts that reward-search-only baselines tend to produce.",
+   "hidden": true
+  },
+  {
+   "year": "2026",
+   "title": "Folding scFv–Antigen Complexes at Scale",
+   "venue": "GEM Workshop, ICLR 2026",
+   "status": "published",
+   "abstract": "Accurate modeling of antibody–antigen (Ab–Ag) complexes is central to biologic development, yet the reliability and failures of modern Ab–Ag folding pipelines remain poorly characterized. Single-chain variable fragments (scFvs) are therapeutically important antibodies, but large-scale evaluations of structure prediction models on scFv–Ag complexes are largely lacking. We introduce a scalable benchmarking pipeline that generates large ensembles of scFv–Ag structure predictions by cofolding a curated subset of 3,800 Ab–Ag complexes from SAbDab using multiple state-of-the-art models under diverse inference-time settings. The resulting dataset, SCALE scFv–Ag CompLex, includes standardized scFv–Ag sequences and around 200,000 predicted complexes spanning different models, sampling strategies, and auxiliary inputs. Using SCALE, we evaluate model performance in recovering correct scFv–Ag interfaces and assess the ability of existing confidence metrics to select the best structure from prediction ensembles. We find that while confidence scores effectively distinguish easy from hard scFv–Ag complexes, they often fail to identify the highest-quality interface for a given target. Further analysis shows that correct binding modes are often present but rare, and inference-time choices like sampling, recycling, and using evolutionary or structural information are crucial for accurate scFv–Ag complex predictions."
+  },
+  {
+   "year": "2025",
+   "title": "What is Adversarial Training for Diffusion Models?",
+   "venue": "ICLR 2026",
+   "status": "published",
+   "abstract": "We answer the question in the title, showing that adversarial training (AT) for diffusion models (DMs) fundamentally differs from classifiers: while AT in classifiers enforces output invariance, AT in DMs requires equivariance to keep the diffusion process aligned with the data distribution. AT is a way to enforce smoothness in the diffusion flow, improving robustness to outliers and corrupted data. Unlike prior art, our method makes no assumptions about the noise model and integrates seamlessly into diffusion training by adding random noise, similar to randomized smoothing, or adversarial noise, akin to AT. This enables intrinsic capabilities such as handling noisy data, dealing with extreme variability such as outliers, preventing memorization, and improving robustness. We rigorously evaluate our approach with proof-of-concept datasets with known distributions in low- and high-dimensional space, thereby taking a perfect measure of errors; we further evaluate on standard benchmarks such as CIFAR-10, CelebA and LSUN Bedroom, showing strong performance under severe noise, data corruption, and iterative adversarial attacks."
+  },
+  {
+   "year": "2025",
+   "title": "Implicit Inversion turns CLIP into a Decoder",
+   "venue": "ICLR 2026",
+   "status": "published",
+   "abstract": "CLIP is a discriminative model trained to align images and text in a shared embedding space. Due to its multimodal structure, it serves as the backbone of many generative pipelines, where a decoder is trained to map from the shared space back to images. In this work, we show that image synthesis is nevertheless possible using CLIP alone — without any decoder, training, or fine-tuning. Our approach optimizes a frequency-aware implicit neural representation that encourages coarse-to-fine generation by stratifying frequencies across network layers. To stabilize this inverse mapping, we introduce adversarially robust initialization, a lightweight Orthogonal Procrustes projection to align local text and image embeddings, and a blending loss that anchors outputs to natural image statistics. Without altering CLIP's weights, this framework unlocks capabilities such as text-to-image generation, style transfer, and image reconstruction. These findings suggest that discriminative models may hold untapped generative potential, hidden in plain sight."
+  },
+  {
+   "year": "2025",
+   "title": "Understanding Adversarial Training with Energy-based Models",
+   "venue": "arXiv preprint",
+   "status": "preprint",
+   "abstract": "We aim at using the Energy-based Model (EBM) framework to better understand adversarial training (AT) in classifiers, and additionally to analyze the intrinsic generative capabilities of robust classifiers. By viewing standard classifiers through an energy lens, we begin by analyzing how the energies of adversarial examples, generated by various attacks, differ from those of the natural samples. The central focus of our work is to understand the critical phenomena of Catastrophic Overfitting (CO) and Robust Overfitting (RO) in AT from an energy perspective. We analyze the impact of existing AT approaches on the energy of samples during training and observe that the behavior of the delta energy — the change in energy between an original sample and its adversarial counterpart — diverges significantly when CO or RO occurs. After a thorough analysis of these energy dynamics and their relationship with overfitting, we propose a novel regularizer, the Delta Energy Regularizer (DER), designed to smoothen the energy landscape during training. We demonstrate that DER is effective in mitigating both CO and RO across multiple benchmarks. We further show that robust classifiers, when being used as generative models, have limits in handling the trade-off between image quality and variability. We propose an improved technique based on a local class-wise principal component analysis (PCA) and energy-based guidance for better class-specific initialization and adaptive stopping, enhancing sample diversity and generation quality. Considering that we do not explicitly train for generative modeling, we achieve a competitive Inception Score (IS) and Fréchet Inception Distance (FID) compared to hybrid discriminative-generative models."
+  },
+  {
+   "year": "2024",
+   "title": "Shedding More Light on Robust Classifiers under the Lens of Energy-based Models",
+   "venue": "ECCV 2024",
+   "status": "published",
+   "abstract": "By reinterpreting a robust discriminative classifier as an Energy-based Model (EBM), we offer a new take on the dynamics of adversarial training (AT). Our analysis of the energy landscape during AT reveals that untargeted attacks generate adversarial images much more in-distribution (lower energy) than the original data from the point of view of the model. Conversely, we observe the opposite for targeted attacks. On the ground of our thorough analysis, we present new theoretical and practical results that show how interpreting AT energy dynamics unlocks a better understanding: AT dynamics are governed by three phases, and robust overfitting occurs in the third phase with a drastic divergence between natural and adversarial energies; by rewriting the loss of TRadeoff-inspired Adversarial DEfense via Surrogate-loss minimization (TRADES) in terms of energies, we show that TRADES implicitly alleviates overfitting by means of aligning the natural energy with the adversarial one; and we empirically show that all recent state-of-the-art robust classifiers are smoothing the energy landscape, reconciling a variety of studies about understanding AT and weighting the loss function under the umbrella of EBMs. Motivated by rigorous evidence, we propose Weighted Energy Adversarial Training (WEAT), a novel sample weighting scheme that yields robust accuracy matching the state-of-the-art on multiple benchmarks such as CIFAR-10 and SVHN and going beyond in CIFAR-100 and Tiny-ImageNet. We further show that robust classifiers vary in the intensity and quality of their generative capabilities, and offer a simple method to push this capability, reaching a remarkable Inception Score (IS) and FID using a robust classifier without training for generative modeling."
+  }
+ ],
+ "background": [
+  {
+   "period": "2023 – present",
+   "title": "PhD, National PhD programme in AI for Government and Public Security",
+   "org": "Sapienza University of Rome",
+   "note": "Developing practical defense techniques against the media manipulation enabled by generative AI."
+  },
+  {
+   "period": "2021 – 2023",
+   "title": "M.Sc. Computer Engineering (LM-32), Artificial Intelligence and Intelligent Robotics",
+   "org": "University of Salerno",
+   "note": "Thesis: Automatic Generation of Identity-Preserving Gesture Videos."
+  },
+  {
+   "period": "2023",
+   "title": "Research scholarship, artificial vision for autonomous driving on rail",
+   "org": "RFI and University of Salerno",
+   "note": "Designed the on-board hardware acquisition system, and the real-time anomaly detection along the railway track."
+  },
+  {
+   "period": "2018 – 2021",
+   "title": "B.Sc. Computer Engineering (L-8)",
+   "org": "University of Salerno",
+   "note": "Graduated 110/110 cum laude, and recognised for completing the degree with highest honours in the shortest time possible. Thesis: Automatic Speaker Recognition Using a Neural Network Integrated into a Web Portal."
+  }
+ ],
+ "schools": [
+  {
+   "year": "2025",
+   "name": "CISPA – ELLIS Summer School",
+   "where": "Saarbrücken, Germany"
+  },
+  {
+   "year": "2024",
+   "name": "Generative Modeling Summer School",
+   "where": "Eindhoven University of Technology"
+  }
+ ],
+ "teaching": [],
+ "service": []
+}

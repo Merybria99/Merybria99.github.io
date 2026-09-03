@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- =============================================================
+     Everything you might want to change lives in the SITE block
+     below. Nothing further down the file needs editing.
+
+     Deliberately NOT included, because this page is public and
+     gets scraped: home address, phone numbers, date of birth.
+     Keep those for the CV you send to named people.
+     ============================================================= -->
+<script>
+window.SITE = {
+  name: "Maria Rosaria Briglia",
+  shortName: "M. R. Briglia",
+  role: "PhD student in AI for Government and Public Security",
+  affiliation: "Sapienza University of Rome",
+
+  // Two or three sentences. This is the part people actually read.
+  statement: [
+    "I work on the safety and robustness of generative models. My research asks what breaks when a model is attacked, and what a principled defense would look like \u2014 through the geometry of representation space, the energy landscape of adversarial training, and the supply chain that model artifacts travel through.",
+    "Before Sapienza I completed an M.Sc. in Computer Engineering at the University of Salerno, specialising in artificial intelligence and intelligent robotics."
+  ],
+
+  location: "Rome, Italy",
+  email: "briglia@di.uniroma1.it",
+
+  // Fill these in. Delete any line you don't want shown.
+  links: {
+    scholar:  "",   // full Google Scholar profile URL
+    github:   "",   // username only
+    linkedin: "",   // just the part after /in/
+    orcid:    "",   // e.g. "0000-0000-0000-0000"
+    bluesky:  "",   // e.g. "you.bsky.social"
+    cv:       ""    // e.g. "cv.pdf" once you upload a public version
+  },
+
+  // Optional. If set, a short Code section appears, filled from GitHub.
+  githubUser: "",
+
+  research: [
+    {
+      title: "Adversarial training through an energy lens",
+      body: "Reinterpreting robust classifiers as energy-based models, which reframes catastrophic overfitting and robust overfitting as behaviour of the energy landscape rather than isolated training pathologies \u2014 and turns that reading into concrete regularizers and sample weighting schemes.",
+      papers: [
+        "Shedding More Light on Robust Classifiers under the Lens of Energy-based Models",
+        "Understanding Adversarial Training with Energy-based Models",
+        "What is Adversarial Training for Diffusion Models?"
+      ]
+    },
+    {
+      title: "The geometry of representation space",
+      body: "Concept control and prompt safety depend on the shape of the space you are steering in. Euclidean adjustments to text embeddings are the standard tool; hyperbolic space, with parallel transport in place of vector arithmetic, gives more expressive and more stable manipulation of concepts.",
+      papers: [
+        "Not All Latent Spaces Are Flat: Hyperbolic Concept Control",
+        "Harnessing Hyperbolic Geometry for Harmful Prompt Detection and Sanitization",
+        "Implicit Inversion turns CLIP into a Decoder"
+      ]
+    },
+    {
+      title: "Threats to generative media, and defenses that hold",
+      body: "Proactive image protection and safety alignment both rest on an assumed threat model. I test those assumptions: whether watermark-style defenses survive diffusion-based reconstruction, whether alignment generalises past the modality it was built for, and whether a shared model artifact can carry executable attack logic rather than only weights.",
+      papers: [
+        "Architectural Backdoors in Vision-Language Model Supply Chains via Representation Steering",
+        "Neutralizing Proactive Defense using Diffusion-based Upsampling",
+        "Mind the Modality Gap: From Constitutional AI to Contextual Safety Through Language Bridging"
+      ]
+    },
+    {
+      title: "Generative models for structural biology",
+      body: "A newer thread, applying decoding-time methods and large-scale benchmarking to protein design and antibody\u2013antigen structure prediction, where familiar questions about reward gaming and confidence calibration reappear in an unfamiliar domain.",
+      papers: [
+        "Anchored Protein Engineering",
+        "Folding scFv\u2013Antigen Complexes at Scale"
+      ]
+    }
+  ],
+
+  // Add "links" to any entry as you get them, e.g.
+  // links: [{ label: "arXiv", url: "https://arxiv.org/abs/..." }, { label: "Code", url: "..." }]
+  publications: [
+    {
+      year: "2026",
+      title: "Architectural Backdoors in Vision-Language Model Supply Chains via Representation Steering",
+      venue: "Under submission",
+      status: "submitted",
+      abstract: "Vision\u2013Language Models (VLMs) are increasingly deployed through a model supply chain in which pretrained checkpoints, architecture definitions, text encoders, and exported computation graphs are distributed by third parties and reused across downstream services. This reuse model creates a security-critical trust boundary: VLM deployments inherit not only learned parameters but also executable behavior encoded in shared model artifacts. In this paper, we show that a malicious provider can exploit this trust boundary by embedding architectural backdoors into VLM supply chains through representation steering. Our attack introduces dormant steering logic into the model architecture through a trigger-gated additive modification of an intermediate representation, without poisoning training data, controlling downstream fine-tuning, or modifying prompts at deployment time. When the trigger is absent, the modification reduces to zero and the model follows its normal computation, preserving clean utility. When the trigger is present, a steering direction shifts the internal representation toward an attacker-defined objective. We evaluate the attack across multiple VLM families, including CLIP, BLIP, T5, LLaVA, Qwen3-VL, and diffusion-based architectures, and across multiple downstream tasks, including visual question answering, text-to-image generation, retrieval, and semantic response biasing, showing that the same architectural steering primitive compromises integrity, safety enforcement, and ranking fairness while preserving normal behavior on clean inputs. These results show that shared VLM artifacts can carry dormant steering logic that acts as an architectural backdoor against downstream services. Representation steering is a practical architectural backdoor payload for VLM supply chains, and securing VLM deployments requires auditing the executable logic distributed with model artifacts, rather than only their weights."
+    },
+    {
+      year: "2026",
+      title: "Mind the Modality Gap: From Constitutional AI to Contextual Safety Through Language Bridging",
+      venue: "Under submission",
+      status: "submitted",
+      abstract: "Safety is context-dependent across cultures, jurisdictions, and use cases, yet existing alignment approaches embed a fixed notion of safety and require a separate bespoke pipeline per modality. We propose AnyCAI, a framework that generalizes Constitutional AI's generate-critique-revise paradigm to any generative modality through a language bridge: safety principles are expressed as natural-language constitutions, a language-capable model critiques outputs regardless of their modality, and a language-only reviser rewrites the prompt accordingly. We validate AnyCAI across four modalities. On text-to-image, text-to-video, and vision-language generation, AnyCAI Pareto-dominates every safety-aligned baseline: text-to-image generation, where HR improves from 42.6% to 90.3% while preserving image fidelity; text-to-video generation, where HR improves from 75.6% to 96.3% with minimal utility penalty; vision-language models, where HR improves from 85.1% to 99.0%; and text-to-music generation, where AnyCAI demonstrates proof-of-concept alignment, improving HR from 0% to 20% with near-zero false refusal. To properly measure contextual definitions of safety, we further propose a constitution-driven evaluation protocol that auto-generates standardised test sets from any constitution, eliminating the need for human-curated datasets that cannot keep pace with policy changes."
+    },
+    {
+      year: "2026",
+      title: "Neutralizing Proactive Defense using Diffusion-based Upsampling",
+      venue: "ACM Workshop on Information Hiding and Multimedia Security (IH&MMSec)",
+      status: "published",
+      abstract: "The rapid spread of open-source generative models has made it easy to create highly realistic manipulated media, posing a critical threat to content authenticity and provenance. Proactive image protection mechanisms have recently emerged as a promising defense, embedding imperceptible or characteristic signals into images to enable reliable manipulation detection. However, their robustness under realistic and adversarial post-release conditions remains largely unexplored. In this work, we present a systematic evaluation of the robustness of recent state-of-the-art proactive image protection schemes in a black-box setting. We analyze the resilience of PADL and DiffVax protections against a broad range of attacks, including classical image transformations and diffusion-based reconstruction attacks that implicitly re-synthesize image content while preserving perceptual quality. Our results reveal that, despite strong performance under limited perturbations, current proactive defenses are vulnerable to unseen image manipulations and generative reconstruction attacks. Considering PADL, we empirically demonstrate that adding diffusion-based upsampling attacks in the training does not improve robustness, without increasing protection intensity. These findings expose critical gaps between assumed and real-world threat models, highlighting the need for more robust proactive protection designs and standardized evaluation protocols for trustworthy digital media."
+    },
+    {
+      year: "2026",
+      title: "Harnessing Hyperbolic Geometry for Harmful Prompt Detection and Sanitization",
+      venue: "ICLR 2026",
+      status: "published",
+      abstract: "Vision\u2013Language Models (VLMs) have become essential for tasks such as image synthesis, captioning, and retrieval by aligning textual and visual information in a shared embedding space. Yet, this flexibility also makes them vulnerable to malicious prompts designed to produce unsafe content, raising critical safety concerns. Existing defenses either rely on blacklist filters, which are easily circumvented, or on heavy classifier-based systems, both of which are costly and fragile under embedding-level attacks. We address these challenges with two complementary components: Hyperbolic Prompt Espial (HyPE) and Hyperbolic Prompt Sanitization (HyPS). HyPE is a lightweight anomaly detector that leverages the structured geometry of hyperbolic space to model benign prompts and detect harmful ones as outliers. HyPS builds on this detection by applying explainable attribution methods to identify and selectively modify harmful words, neutralizing unsafe intent while preserving the original semantics of user prompts. Through extensive experiments across multiple datasets and adversarial scenarios, we prove that our framework consistently outperforms prior defenses in both detection accuracy and robustness. Together, HyPE and HyPS offer an efficient, interpretable, and resilient approach to safeguarding VLMs against malicious prompt misuse."
+    },
+    {
+      year: "2026",
+      title: "Not All Latent Spaces Are Flat: Hyperbolic Concept Control",
+      venue: "arXiv preprint",
+      status: "preprint",
+      abstract: "As modern text-to-image (T2I) models draw closer to synthesizing highly realistic content, the threat of unsafe content generation grows, and it becomes paramount to exercise control. Existing approaches steer these models by applying Euclidean adjustments to text embeddings, redirecting the generation away from unsafe concepts. In this work, we introduce hyperbolic control (HyCon): a novel control mechanism based on parallel transport that leverages semantically aligned hyperbolic representation space to yield more expressive and stable manipulation of concepts. HyCon reuses off-the-shelf generative models and a state-of-the-art hyperbolic text encoder, linked via a lightweight adapter. HyCon achieves state-of-the-art results across four safety benchmarks and four T2I backbones, showing that hyperbolic steering is a practical and flexible approach for more reliable T2I generation."
+    },
+    {
+      year: "2026",
+      title: "Anchored Protein Engineering",
+      venue: "Under submission",
+      status: "submitted",
+      abstract: "Inspired by recent work on discrete diffusion for anchored unmasking, we introduce a new training-free framework for protein engineering that can generate higher-order variants that improve one or more phenotypes while exhibiting favorable epistatic interactions. Prior approaches require mutation sites to be specified in advance and can drive sequences away from the natural protein manifold. We address these limitations with Anchored Protein Engineering via quantized eXpectation (APEX), a decoding-time method consisting of anchor selection, tilted decoding, and iterative refinement. APEX selects anchor residues using a reward-gradient score with an explicit correction for pairwise epistasis, decodes substitutions for anchors by tilting the base model's per-site predictive distributions along reward gradients, and revisits low-scoring anchors iteratively for optional test-time scaling. All phases query the base model only through masked-conditional logits, a primitive shared by masked language models, discrete-diffusion models, and inverse-folding networks; as a result, APEX works out of the box across commonly used model families. Across various protein-engineering benchmarks, including thermostability and solubility, APEX achieves state-of-the-art results and avoids the predictor-gaming artifacts that reward-search-only baselines tend to produce."
+    },
+    {
+      year: "2026",
+      title: "Folding scFv\u2013Antigen Complexes at Scale",
+      venue: "GEM Workshop, ICLR 2026",
+      status: "published",
+      abstract: "Accurate modeling of antibody\u2013antigen (Ab\u2013Ag) complexes is central to biologic development, yet the reliability and failures of modern Ab\u2013Ag folding pipelines remain poorly characterized. Single-chain variable fragments (scFvs) are therapeutically important antibodies, but large-scale evaluations of structure prediction models on scFv\u2013Ag complexes are largely lacking. We introduce a scalable benchmarking pipeline that generates large ensembles of scFv\u2013Ag structure predictions by cofolding a curated subset of 3,800 Ab\u2013Ag complexes from SAbDab using multiple state-of-the-art models under diverse inference-time settings. The resulting dataset, SCALE scFv\u2013Ag CompLex, includes standardized scFv\u2013Ag sequences and around 200,000 predicted complexes spanning different models, sampling strategies, and auxiliary inputs. Using SCALE, we evaluate model performance in recovering correct scFv\u2013Ag interfaces and assess the ability of existing confidence metrics to select the best structure from prediction ensembles. We find that while confidence scores effectively distinguish easy from hard scFv\u2013Ag complexes, they often fail to identify the highest-quality interface for a given target. Further analysis shows that correct binding modes are often present but rare, and inference-time choices like sampling, recycling, and using evolutionary or structural information are crucial for accurate scFv\u2013Ag complex predictions."
+    },
+    {
+      year: "2025",
+      title: "What is Adversarial Training for Diffusion Models?",
+      venue: "ICLR 2026",
+      status: "published",
+      abstract: "We answer the question in the title, showing that adversarial training (AT) for diffusion models (DMs) fundamentally differs from classifiers: while AT in classifiers enforces output invariance, AT in DMs requires equivariance to keep the diffusion process aligned with the data distribution. AT is a way to enforce smoothness in the diffusion flow, improving robustness to outliers and corrupted data. Unlike prior art, our method makes no assumptions about the noise model and integrates seamlessly into diffusion training by adding random noise, similar to randomized smoothing, or adversarial noise, akin to AT. This enables intrinsic capabilities such as handling noisy data, dealing with extreme variability such as outliers, preventing memorization, and improving robustness. We rigorously evaluate our approach with proof-of-concept datasets with known distributions in low- and high-dimensional space, thereby taking a perfect measure of errors; we further evaluate on standard benchmarks such as CIFAR-10, CelebA and LSUN Bedroom, showing strong performance under severe noise, data corruption, and iterative adversarial attacks."
+    },
+    {
+      year: "2025",
+      title: "Implicit Inversion turns CLIP into a Decoder",
+      venue: "ICLR 2026",
+      status: "published",
+      abstract: "CLIP is a discriminative model trained to align images and text in a shared embedding space. Due to its multimodal structure, it serves as the backbone of many generative pipelines, where a decoder is trained to map from the shared space back to images. In this work, we show that image synthesis is nevertheless possible using CLIP alone \u2014 without any decoder, training, or fine-tuning. Our approach optimizes a frequency-aware implicit neural representation that encourages coarse-to-fine generation by stratifying frequencies across network layers. To stabilize this inverse mapping, we introduce adversarially robust initialization, a lightweight Orthogonal Procrustes projection to align local text and image embeddings, and a blending loss that anchors outputs to natural image statistics. Without altering CLIP's weights, this framework unlocks capabilities such as text-to-image generation, style transfer, and image reconstruction. These findings suggest that discriminative models may hold untapped generative potential, hidden in plain sight."
+    },
+    {
+      year: "2025",
+      title: "Understanding Adversarial Training with Energy-based Models",
+      venue: "arXiv preprint",
+      status: "preprint",
+      abstract: "We aim at using the Energy-based Model (EBM) framework to better understand adversarial training (AT) in classifiers, and additionally to analyze the intrinsic generative capabilities of robust classifiers. By viewing standard classifiers through an energy lens, we begin by analyzing how the energies of adversarial examples, generated by various attacks, differ from those of the natural samples. The central focus of our work is to understand the critical phenomena of Catastrophic Overfitting (CO) and Robust Overfitting (RO) in AT from an energy perspective. We analyze the impact of existing AT approaches on the energy of samples during training and observe that the behavior of the delta energy \u2014 the change in energy between an original sample and its adversarial counterpart \u2014 diverges significantly when CO or RO occurs. After a thorough analysis of these energy dynamics and their relationship with overfitting, we propose a novel regularizer, the Delta Energy Regularizer (DER), designed to smoothen the energy landscape during training. We demonstrate that DER is effective in mitigating both CO and RO across multiple benchmarks. We further show that robust classifiers, when being used as generative models, have limits in handling the trade-off between image quality and variability. We propose an improved technique based on a local class-wise principal component analysis (PCA) and energy-based guidance for better class-specific initialization and adaptive stopping, enhancing sample diversity and generation quality. Considering that we do not explicitly train for generative modeling, we achieve a competitive Inception Score (IS) and Fr\u00e9chet Inception Distance (FID) compared to hybrid discriminative-generative models."
+    },
+    {
+      year: "2024",
+      title: "Shedding More Light on Robust Classifiers under the Lens of Energy-based Models",
+      venue: "ECCV 2024",
+      status: "published",
+      abstract: "By reinterpreting a robust discriminative classifier as an Energy-based Model (EBM), we offer a new take on the dynamics of adversarial training (AT). Our analysis of the energy landscape during AT reveals that untargeted attacks generate adversarial images much more in-distribution (lower energy) than the original data from the point of view of the model. Conversely, we observe the opposite for targeted attacks. On the ground of our thorough analysis, we present new theoretical and practical results that show how interpreting AT energy dynamics unlocks a better understanding: AT dynamics are governed by three phases, and robust overfitting occurs in the third phase with a drastic divergence between natural and adversarial energies; by rewriting the loss of TRadeoff-inspired Adversarial DEfense via Surrogate-loss minimization (TRADES) in terms of energies, we show that TRADES implicitly alleviates overfitting by means of aligning the natural energy with the adversarial one; and we empirically show that all recent state-of-the-art robust classifiers are smoothing the energy landscape, reconciling a variety of studies about understanding AT and weighting the loss function under the umbrella of EBMs. Motivated by rigorous evidence, we propose Weighted Energy Adversarial Training (WEAT), a novel sample weighting scheme that yields robust accuracy matching the state-of-the-art on multiple benchmarks such as CIFAR-10 and SVHN and going beyond in CIFAR-100 and Tiny-ImageNet. We further show that robust classifiers vary in the intensity and quality of their generative capabilities, and offer a simple method to push this capability, reaching a remarkable Inception Score (IS) and FID using a robust classifier without training for generative modeling."
+    }
+  ],
+
+  background: [
+    {
+      period: "2023 \u2013 present",
+      title: "PhD, National PhD programme in AI for Government and Public Security",
+      org: "Sapienza University of Rome",
+      note: "Developing practical defense techniques against the media manipulation enabled by generative AI."
+    },
+    {
+      period: "2021 \u2013 2023",
+      title: "M.Sc. Computer Engineering (LM-32), Artificial Intelligence and Intelligent Robotics",
+      org: "University of Salerno",
+      note: "Thesis: Automatic Generation of Identity-Preserving Gesture Videos."
+    },
+    {
+      period: "2023",
+      title: "Research scholarship, artificial vision for autonomous driving on rail",
+      org: "RFI and University of Salerno",
+      note: "Designed the on-board hardware acquisition system, and the real-time anomaly detection along the railway track."
+    },
+    {
+      period: "2018 \u2013 2021",
+      title: "B.Sc. Computer Engineering (L-8)",
+      org: "University of Salerno",
+      note: "Graduated 110/110 cum laude, and recognised for completing the degree with highest honours in the shortest time possible. Thesis: Automatic Speaker Recognition Using a Neural Network Integrated into a Web Portal."
+    }
+  ],
+
+  schools: [
+    { year: "2025", name: "CISPA \u2013 ELLIS Summer School", where: "Saarbr\u00fccken, Germany" },
+    { year: "2024", name: "Generative Modeling Summer School", where: "Eindhoven University of Technology" }
+  ],
+
+  teaching: [],   // add { period, title, org } entries as you take on teaching
+  service: []     // add { year, text } for reviewing, organising, talks
+};
+</script>
+<!-- ====================== end of edits ====================== -->
+
+<title>Maria Rosaria Briglia</title>
+<meta name="description" content="Maria Rosaria Briglia — PhD student at Sapienza University of Rome, working on the safety and robustness of generative models.">
+<meta property="og:title" content="Maria Rosaria Briglia">
+<meta property="og:description" content="PhD student at Sapienza University of Rome, working on the safety and robustness of generative models.">
+<meta property="og:type" content="profile">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23eff1f2'/><circle cx='16' cy='16' r='11' fill='none' stroke='%230e6b6b' stroke-width='1.4'/><path d='M5 16a22 22 0 0 1 22 0' fill='none' stroke='%237a1f3d' stroke-width='1.6'/><path d='M16 5a22 22 0 0 0 0 22' fill='none' stroke='%237a1f3d' stroke-width='1.6'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,400..700&family=Faustina:ital,wght@0,400..700;1,400..600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#eff1f2;
+  --paper-deep:#e5e8ea;
+  --ink:#231c21;
+  --ink-soft:#6a6169;
+  --wine:#7a1f3d;
+  --teal:#0e6b6b;
+  --rule:#d3d8da;
+
+  --serif:"Faustina",Georgia,"Times New Roman",serif;
+  --sans:"Archivo",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,sans-serif;
+
+  --measure:68ch;
+  --pad:clamp(1.25rem,5vw,4rem);
+}
+
+@media (prefers-color-scheme:dark){
+  :root{
+    --paper:#16181a;
+    --paper-deep:#1d2023;
+    --ink:#e9e6e8;
+    --ink-soft:#9c949c;
+    --wine:#e08aa6;
+    --teal:#4fbdbd;
+    --rule:#31363a;
+  }
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:clamp(0.9375rem,0.9rem + 0.2vw,1.0625rem);
+  font-variant-numeric:tabular-nums;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+
+a{color:var(--teal);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{text-decoration-color:currentColor}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:2px}
+
+.wrap{max-width:60rem;margin:0 auto;padding-inline:var(--pad)}
+
+/* ---------- masthead ---------- */
+.masthead{padding-block:1.5rem 0}
+.masthead-inner{display:flex;flex-wrap:wrap;gap:0.5rem 2rem;align-items:baseline;justify-content:space-between}
+.sig{font-family:var(--serif);font-size:1.0625rem;font-weight:600;color:var(--ink);text-decoration:none;letter-spacing:0.01em}
+.nav{display:flex;flex-wrap:wrap;gap:1.25rem;font-size:0.875rem}
+.nav a{color:var(--ink-soft);text-decoration:none}
+.nav a:hover{color:var(--ink);text-decoration:underline;text-decoration-color:var(--wine)}
+
+/* ---------- hero ---------- */
+.hero{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,21rem);
+  gap:clamp(2rem,5vw,4rem);
+  align-items:center;
+  padding-block:clamp(2.5rem,7vw,5rem) clamp(2.5rem,6vw,4rem);
+}
+.hname{
+  font-family:var(--serif);
+  font-weight:600;
+  font-size:clamp(2.25rem,7vw,3.75rem);
+  line-height:1.02;
+  letter-spacing:-0.02em;
+  margin:0;
+  color:var(--wine);
+  text-wrap:balance;
+}
+.hrole{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:clamp(1.0625rem,1rem + 0.4vw,1.25rem);
+  line-height:1.4;
+  margin:0.75rem 0 0;
+  max-width:32ch;
+}
+.hstate{margin:1.5rem 0 0;color:var(--ink-soft);max-width:52ch}
+.hstate p{margin:0 0 0.85rem}
+.hstate p:last-child{margin-bottom:0}
+.hmeta{
+  display:flex;flex-wrap:wrap;gap:0.4rem 1.25rem;
+  font-size:0.8125rem;color:var(--ink-soft);
+  margin:1.5rem 0 0;padding-top:1.1rem;
+  border-top:1px solid var(--rule);
+}
+.hmeta a{color:var(--ink-soft)}
+.hmeta a:hover{color:var(--teal)}
+
+/* ---------- poincare disk ---------- */
+.disk-holder{justify-self:center;width:100%;max-width:21rem;margin:0}
+.disk{display:block;width:100%;height:auto;touch-action:none;cursor:grab}
+.disk:active{cursor:grabbing}
+.disk-edge{fill:none;stroke:var(--teal);stroke-width:0.014}
+.disk-fill{fill:var(--paper-deep)}
+.geo{fill:none;stroke:var(--wine);stroke-width:0.008;stroke-linecap:round;opacity:0.5}
+.geo-b{stroke:var(--teal);opacity:0.38}
+.disk-cap{
+  font-size:0.75rem;color:var(--ink-soft);
+  margin:0.9rem auto 0;text-align:center;line-height:1.5;max-width:28ch;
+}
+
+@keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+.drawing .geo{stroke-dasharray:1;animation:draw 1s ease-out backwards}
+
+/* ---------- sections ---------- */
+.band{background:var(--paper-deep);border-block:1px solid var(--rule)}
+.sec{padding-block:clamp(2.75rem,6vw,4.5rem)}
+.sec-h{
+  font-family:var(--serif);font-weight:600;font-size:1.375rem;
+  letter-spacing:-0.01em;margin:0 0 0.35rem;color:var(--wine);
+}
+.sec-sub{color:var(--ink-soft);font-size:0.875rem;margin:0 0 2.25rem;max-width:var(--measure)}
+
+/* ---------- research themes ---------- */
+.themes{display:grid;gap:2.5rem}
+.theme-h{font-family:var(--serif);font-size:1.125rem;font-weight:600;margin:0 0 0.5rem}
+.theme-b{margin:0;color:var(--ink-soft);max-width:var(--measure)}
+.theme-refs{list-style:none;margin:0.9rem 0 0;padding:0;display:grid;gap:0.35rem;max-width:var(--measure)}
+.theme-refs li{font-size:0.875rem;padding-left:0.9rem;border-left:2px solid var(--wine);line-height:1.45}
+.theme-refs button{
+  background:none;border:0;padding:0;margin:0;font:inherit;color:var(--ink);
+  text-align:left;cursor:pointer;text-decoration:underline;
+  text-decoration-color:var(--rule);text-underline-offset:3px;
+}
+.theme-refs button:hover{color:var(--teal)}
+
+/* ---------- publications ---------- */
+.pub{
+  display:grid;grid-template-columns:4rem minmax(0,1fr);gap:0 1.5rem;
+  padding-block:1.5rem;border-top:1px solid var(--rule);
+  transition:background .2s ease;
+}
+.pub:last-child{border-bottom:1px solid var(--rule)}
+.pub-yr{font-size:0.8125rem;color:var(--ink-soft);padding-top:0.3rem}
+.pub-t{
+  font-family:var(--serif);font-size:1.125rem;font-weight:600;
+  line-height:1.3;margin:0;max-width:52ch;text-wrap:pretty;
+}
+.pub-v{font-size:0.875rem;color:var(--ink-soft);margin:0.35rem 0 0;display:flex;flex-wrap:wrap;gap:0.5rem;align-items:baseline}
+.tag{
+  font-size:0.6875rem;line-height:1.7;padding:0 0.45rem;border-radius:999px;
+  border:1px solid var(--rule);color:var(--ink-soft);white-space:nowrap;
+}
+.tag-submitted{border-color:var(--wine);color:var(--wine)}
+.pub-links{display:flex;flex-wrap:wrap;gap:1rem;margin:0.55rem 0 0;font-size:0.875rem}
+.pub-abs{margin:0.65rem 0 0}
+.pub-abs summary{
+  list-style:none;cursor:pointer;color:var(--teal);font-size:0.875rem;
+  display:inline-flex;align-items:center;gap:0.4rem;
+}
+.pub-abs summary::-webkit-details-marker{display:none}
+.pub-abs summary:hover{text-decoration:underline;text-underline-offset:3px}
+.chev{display:inline-block;transition:transform .18s ease;font-size:0.75rem}
+.pub-abs[open] .chev{transform:rotate(90deg)}
+.pub-abs p{margin:0.65rem 0 0;color:var(--ink-soft);max-width:var(--measure);font-size:0.9375rem}
+.pub-flash{background:color-mix(in srgb,var(--wine) 9%,transparent)}
+
+/* ---------- background ---------- */
+.bg-list{display:grid;gap:1.5rem;margin:0;padding:0;list-style:none}
+.bg-item{display:grid;grid-template-columns:9rem minmax(0,1fr);gap:0 1.5rem}
+.bg-p{font-size:0.8125rem;color:var(--ink-soft);padding-top:0.2rem}
+.bg-t{font-weight:600;margin:0}
+.bg-o{font-family:var(--serif);font-style:italic;color:var(--ink-soft);margin:0.1rem 0 0}
+.bg-n{color:var(--ink-soft);font-size:0.9375rem;margin:0.35rem 0 0;max-width:var(--measure)}
+
+.mini{list-style:none;margin:2.5rem 0 0;padding:0;display:grid;gap:0.5rem;font-size:0.9375rem}
+.mini-h{font-weight:600;font-size:0.875rem;margin:0 0 0.75rem;color:var(--ink)}
+.mini li{display:grid;grid-template-columns:4rem minmax(0,1fr);gap:1.5rem;color:var(--ink-soft)}
+
+/* ---------- code ---------- */
+.repos{list-style:none;margin:0;padding:0}
+.repo{border-top:1px solid var(--rule);padding-block:1rem}
+.repo:last-child{border-bottom:1px solid var(--rule)}
+.repo-t{display:flex;flex-wrap:wrap;gap:0.3rem 1rem;align-items:baseline}
+.repo-n{font-weight:600;font-size:1rem;color:var(--ink);text-decoration:none}
+.repo-n:hover{color:var(--teal);text-decoration:underline}
+.repo-m{font-size:0.75rem;color:var(--ink-soft);display:flex;gap:1rem;margin-left:auto}
+.repo-d{margin:0.3rem 0 0;color:var(--ink-soft);font-size:0.9375rem;max-width:var(--measure)}
+
+/* ---------- contact ---------- */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:2rem;align-items:start}
+.contact-note{color:var(--ink-soft);max-width:44ch;margin:0}
+.elsewhere{list-style:none;margin:0;padding:0;display:grid;gap:0.55rem}
+.el-l{font-size:0.75rem;color:var(--ink-soft);display:inline-block;min-width:6rem}
+
+.foot{padding-block:2rem 3rem;font-size:0.75rem;color:var(--ink-soft);border-top:1px solid var(--rule)}
+.foot p{margin:0}
+
+/* ---------- responsive ---------- */
+@media (max-width:820px){
+  .hero{grid-template-columns:1fr;padding-block:2rem 2.5rem;gap:2.5rem}
+  .disk-holder{order:-1;max-width:15rem}
+  .pub{grid-template-columns:1fr;gap:0}
+  .pub-yr{padding:0 0 0.3rem}
+  .bg-item{grid-template-columns:1fr}
+  .bg-p{padding:0 0 0.2rem}
+  .repo-m{margin-left:0;width:100%}
+  .mini li{grid-template-columns:3.5rem minmax(0,1fr);gap:1rem}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .drawing .geo{animation:none;stroke-dasharray:none}
+  .chev{transition:none}
+  .disk{cursor:default}
+  .pub{transition:none}
+}
+
+@media print{
+  .nav,.disk-holder,.foot{display:none}
+  .band{background:none;border:0}
+  .pub-abs{display:none}
+  body{background:#fff;color:#000;font-size:10pt}
+}
+</style>
+</head>
+
+<body>
+
+<header class="masthead">
+  <div class="wrap masthead-inner">
+    <a class="sig" id="sig" href="#top">M. R. Briglia</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#background">Background</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="wrap hero">
+    <div>
+      <h1 class="hname" id="hname"></h1>
+      <p class="hrole" id="hrole"></p>
+      <div class="hstate" id="hstate"></div>
+      <p class="hmeta" id="hmeta"></p>
+    </div>
+
+    <figure class="disk-holder">
+      <svg class="disk" id="disk" viewBox="-1.08 -1.08 2.16 2.16" role="img"
+           aria-label="A Poincaré disk: geodesics of the hyperbolic plane, drawn as circular arcs that meet the boundary at right angles.">
+        <circle class="disk-fill" cx="0" cy="0" r="1"></circle>
+        <g id="geos"></g>
+        <circle class="disk-edge" cx="0" cy="0" r="1"></circle>
+      </svg>
+      <figcaption class="disk-cap" id="diskCap">The Poincaré disk. Drag it.</figcaption>
+    </figure>
+  </section>
+
+  <section class="band" id="research">
+    <div class="wrap sec">
+      <h2 class="sec-h">Research</h2>
+      <p class="sec-sub">Four threads, with the papers that belong to each.</p>
+      <div class="themes" id="themes"></div>
+    </div>
+  </section>
+
+  <section class="wrap sec" id="publications">
+    <h2 class="sec-h">Publications</h2>
+    <p class="sec-sub" id="pubSub"></p>
+    <div id="pubs"></div>
+  </section>
+
+  <section class="band" id="background">
+    <div class="wrap sec">
+      <h2 class="sec-h">Background</h2>
+      <p class="sec-sub">Education, and the research position that came before the PhD.</p>
+      <ul class="bg-list" id="bgList"></ul>
+      <div id="extras"></div>
+    </div>
+  </section>
+
+  <section class="wrap sec" id="code" hidden>
+    <h2 class="sec-h">Code</h2>
+    <p class="sec-sub">Public repositories, newest first.</p>
+    <ul class="repos" id="repos"></ul>
+  </section>
+
+  <section class="wrap sec" id="contact">
+    <h2 class="sec-h">Contact</h2>
+    <div class="contact-grid">
+      <p class="contact-note" id="contactNote"></p>
+      <ul class="elsewhere" id="elsewhere"></ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap foot">
+  <p id="foot"></p>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  var S = window.SITE || {};
+  var SVGNS = "http://www.w3.org/2000/svg";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function el(id) { return document.getElementById(id); }
+  function make(tag, cls, txt) {
+    var n = document.createElement(tag);
+    if (cls) { n.className = cls; }
+    if (txt !== undefined) { n.textContent = txt; }
+    return n;
+  }
+  function slug(s) {
+    return s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 60);
+  }
+
+  /* =============== head + hero =============== */
+
+  document.title = S.name || "";
+  el("hname").textContent = S.name || "";
+  el("sig").textContent = S.shortName || S.name || "";
+  el("hrole").textContent = (S.role || "") + (S.affiliation ? ", " + S.affiliation : "");
+
+  var hstate = el("hstate");
+  (S.statement || []).forEach(function (p) { hstate.appendChild(make("p", null, p)); });
+
+  var hmeta = el("hmeta");
+  if (S.location) { hmeta.appendChild(make("span", null, S.location)); }
+  if (S.email) {
+    var mail = make("a", null, S.email);
+    mail.href = "mailto:" + S.email;
+    hmeta.appendChild(mail);
+  }
+  if (S.links && S.links.cv) {
+    var cv = make("a", null, "Curriculum vitae");
+    cv.href = S.links.cv;
+    hmeta.appendChild(cv);
+  }
+
+  /* =============== Poincare disk ===============
+     Geodesics of the hyperbolic plane are circular arcs orthogonal to the
+     boundary circle. For ideal endpoints p and q on the unit circle, the
+     arc's centre is (p + q) / (1 + p.q) and its radius r satisfies
+     |c|^2 = 1 + r^2. Dragging applies the Mobius isometry
+     z -> (z + a) / (1 + conj(a).z), which moves the ideal endpoints while
+     preserving the hyperbolic structure.
+  */
+
+  var N_IDEAL = 16;
+  var STEPS = [5, 7];
+  var paths = [];
+  var pairs = [];
+
+  STEPS.forEach(function (step, band) {
+    for (var i = 0; i < N_IDEAL; i++) {
+      pairs.push({ a: i, b: (i + step) % N_IDEAL, band: band });
+    }
+  });
+
+  function mobius(z, a) {
+    var nRe = z[0] + a[0];
+    var nIm = z[1] + a[1];
+    var dRe = 1 + (a[0] * z[0] + a[1] * z[1]);
+    var dIm = a[0] * z[1] - a[1] * z[0];
+    var den = dRe * dRe + dIm * dIm;
+    if (den < 1e-12) { return z; }
+    return [(nRe * dRe + nIm * dIm) / den, (nIm * dRe - nRe * dIm) / den];
+  }
+
+  function straight(p1, p2) {
+    return "M" + p1[0].toFixed(4) + " " + p1[1].toFixed(4) +
+           "L" + p2[0].toFixed(4) + " " + p2[1].toFixed(4);
+  }
+
+  function arcPath(p1, p2) {
+    var dot = p1[0] * p2[0] + p1[1] * p2[1];
+    if (Math.abs(1 + dot) < 1e-4) { return straight(p1, p2); }
+
+    var cx = (p1[0] + p2[0]) / (1 + dot);
+    var cy = (p1[1] + p2[1]) / (1 + dot);
+    var r2 = cx * cx + cy * cy - 1;
+    if (r2 <= 0) { return straight(p1, p2); }
+
+    var r = Math.sqrt(r2);
+    var a1 = Math.atan2(p1[1] - cy, p1[0] - cx);
+    var a2 = Math.atan2(p2[1] - cy, p2[0] - cx);
+    var d = a2 - a1;
+    while (d > Math.PI) { d -= 2 * Math.PI; }
+    while (d < -Math.PI) { d += 2 * Math.PI; }
+
+    var out = "";
+    var SEG = 18;
+    for (var i = 0; i <= SEG; i++) {
+      var t = a1 + d * (i / SEG);
+      out += (i === 0 ? "M" : "L") +
+             (cx + r * Math.cos(t)).toFixed(4) + " " +
+             (cy + r * Math.sin(t)).toFixed(4);
+    }
+    return out;
+  }
+
+  function renderDisk(a) {
+    var ideal = [];
+    for (var i = 0; i < N_IDEAL; i++) {
+      var t = (i / N_IDEAL) * Math.PI * 2;
+      ideal.push(mobius([Math.cos(t), Math.sin(t)], a));
+    }
+    for (var k = 0; k < pairs.length; k++) {
+      paths[k].setAttribute("d", arcPath(ideal[pairs[k].a], ideal[pairs[k].b]));
+    }
+  }
+
+  (function initDisk() {
+    var g = el("geos");
+    var svg = el("disk");
+
+    pairs.forEach(function (pr, i) {
+      var p = document.createElementNS(SVGNS, "path");
+      p.setAttribute("class", "geo" + (pr.band ? " geo-b" : ""));
+      p.setAttribute("pathLength", "1");
+      p.style.animationDelay = (i * 22) + "ms";
+      g.appendChild(p);
+      paths.push(p);
+    });
+
+    renderDisk([0, 0]);
+
+    if (reduce) {
+      el("diskCap").textContent = "The Poincaré disk: hyperbolic geodesics, meeting the boundary at right angles.";
+      svg.style.touchAction = "auto";
+      return;
+    }
+
+    requestAnimationFrame(function () { svg.classList.add("drawing"); });
+
+    var target = [0, 0];
+    var current = [0, 0];
+    var ticking = false;
+    var live = false;
+    setTimeout(function () { live = true; }, 1300);
+
+    function tick() {
+      var dx = target[0] - current[0];
+      var dy = target[1] - current[1];
+      if (Math.abs(dx) < 0.0006 && Math.abs(dy) < 0.0006) {
+        current[0] = target[0];
+        current[1] = target[1];
+        renderDisk(current);
+        ticking = false;
+        return;
+      }
+      current[0] += dx * 0.14;
+      current[1] += dy * 0.14;
+      renderDisk(current);
+      requestAnimationFrame(tick);
+    }
+
+    function nudge() {
+      if (!ticking) { ticking = true; requestAnimationFrame(tick); }
+    }
+
+    function aim(e) {
+      if (!live) { return; }
+      var r = svg.getBoundingClientRect();
+      if (!r.width || !r.height) { return; }
+      var x = ((e.clientX - r.left) / r.width) * 2 - 1;
+      var y = ((e.clientY - r.top) / r.height) * 2 - 1;
+      var m = Math.hypot(x, y);
+      var cap = 0.6;
+      if (m > cap) { x = (x / m) * cap; y = (y / m) * cap; }
+      target = [x, y];
+      nudge();
+    }
+
+    function release() { target = [0, 0]; nudge(); }
+
+    svg.addEventListener("pointerdown", function (e) {
+      if (svg.setPointerCapture) { svg.setPointerCapture(e.pointerId); }
+      aim(e);
+    });
+    svg.addEventListener("pointermove", function (e) {
+      if (e.pointerType !== "mouse" && e.buttons === 0) { return; }
+      aim(e);
+    });
+    svg.addEventListener("pointerup", release);
+    svg.addEventListener("pointercancel", release);
+    svg.addEventListener("pointerleave", release);
+  })();
+
+  /* =============== publications =============== */
+
+  var STATUS_LABEL = { submitted: "Under submission", preprint: "Preprint" };
+
+  function pubId(title) { return "p-" + slug(title); }
+
+  (function drawPubs() {
+    var host = el("pubs");
+    var pubs = S.publications || [];
+
+    pubs.forEach(function (pub) {
+      var art = make("article", "pub");
+      art.id = pubId(pub.title);
+      art.appendChild(make("div", "pub-yr", pub.year || ""));
+
+      var body = make("div");
+      body.appendChild(make("h3", "pub-t", pub.title));
+
+      var v = make("p", "pub-v");
+      if (pub.venue) { v.appendChild(make("span", null, pub.venue)); }
+      var label = STATUS_LABEL[pub.status];
+      if (label && pub.venue !== label) {
+        v.appendChild(make("span", "tag tag-" + pub.status, label));
+      }
+      body.appendChild(v);
+
+      if (pub.links && pub.links.length) {
+        var ls = make("p", "pub-links");
+        pub.links.forEach(function (l) {
+          var a = make("a", null, l.label);
+          a.href = l.url;
+          a.rel = "noopener";
+          ls.appendChild(a);
+        });
+        body.appendChild(ls);
+      }
+
+      if (pub.abstract) {
+        var d = make("details", "pub-abs");
+        var sm = make("summary");
+        sm.appendChild(make("span", "chev", "\u203A"));
+        sm.appendChild(make("span", null, "Abstract"));
+        d.appendChild(sm);
+        d.appendChild(make("p", null, pub.abstract));
+        body.appendChild(d);
+      }
+
+      art.appendChild(body);
+      host.appendChild(art);
+    });
+
+    var pending = pubs.filter(function (p) { return p.status === "submitted"; }).length;
+    el("pubSub").textContent = pubs.length + " papers" +
+      (pending ? ", " + (pubs.length - pending) + " out and " + pending + " under submission" : "") +
+      ". Abstracts expand in place.";
+  })();
+
+  /* =============== research themes =============== */
+
+  (function drawThemes() {
+    var host = el("themes");
+    var known = {};
+    (S.publications || []).forEach(function (p) { known[p.title] = true; });
+
+    (S.research || []).forEach(function (t) {
+      var sec = make("div");
+      sec.appendChild(make("h3", "theme-h", t.title));
+      sec.appendChild(make("p", "theme-b", t.body));
+
+      if (t.papers && t.papers.length) {
+        var ul = make("ul", "theme-refs");
+        t.papers.forEach(function (name) {
+          var li = make("li");
+          if (known[name]) {
+            var b = make("button", null, name);
+            b.type = "button";
+            b.addEventListener("click", function () {
+              var node = document.getElementById(pubId(name));
+              if (!node) { return; }
+              var d = node.querySelector(".pub-abs");
+              if (d) { d.open = true; }
+              node.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
+              node.classList.add("pub-flash");
+              setTimeout(function () { node.classList.remove("pub-flash"); }, 1600);
+            });
+            li.appendChild(b);
+          } else {
+            li.textContent = name;
+          }
+          ul.appendChild(li);
+        });
+        sec.appendChild(ul);
+      }
+      host.appendChild(sec);
+    });
+  })();
+
+  /* =============== background =============== */
+
+  (function drawBackground() {
+    var host = el("bgList");
+    (S.background || []).forEach(function (b) {
+      var li = make("li", "bg-item");
+      li.appendChild(make("div", "bg-p", b.period || ""));
+      var d = make("div");
+      d.appendChild(make("p", "bg-t", b.title));
+      if (b.org) { d.appendChild(make("p", "bg-o", b.org)); }
+      if (b.note) { d.appendChild(make("p", "bg-n", b.note)); }
+      li.appendChild(d);
+      host.appendChild(li);
+    });
+
+    var extras = el("extras");
+
+    function miniBlock(heading, rows) {
+      if (!rows.length) { return; }
+      var ul = make("ul", "mini");
+      ul.appendChild(make("p", "mini-h", heading));
+      rows.forEach(function (r) {
+        var li = make("li");
+        li.appendChild(make("span", null, r.left));
+        li.appendChild(make("span", null, r.right));
+        ul.appendChild(li);
+      });
+      extras.appendChild(ul);
+    }
+
+    miniBlock("Summer schools", (S.schools || []).map(function (s) {
+      return { left: s.year, right: s.name + (s.where ? ", " + s.where : "") };
+    }));
+    miniBlock("Teaching", (S.teaching || []).map(function (t) {
+      return { left: t.period, right: t.title + (t.org ? ", " + t.org : "") };
+    }));
+    miniBlock("Service", (S.service || []).map(function (s) {
+      return { left: s.year, right: s.text };
+    }));
+  })();
+
+  /* =============== contact =============== */
+
+  var SHAPES = {
+    email:    { label: "Email",    href: function (v) { return "mailto:" + v; },                  show: function (v) { return v; } },
+    scholar:  { label: "Scholar",  href: function (v) { return v; },                               show: function () { return "Google Scholar"; } },
+    orcid:    { label: "ORCID",    href: function (v) { return "https://orcid.org/" + v; },        show: function (v) { return v; } },
+    github:   { label: "GitHub",   href: function (v) { return "https://github.com/" + v; },       show: function (v) { return v; } },
+    bluesky:  { label: "Bluesky",  href: function (v) { return "https://bsky.app/profile/" + v; }, show: function (v) { return "@" + v; } },
+    linkedin: { label: "LinkedIn", href: function (v) { return "https://linkedin.com/in/" + v; },  show: function (v) { return "in/" + v; } },
+    cv:       { label: "CV",       href: function (v) { return v; },                               show: function () { return "Curriculum vitae (PDF)"; } }
+  };
+
+  (function drawContact() {
+    el("contactNote").textContent =
+      "I'm glad to hear from anyone working on adversarial robustness, model safety, or the geometry of representation. Email is the surest way to reach me.";
+
+    var host = el("elsewhere");
+    var links = {};
+    Object.keys(S.links || {}).forEach(function (k) { links[k] = S.links[k]; });
+    if (S.email) { links.email = S.email; }
+
+    ["email", "scholar", "orcid", "github", "bluesky", "linkedin", "cv"].forEach(function (key) {
+      var v = links[key];
+      if (!v) { return; }
+      var shape = SHAPES[key];
+      var li = make("li");
+      li.appendChild(make("span", "el-l", shape.label));
+      var a = make("a", null, shape.show(v));
+      a.href = shape.href(v);
+      if (a.href.indexOf("http") === 0) { a.rel = "me noopener"; }
+      li.appendChild(a);
+      host.appendChild(li);
+    });
+
+    var stamp = new Date(document.lastModified);
+    var when = isNaN(stamp.getTime()) ? "" :
+      " Last updated " + stamp.toLocaleDateString("en-GB", { year: "numeric", month: "long" }) + ".";
+    el("foot").textContent = "\u00A9 " + new Date().getFullYear() + " " + (S.name || "") + "." + when;
+  })();
+
+  /* =============== optional: repos =============== */
+
+  (function drawCode() {
+    var user = (S.githubUser || "").trim();
+    if (!user) { return; }
+
+    fetch("https://api.github.com/users/" + user + "/repos?per_page=100&sort=updated")
+      .then(function (r) { if (!r.ok) { throw new Error(r.status); } return r.json(); })
+      .then(function (all) {
+        if (!Array.isArray(all)) { throw new Error("bad payload"); }
+        var repos = all.filter(function (r) {
+          return !r.fork && !r.archived && r.description;
+        }).slice(0, 8);
+        if (!repos.length) { return; }
+
+        var host = el("repos");
+        repos.forEach(function (r) {
+          var li = make("li", "repo");
+          var top = make("div", "repo-t");
+          var a = make("a", "repo-n", r.name);
+          a.href = r.html_url;
+          a.rel = "noopener";
+          top.appendChild(a);
+          var m = make("div", "repo-m");
+          if (r.language) { m.appendChild(make("span", null, r.language)); }
+          if (r.stargazers_count) { m.appendChild(make("span", null, "\u2605 " + r.stargazers_count)); }
+          top.appendChild(m);
+          li.appendChild(top);
+          li.appendChild(make("p", "repo-d", r.description));
+          host.appendChild(li);
+        });
+        el("code").hidden = false;
+      })
+      .catch(function () { /* section stays hidden */ });
+  })();
+})();
+</script>
+
+</body>
+</html>

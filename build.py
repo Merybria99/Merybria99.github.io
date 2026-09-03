@@ -50,7 +50,21 @@ for band, step in enumerate(STEPS):
             f'<path class="{cls}" data-a="{i}" data-b="{j}" pathLength="1" '
             f'style="animation-delay:{len(geos) * 22}ms" d="{arc_d(ideal[i], ideal[j])}"/>'
         )
-GEOS = "\n      ".join(geos)
+GEOS = "\n          ".join(geos)
+
+DISK = f"""<figure class="disk-fig">
+          <div class="disk-holder">
+            <svg class="disk" id="disk" viewBox="-1.08 -1.08 2.16 2.16" role="img"
+                 aria-label="A Poincar\u00e9 disk: geodesics of the hyperbolic plane, drawn as circular arcs that meet the boundary at right angles.">
+              <circle class="disk-fill" cx="0" cy="0" r="1"></circle>
+              <g id="geos">
+          {GEOS}
+              </g>
+              <circle class="disk-edge" cx="0" cy="0" r="1"></circle>
+            </svg>
+          </div>
+          <figcaption class="disk-cap">The Poincar\u00e9 disk: hyperbolic geodesics meet the boundary at right angles.<span class="hint"> Drag it \u2014 the arcs move by a M\u00f6bius isometry, so the structure is preserved.</span></figcaption>
+        </figure>"""
 
 
 # ---------------------------------------------------------------- sections
@@ -93,9 +107,18 @@ for t in D['research']:
         refs = "\n            ".join(
             f'<li><a href="#{slug(n)}">{e(n)}</a></li>' for n in shown)
         block = f'\n          <ul class="theme-refs">\n            {refs}\n          </ul>'
-    themes_html.append(f"""        <div class="theme">
-          <h3 class="theme-h">{e(t['title'])}</h3>
-          <p class="theme-b">{e(t['body'])}</p>{block}
+    inner = f"""<h3 class="theme-h">{e(t['title'])}</h3>
+          <p class="theme-b">{e(t['body'])}</p>{block}"""
+    if t.get('figure') == 'disk':
+        themes_html.append(f"""        <div class="theme theme-illus">
+          <div>
+            {inner}
+          </div>
+          {DISK}
+        </div>""")
+    else:
+        themes_html.append(f"""        <div class="theme">
+          {inner}
         </div>""")
 THEMES = "\n".join(themes_html)
 
@@ -187,7 +210,6 @@ out = (tpl
        .replace("{{ROLE}}", e(D['role'] + ", " + D['affiliation']))
        .replace("{{STATEMENT}}", STATEMENT)
        .replace("{{HMETA}}", "\n        ".join(HMETA))
-       .replace("{{GEOS}}", GEOS)
        .replace("{{THEMES}}", THEMES)
        .replace("{{PUB_SUB}}", e(PUB_SUB))
        .replace("{{PUBS}}", PUBS)

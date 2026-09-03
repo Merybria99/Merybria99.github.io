@@ -67,6 +67,33 @@ this — `index.html` stands alone, and the generator is only a convenience.
 If you do use it, commit the regenerated `index.html`, since that's what
 GitHub Pages serves.
 
+## Your photo, and where the disk went
+
+The portrait sits in the hero. Rather than crowd it in next to the Poincaré
+disk, the disk moved down into the *geometry of representation space* thread,
+where it stops being decoration and starts illustrating the two papers next to
+it. It is still draggable.
+
+Three image files, all with metadata stripped:
+
+| file | size | use |
+|---|---|---|
+| `portrait-640.jpg` | 98 KB | portrait, retina screens |
+| `portrait-320.jpg` | 29 KB | portrait, standard screens |
+| `og.jpg` | 71 KB | link previews on LinkedIn, Slack, WhatsApp |
+
+The `<img>` uses `srcset`, so phones download the 29 KB file rather than the
+98 KB one. All three must sit next to `index.html` in the repo root, or the
+photo breaks.
+
+Your original had no EXIF — LinkedIn had already stripped it — so there was no
+GPS or device data to remove. Worth checking if you ever swap in a photo
+straight off your phone, since those usually do carry coordinates. The crop also
+took the passer-by out of the background.
+
+To replace it: crop square-ish, export at 640x800 and 320x400, keep the same
+filenames. Or send me a new photo.
+
 ## Papers under submission are hidden
 
 The three papers under review are excluded from the page: *Architectural
@@ -111,8 +138,9 @@ statement is for.
    into a Decoder*. They currently sort below the 2026 entries.
 7. Your M.Sc. final grade, which I left out because your CV only gave an
    expected minimum.
-8. Your photo. Send a JPEG or PNG, 800px or more on the short side, and I'll
-   crop, generate a 2x version, and add `og:image` for link previews.
+8. An `alt` text sanity check. I described the photo as a Renaissance palazzo
+   courtyard in Rome from what I could see — correct it if it's somewhere else,
+   since that text is what screen readers announce.
 
 ## Deliberately left off your CV
 

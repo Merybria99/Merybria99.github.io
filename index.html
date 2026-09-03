@@ -9,6 +9,9 @@
 <meta property="og:title" content="Maria Rosaria Briglia">
 <meta property="og:description" content="Maria Rosaria Briglia — PhD student in AI for Government and Public Security, Sapienza University of Rome. Research on the safety and robustness of generative models.">
 <meta property="og:url" content="https://merybria99.github.io">
+<meta property="og:image" content="https://merybria99.github.io/og.jpg">
+<meta property="og:image:alt" content="Maria Rosaria Briglia">
+<meta name="twitter:image" content="https://merybria99.github.io/og.jpg">
 <meta property="og:type" content="profile">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23eff1f2'/><circle cx='16' cy='16' r='11' fill='none' stroke='%230e6b6b' stroke-width='1.4'/><path d='M5 16a22 22 0 0 1 22 0' fill='none' stroke='%237a1f3d' stroke-width='1.6'/><path d='M16 5a22 22 0 0 0 0 22' fill='none' stroke='%237a1f3d' stroke-width='1.6'/></svg>">
@@ -181,7 +184,7 @@ a:hover{text-decoration-color:currentColor}
 .nav a:hover{color:var(--ink);text-decoration:underline;text-decoration-color:var(--wine)}
 
 .hero{
-  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,21rem);
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,17rem);
   gap:clamp(2rem,5vw,4rem);align-items:center;
   padding-block:clamp(2.5rem,7vw,5rem) clamp(2.5rem,6vw,4rem);
 }
@@ -200,7 +203,15 @@ a:hover{text-decoration-color:currentColor}
 .hmeta a{color:var(--ink-soft)}
 .hmeta a:hover{color:var(--teal)}
 
-.disk-holder{justify-self:center;width:100%;max-width:21rem;margin:0}
+.portrait{justify-self:center;margin:0;width:100%;max-width:17rem}
+.portrait img{
+  display:block;width:100%;height:auto;
+  border-radius:50% 50% 4px 4px / 40% 40% 2px 2px;
+  background:var(--paper-deep);
+}
+
+.disk-fig{margin:0;min-width:0}
+.disk-holder{width:100%;max-width:13rem;margin:0}
 .disk{display:block;width:100%;height:auto;touch-action:none}
 .js .disk{cursor:grab}
 .js .disk:active{cursor:grabbing}
@@ -208,7 +219,7 @@ a:hover{text-decoration-color:currentColor}
 .disk-fill{fill:var(--paper-deep)}
 .geo{fill:none;stroke:var(--wine);stroke-width:0.008;stroke-linecap:round;opacity:0.5}
 .geo-b{stroke:var(--teal);opacity:0.38}
-.disk-cap{font-size:0.75rem;color:var(--ink-soft);margin:0.9rem auto 0;text-align:center;line-height:1.5;max-width:28ch}
+.disk-cap{font-size:0.75rem;color:var(--ink-soft);margin:0.75rem 0 0;line-height:1.5;max-width:30ch}
 .disk-cap .hint{display:none}
 .js .disk-cap .hint{display:inline}
 
@@ -221,6 +232,7 @@ a:hover{text-decoration-color:currentColor}
 .sec-sub{color:var(--ink-soft);font-size:0.875rem;margin:0 0 2.25rem;max-width:var(--measure)}
 
 .themes{display:grid;gap:2.5rem}
+.theme-illus{display:grid;grid-template-columns:minmax(0,1fr) 13rem;gap:clamp(1.5rem,4vw,3rem);align-items:start}
 .theme-h{font-family:var(--serif);font-size:1.125rem;font-weight:600;margin:0 0 0.5rem}
 .theme-b{margin:0;color:var(--ink-soft);max-width:var(--measure)}
 .theme-refs{list-style:none;margin:0.9rem 0 0;padding:0;display:grid;gap:0.35rem;max-width:var(--measure)}
@@ -268,8 +280,10 @@ a:hover{text-decoration-color:currentColor}
 .foot p{margin:0}
 
 @media (max-width:820px){
-  .hero{grid-template-columns:1fr;padding-block:2rem 2.5rem;gap:2.5rem}
-  .disk-holder{order:-1;max-width:15rem}
+  .hero{grid-template-columns:1fr;padding-block:2rem 2.5rem;gap:2rem}
+  .portrait{justify-self:start;max-width:11rem}
+  .theme-illus{grid-template-columns:1fr}
+  .disk-holder{max-width:12rem;margin-inline:auto}
   .pub{grid-template-columns:1fr;gap:0}
   .pub-yr{padding:0 0 0.3rem}
   .bg-item{grid-template-columns:1fr}
@@ -284,7 +298,8 @@ a:hover{text-decoration-color:currentColor}
   .pub{transition:none}
 }
 @media print{
-  .nav,.disk-holder,.foot,.skip{display:none}
+  .nav,.disk-fig,.foot,.skip{display:none}
+  .portrait{max-width:8rem}
   .band{background:none;border:0}
   .pub-abs{display:none}
   body{background:#fff;color:#000;font-size:10pt}
@@ -324,47 +339,12 @@ a:hover{text-decoration-color:currentColor}
       </p>
     </div>
 
-    <figure class="disk-holder">
-      <svg class="disk" id="disk" viewBox="-1.08 -1.08 2.16 2.16" role="img"
-           aria-label="A Poincaré disk: geodesics of the hyperbolic plane, drawn as circular arcs that meet the boundary at right angles.">
-        <circle class="disk-fill" cx="0" cy="0" r="1"></circle>
-        <g id="geos">
-      <path class="geo" data-a="0" data-b="5" pathLength="1" style="animation-delay:0ms" d="M1.0000 0.0000L0.9021 0.0032L0.8047 0.0128L0.7080 0.0288L0.6126 0.0510L0.5189 0.0794L0.4273 0.1139L0.3381 0.1543L0.2517 0.2005L0.1685 0.2522L0.0889 0.3093L0.0132 0.3714L-0.0583 0.4383L-0.1252 0.5098L-0.1873 0.5855L-0.2444 0.6651L-0.2961 0.7483L-0.3423 0.8347L-0.3827 0.9239"/>
-      <path class="geo" data-a="1" data-b="6" pathLength="1" style="animation-delay:22ms" d="M0.9239 0.3827L0.8322 0.3482L0.7385 0.3198L0.6431 0.2975L0.5465 0.2816L0.4490 0.2720L0.3512 0.2688L0.2533 0.2720L0.1558 0.2816L0.0592 0.2975L-0.0362 0.3198L-0.1299 0.3482L-0.2216 0.3827L-0.3108 0.4231L-0.3971 0.4693L-0.4803 0.5210L-0.5599 0.5780L-0.6356 0.6402L-0.7071 0.7071"/>
-      <path class="geo" data-a="2" data-b="7" pathLength="1" style="animation-delay:44ms" d="M0.7071 0.7071L0.6356 0.6402L0.5599 0.5780L0.4803 0.5210L0.3971 0.4693L0.3108 0.4231L0.2216 0.3827L0.1299 0.3482L0.0362 0.3198L-0.0592 0.2975L-0.1558 0.2816L-0.2533 0.2720L-0.3512 0.2688L-0.4490 0.2720L-0.5465 0.2816L-0.6431 0.2975L-0.7385 0.3198L-0.8322 0.3482L-0.9239 0.3827"/>
-      <path class="geo" data-a="3" data-b="8" pathLength="1" style="animation-delay:66ms" d="M0.3827 0.9239L0.3423 0.8347L0.2961 0.7483L0.2444 0.6651L0.1873 0.5855L0.1252 0.5098L0.0583 0.4383L-0.0132 0.3714L-0.0889 0.3093L-0.1685 0.2522L-0.2517 0.2005L-0.3381 0.1543L-0.4273 0.1139L-0.5189 0.0794L-0.6126 0.0510L-0.7080 0.0288L-0.8047 0.0128L-0.9021 0.0032L-1.0000 0.0000"/>
-      <path class="geo" data-a="4" data-b="9" pathLength="1" style="animation-delay:88ms" d="M0.0000 1.0000L-0.0032 0.9021L-0.0128 0.8047L-0.0288 0.7080L-0.0510 0.6126L-0.0794 0.5189L-0.1139 0.4273L-0.1543 0.3381L-0.2005 0.2517L-0.2522 0.1685L-0.3093 0.0889L-0.3714 0.0132L-0.4383 -0.0583L-0.5098 -0.1252L-0.5855 -0.1873L-0.6651 -0.2444L-0.7483 -0.2961L-0.8347 -0.3423L-0.9239 -0.3827"/>
-      <path class="geo" data-a="5" data-b="10" pathLength="1" style="animation-delay:110ms" d="M-0.3827 0.9239L-0.3482 0.8322L-0.3198 0.7385L-0.2975 0.6431L-0.2816 0.5465L-0.2720 0.4490L-0.2688 0.3512L-0.2720 0.2533L-0.2816 0.1558L-0.2975 0.0592L-0.3198 -0.0362L-0.3482 -0.1299L-0.3827 -0.2216L-0.4231 -0.3108L-0.4693 -0.3971L-0.5210 -0.4803L-0.5780 -0.5599L-0.6402 -0.6356L-0.7071 -0.7071"/>
-      <path class="geo" data-a="6" data-b="11" pathLength="1" style="animation-delay:132ms" d="M-0.7071 0.7071L-0.6402 0.6356L-0.5780 0.5599L-0.5210 0.4803L-0.4693 0.3971L-0.4231 0.3108L-0.3827 0.2216L-0.3482 0.1299L-0.3198 0.0362L-0.2975 -0.0592L-0.2816 -0.1558L-0.2720 -0.2533L-0.2688 -0.3512L-0.2720 -0.4490L-0.2816 -0.5465L-0.2975 -0.6431L-0.3198 -0.7385L-0.3482 -0.8322L-0.3827 -0.9239"/>
-      <path class="geo" data-a="7" data-b="12" pathLength="1" style="animation-delay:154ms" d="M-0.9239 0.3827L-0.8347 0.3423L-0.7483 0.2961L-0.6651 0.2444L-0.5855 0.1873L-0.5098 0.1252L-0.4383 0.0583L-0.3714 -0.0132L-0.3093 -0.0889L-0.2522 -0.1685L-0.2005 -0.2517L-0.1543 -0.3381L-0.1139 -0.4273L-0.0794 -0.5189L-0.0510 -0.6126L-0.0288 -0.7080L-0.0128 -0.8047L-0.0032 -0.9021L-0.0000 -1.0000"/>
-      <path class="geo" data-a="8" data-b="13" pathLength="1" style="animation-delay:176ms" d="M-1.0000 0.0000L-0.9021 -0.0032L-0.8047 -0.0128L-0.7080 -0.0288L-0.6126 -0.0510L-0.5189 -0.0794L-0.4273 -0.1139L-0.3381 -0.1543L-0.2517 -0.2005L-0.1685 -0.2522L-0.0889 -0.3093L-0.0132 -0.3714L0.0583 -0.4383L0.1252 -0.5098L0.1873 -0.5855L0.2444 -0.6651L0.2961 -0.7483L0.3423 -0.8347L0.3827 -0.9239"/>
-      <path class="geo" data-a="9" data-b="14" pathLength="1" style="animation-delay:198ms" d="M-0.9239 -0.3827L-0.8322 -0.3482L-0.7385 -0.3198L-0.6431 -0.2975L-0.5465 -0.2816L-0.4490 -0.2720L-0.3512 -0.2688L-0.2533 -0.2720L-0.1558 -0.2816L-0.0592 -0.2975L0.0362 -0.3198L0.1299 -0.3482L0.2216 -0.3827L0.3108 -0.4231L0.3971 -0.4693L0.4803 -0.5210L0.5599 -0.5780L0.6356 -0.6402L0.7071 -0.7071"/>
-      <path class="geo" data-a="10" data-b="15" pathLength="1" style="animation-delay:220ms" d="M-0.7071 -0.7071L-0.6356 -0.6402L-0.5599 -0.5780L-0.4803 -0.5210L-0.3971 -0.4693L-0.3108 -0.4231L-0.2216 -0.3827L-0.1299 -0.3482L-0.0362 -0.3198L0.0592 -0.2975L0.1558 -0.2816L0.2533 -0.2720L0.3512 -0.2688L0.4490 -0.2720L0.5465 -0.2816L0.6431 -0.2975L0.7385 -0.3198L0.8322 -0.3482L0.9239 -0.3827"/>
-      <path class="geo" data-a="11" data-b="0" pathLength="1" style="animation-delay:242ms" d="M-0.3827 -0.9239L-0.3423 -0.8347L-0.2961 -0.7483L-0.2444 -0.6651L-0.1873 -0.5855L-0.1252 -0.5098L-0.0583 -0.4383L0.0132 -0.3714L0.0889 -0.3093L0.1685 -0.2522L0.2517 -0.2005L0.3381 -0.1543L0.4273 -0.1139L0.5189 -0.0794L0.6126 -0.0510L0.7080 -0.0288L0.8047 -0.0128L0.9021 -0.0032L1.0000 0.0000"/>
-      <path class="geo" data-a="12" data-b="1" pathLength="1" style="animation-delay:264ms" d="M-0.0000 -1.0000L0.0032 -0.9021L0.0128 -0.8047L0.0288 -0.7080L0.0510 -0.6126L0.0794 -0.5189L0.1139 -0.4273L0.1543 -0.3381L0.2005 -0.2517L0.2522 -0.1685L0.3093 -0.0889L0.3714 -0.0132L0.4383 0.0583L0.5098 0.1252L0.5855 0.1873L0.6651 0.2444L0.7483 0.2961L0.8347 0.3423L0.9239 0.3827"/>
-      <path class="geo" data-a="13" data-b="2" pathLength="1" style="animation-delay:286ms" d="M0.3827 -0.9239L0.3482 -0.8322L0.3198 -0.7385L0.2975 -0.6431L0.2816 -0.5465L0.2720 -0.4490L0.2688 -0.3512L0.2720 -0.2533L0.2816 -0.1558L0.2975 -0.0592L0.3198 0.0362L0.3482 0.1299L0.3827 0.2216L0.4231 0.3108L0.4693 0.3971L0.5210 0.4803L0.5780 0.5599L0.6402 0.6356L0.7071 0.7071"/>
-      <path class="geo" data-a="14" data-b="3" pathLength="1" style="animation-delay:308ms" d="M0.7071 -0.7071L0.6402 -0.6356L0.5780 -0.5599L0.5210 -0.4803L0.4693 -0.3971L0.4231 -0.3108L0.3827 -0.2216L0.3482 -0.1299L0.3198 -0.0362L0.2975 0.0592L0.2816 0.1558L0.2720 0.2533L0.2688 0.3512L0.2720 0.4490L0.2816 0.5465L0.2975 0.6431L0.3198 0.7385L0.3482 0.8322L0.3827 0.9239"/>
-      <path class="geo" data-a="15" data-b="4" pathLength="1" style="animation-delay:330ms" d="M0.9239 -0.3827L0.8347 -0.3423L0.7483 -0.2961L0.6651 -0.2444L0.5855 -0.1873L0.5098 -0.1252L0.4383 -0.0583L0.3714 0.0132L0.3093 0.0889L0.2522 0.1685L0.2005 0.2517L0.1543 0.3381L0.1139 0.4273L0.0794 0.5189L0.0510 0.6126L0.0288 0.7080L0.0128 0.8047L0.0032 0.9021L0.0000 1.0000"/>
-      <path class="geo geo-b" data-a="0" data-b="7" pathLength="1" style="animation-delay:352ms" d="M1.0000 0.0000L0.8903 0.0012L0.7807 0.0048L0.6712 0.0108L0.5618 0.0191L0.4527 0.0299L0.3438 0.0430L0.2352 0.0585L0.1270 0.0764L0.0192 0.0966L-0.0881 0.1192L-0.1949 0.1441L-0.3012 0.1713L-0.4068 0.2008L-0.5118 0.2327L-0.6160 0.2668L-0.7195 0.3032L-0.8221 0.3418L-0.9239 0.3827"/>
-      <path class="geo geo-b" data-a="1" data-b="8" pathLength="1" style="animation-delay:374ms" d="M0.9239 0.3827L0.8221 0.3418L0.7195 0.3032L0.6160 0.2668L0.5118 0.2327L0.4068 0.2008L0.3012 0.1713L0.1949 0.1441L0.0881 0.1192L-0.0192 0.0966L-0.1270 0.0764L-0.2352 0.0585L-0.3438 0.0430L-0.4527 0.0299L-0.5618 0.0191L-0.6712 0.0108L-0.7807 0.0048L-0.8903 0.0012L-1.0000 0.0000"/>
-      <path class="geo geo-b" data-a="2" data-b="9" pathLength="1" style="animation-delay:396ms" d="M0.7071 0.7071L0.6287 0.6304L0.5487 0.5554L0.4670 0.4822L0.3838 0.4108L0.2990 0.3412L0.2127 0.2735L0.1250 0.2077L0.0358 0.1438L-0.0547 0.0819L-0.1466 0.0220L-0.2397 -0.0360L-0.3341 -0.0918L-0.4297 -0.1456L-0.5264 -0.1973L-0.6242 -0.2469L-0.7231 -0.2943L-0.8230 -0.3396L-0.9239 -0.3827"/>
-      <path class="geo geo-b" data-a="3" data-b="10" pathLength="1" style="animation-delay:418ms" d="M0.3827 0.9239L0.3396 0.8230L0.2943 0.7231L0.2469 0.6242L0.1973 0.5264L0.1456 0.4297L0.0918 0.3341L0.0360 0.2397L-0.0220 0.1466L-0.0819 0.0547L-0.1438 -0.0358L-0.2077 -0.1250L-0.2735 -0.2127L-0.3412 -0.2990L-0.4108 -0.3838L-0.4822 -0.4670L-0.5554 -0.5487L-0.6304 -0.6287L-0.7071 -0.7071"/>
-      <path class="geo geo-b" data-a="4" data-b="11" pathLength="1" style="animation-delay:440ms" d="M0.0000 1.0000L-0.0012 0.8903L-0.0048 0.7807L-0.0108 0.6712L-0.0191 0.5618L-0.0299 0.4527L-0.0430 0.3438L-0.0585 0.2352L-0.0764 0.1270L-0.0966 0.0192L-0.1192 -0.0881L-0.1441 -0.1949L-0.1713 -0.3012L-0.2008 -0.4068L-0.2327 -0.5118L-0.2668 -0.6160L-0.3032 -0.7195L-0.3418 -0.8221L-0.3827 -0.9239"/>
-      <path class="geo geo-b" data-a="5" data-b="12" pathLength="1" style="animation-delay:462ms" d="M-0.3827 0.9239L-0.3418 0.8221L-0.3032 0.7195L-0.2668 0.6160L-0.2327 0.5118L-0.2008 0.4068L-0.1713 0.3012L-0.1441 0.1949L-0.1192 0.0881L-0.0966 -0.0192L-0.0764 -0.1270L-0.0585 -0.2352L-0.0430 -0.3438L-0.0299 -0.4527L-0.0191 -0.5618L-0.0108 -0.6712L-0.0048 -0.7807L-0.0012 -0.8903L-0.0000 -1.0000"/>
-      <path class="geo geo-b" data-a="6" data-b="13" pathLength="1" style="animation-delay:484ms" d="M-0.7071 0.7071L-0.6304 0.6287L-0.5554 0.5487L-0.4822 0.4670L-0.4108 0.3838L-0.3412 0.2990L-0.2735 0.2127L-0.2077 0.1250L-0.1438 0.0358L-0.0819 -0.0547L-0.0220 -0.1466L0.0360 -0.2397L0.0918 -0.3341L0.1456 -0.4297L0.1973 -0.5264L0.2469 -0.6242L0.2943 -0.7231L0.3396 -0.8230L0.3827 -0.9239"/>
-      <path class="geo geo-b" data-a="7" data-b="14" pathLength="1" style="animation-delay:506ms" d="M-0.9239 0.3827L-0.8230 0.3396L-0.7231 0.2943L-0.6242 0.2469L-0.5264 0.1973L-0.4297 0.1456L-0.3341 0.0918L-0.2397 0.0360L-0.1466 -0.0220L-0.0547 -0.0819L0.0358 -0.1438L0.1250 -0.2077L0.2127 -0.2735L0.2990 -0.3412L0.3838 -0.4108L0.4670 -0.4822L0.5487 -0.5554L0.6287 -0.6304L0.7071 -0.7071"/>
-      <path class="geo geo-b" data-a="8" data-b="15" pathLength="1" style="animation-delay:528ms" d="M-1.0000 0.0000L-0.8903 -0.0012L-0.7807 -0.0048L-0.6712 -0.0108L-0.5618 -0.0191L-0.4527 -0.0299L-0.3438 -0.0430L-0.2352 -0.0585L-0.1270 -0.0764L-0.0192 -0.0966L0.0881 -0.1192L0.1949 -0.1441L0.3012 -0.1713L0.4068 -0.2008L0.5118 -0.2327L0.6160 -0.2668L0.7195 -0.3032L0.8221 -0.3418L0.9239 -0.3827"/>
-      <path class="geo geo-b" data-a="9" data-b="0" pathLength="1" style="animation-delay:550ms" d="M-0.9239 -0.3827L-0.8221 -0.3418L-0.7195 -0.3032L-0.6160 -0.2668L-0.5118 -0.2327L-0.4068 -0.2008L-0.3012 -0.1713L-0.1949 -0.1441L-0.0881 -0.1192L0.0192 -0.0966L0.1270 -0.0764L0.2352 -0.0585L0.3438 -0.0430L0.4527 -0.0299L0.5618 -0.0191L0.6712 -0.0108L0.7807 -0.0048L0.8903 -0.0012L1.0000 0.0000"/>
-      <path class="geo geo-b" data-a="10" data-b="1" pathLength="1" style="animation-delay:572ms" d="M-0.7071 -0.7071L-0.6287 -0.6304L-0.5487 -0.5554L-0.4670 -0.4822L-0.3838 -0.4108L-0.2990 -0.3412L-0.2127 -0.2735L-0.1250 -0.2077L-0.0358 -0.1438L0.0547 -0.0819L0.1466 -0.0220L0.2397 0.0360L0.3341 0.0918L0.4297 0.1456L0.5264 0.1973L0.6242 0.2469L0.7231 0.2943L0.8230 0.3396L0.9239 0.3827"/>
-      <path class="geo geo-b" data-a="11" data-b="2" pathLength="1" style="animation-delay:594ms" d="M-0.3827 -0.9239L-0.3396 -0.8230L-0.2943 -0.7231L-0.2469 -0.6242L-0.1973 -0.5264L-0.1456 -0.4297L-0.0918 -0.3341L-0.0360 -0.2397L0.0220 -0.1466L0.0819 -0.0547L0.1438 0.0358L0.2077 0.1250L0.2735 0.2127L0.3412 0.2990L0.4108 0.3838L0.4822 0.4670L0.5554 0.5487L0.6304 0.6287L0.7071 0.7071"/>
-      <path class="geo geo-b" data-a="12" data-b="3" pathLength="1" style="animation-delay:616ms" d="M-0.0000 -1.0000L0.0012 -0.8903L0.0048 -0.7807L0.0108 -0.6712L0.0191 -0.5618L0.0299 -0.4527L0.0430 -0.3438L0.0585 -0.2352L0.0764 -0.1270L0.0966 -0.0192L0.1192 0.0881L0.1441 0.1949L0.1713 0.3012L0.2008 0.4068L0.2327 0.5118L0.2668 0.6160L0.3032 0.7195L0.3418 0.8221L0.3827 0.9239"/>
-      <path class="geo geo-b" data-a="13" data-b="4" pathLength="1" style="animation-delay:638ms" d="M0.3827 -0.9239L0.3418 -0.8221L0.3032 -0.7195L0.2668 -0.6160L0.2327 -0.5118L0.2008 -0.4068L0.1713 -0.3012L0.1441 -0.1949L0.1192 -0.0881L0.0966 0.0192L0.0764 0.1270L0.0585 0.2352L0.0430 0.3438L0.0299 0.4527L0.0191 0.5618L0.0108 0.6712L0.0048 0.7807L0.0012 0.8903L0.0000 1.0000"/>
-      <path class="geo geo-b" data-a="14" data-b="5" pathLength="1" style="animation-delay:660ms" d="M0.7071 -0.7071L0.6304 -0.6287L0.5554 -0.5487L0.4822 -0.4670L0.4108 -0.3838L0.3412 -0.2990L0.2735 -0.2127L0.2077 -0.1250L0.1438 -0.0358L0.0819 0.0547L0.0220 0.1466L-0.0360 0.2397L-0.0918 0.3341L-0.1456 0.4297L-0.1973 0.5264L-0.2469 0.6242L-0.2943 0.7231L-0.3396 0.8230L-0.3827 0.9239"/>
-      <path class="geo geo-b" data-a="15" data-b="6" pathLength="1" style="animation-delay:682ms" d="M0.9239 -0.3827L0.8230 -0.3396L0.7231 -0.2943L0.6242 -0.2469L0.5264 -0.1973L0.4297 -0.1456L0.3341 -0.0918L0.2397 -0.0360L0.1466 0.0220L0.0547 0.0819L-0.0358 0.1438L-0.1250 0.2077L-0.2127 0.2735L-0.2990 0.3412L-0.3838 0.4108L-0.4670 0.4822L-0.5487 0.5554L-0.6287 0.6304L-0.7071 0.7071"/>
-        </g>
-        <circle class="disk-edge" cx="0" cy="0" r="1"></circle>
-      </svg>
-      <figcaption class="disk-cap">The Poincaré disk.<span class="hint"> Drag it.</span></figcaption>
+    <figure class="portrait">
+      <img src="portrait-640.jpg"
+           srcset="portrait-320.jpg 320w, portrait-640.jpg 640w"
+           sizes="(max-width:820px) 11rem, 17rem"
+           width="640" height="800" fetchpriority="high" decoding="async"
+           alt="Maria Rosaria Briglia, standing in a courtyard of a Renaissance palazzo in Rome.">
     </figure>
   </section>
 
@@ -382,14 +362,60 @@ a:hover{text-decoration-color:currentColor}
             <li><a href="#p-what-is-adversarial-training-for-diffusion-models">What is Adversarial Training for Diffusion Models?</a></li>
           </ul>
         </div>
-        <div class="theme">
-          <h3 class="theme-h">The geometry of representation space</h3>
+        <div class="theme theme-illus">
+          <div>
+            <h3 class="theme-h">The geometry of representation space</h3>
           <p class="theme-b">Concept control and prompt safety depend on the shape of the space you are steering in. Euclidean adjustments to text embeddings are the standard tool; hyperbolic space, with parallel transport in place of vector arithmetic, gives more expressive and more stable manipulation of concepts.</p>
           <ul class="theme-refs">
             <li><a href="#p-not-all-latent-spaces-are-flat-hyperbolic-concept-control">Not All Latent Spaces Are Flat: Hyperbolic Concept Control</a></li>
             <li><a href="#p-harnessing-hyperbolic-geometry-for-harmful-prompt-detection-">Harnessing Hyperbolic Geometry for Harmful Prompt Detection and Sanitization</a></li>
             <li><a href="#p-implicit-inversion-turns-clip-into-a-decoder">Implicit Inversion turns CLIP into a Decoder</a></li>
           </ul>
+          </div>
+          <figure class="disk-fig">
+          <div class="disk-holder">
+            <svg class="disk" id="disk" viewBox="-1.08 -1.08 2.16 2.16" role="img"
+                 aria-label="A Poincaré disk: geodesics of the hyperbolic plane, drawn as circular arcs that meet the boundary at right angles.">
+              <circle class="disk-fill" cx="0" cy="0" r="1"></circle>
+              <g id="geos">
+          <path class="geo" data-a="0" data-b="5" pathLength="1" style="animation-delay:0ms" d="M1.0000 0.0000L0.9021 0.0032L0.8047 0.0128L0.7080 0.0288L0.6126 0.0510L0.5189 0.0794L0.4273 0.1139L0.3381 0.1543L0.2517 0.2005L0.1685 0.2522L0.0889 0.3093L0.0132 0.3714L-0.0583 0.4383L-0.1252 0.5098L-0.1873 0.5855L-0.2444 0.6651L-0.2961 0.7483L-0.3423 0.8347L-0.3827 0.9239"/>
+          <path class="geo" data-a="1" data-b="6" pathLength="1" style="animation-delay:22ms" d="M0.9239 0.3827L0.8322 0.3482L0.7385 0.3198L0.6431 0.2975L0.5465 0.2816L0.4490 0.2720L0.3512 0.2688L0.2533 0.2720L0.1558 0.2816L0.0592 0.2975L-0.0362 0.3198L-0.1299 0.3482L-0.2216 0.3827L-0.3108 0.4231L-0.3971 0.4693L-0.4803 0.5210L-0.5599 0.5780L-0.6356 0.6402L-0.7071 0.7071"/>
+          <path class="geo" data-a="2" data-b="7" pathLength="1" style="animation-delay:44ms" d="M0.7071 0.7071L0.6356 0.6402L0.5599 0.5780L0.4803 0.5210L0.3971 0.4693L0.3108 0.4231L0.2216 0.3827L0.1299 0.3482L0.0362 0.3198L-0.0592 0.2975L-0.1558 0.2816L-0.2533 0.2720L-0.3512 0.2688L-0.4490 0.2720L-0.5465 0.2816L-0.6431 0.2975L-0.7385 0.3198L-0.8322 0.3482L-0.9239 0.3827"/>
+          <path class="geo" data-a="3" data-b="8" pathLength="1" style="animation-delay:66ms" d="M0.3827 0.9239L0.3423 0.8347L0.2961 0.7483L0.2444 0.6651L0.1873 0.5855L0.1252 0.5098L0.0583 0.4383L-0.0132 0.3714L-0.0889 0.3093L-0.1685 0.2522L-0.2517 0.2005L-0.3381 0.1543L-0.4273 0.1139L-0.5189 0.0794L-0.6126 0.0510L-0.7080 0.0288L-0.8047 0.0128L-0.9021 0.0032L-1.0000 0.0000"/>
+          <path class="geo" data-a="4" data-b="9" pathLength="1" style="animation-delay:88ms" d="M0.0000 1.0000L-0.0032 0.9021L-0.0128 0.8047L-0.0288 0.7080L-0.0510 0.6126L-0.0794 0.5189L-0.1139 0.4273L-0.1543 0.3381L-0.2005 0.2517L-0.2522 0.1685L-0.3093 0.0889L-0.3714 0.0132L-0.4383 -0.0583L-0.5098 -0.1252L-0.5855 -0.1873L-0.6651 -0.2444L-0.7483 -0.2961L-0.8347 -0.3423L-0.9239 -0.3827"/>
+          <path class="geo" data-a="5" data-b="10" pathLength="1" style="animation-delay:110ms" d="M-0.3827 0.9239L-0.3482 0.8322L-0.3198 0.7385L-0.2975 0.6431L-0.2816 0.5465L-0.2720 0.4490L-0.2688 0.3512L-0.2720 0.2533L-0.2816 0.1558L-0.2975 0.0592L-0.3198 -0.0362L-0.3482 -0.1299L-0.3827 -0.2216L-0.4231 -0.3108L-0.4693 -0.3971L-0.5210 -0.4803L-0.5780 -0.5599L-0.6402 -0.6356L-0.7071 -0.7071"/>
+          <path class="geo" data-a="6" data-b="11" pathLength="1" style="animation-delay:132ms" d="M-0.7071 0.7071L-0.6402 0.6356L-0.5780 0.5599L-0.5210 0.4803L-0.4693 0.3971L-0.4231 0.3108L-0.3827 0.2216L-0.3482 0.1299L-0.3198 0.0362L-0.2975 -0.0592L-0.2816 -0.1558L-0.2720 -0.2533L-0.2688 -0.3512L-0.2720 -0.4490L-0.2816 -0.5465L-0.2975 -0.6431L-0.3198 -0.7385L-0.3482 -0.8322L-0.3827 -0.9239"/>
+          <path class="geo" data-a="7" data-b="12" pathLength="1" style="animation-delay:154ms" d="M-0.9239 0.3827L-0.8347 0.3423L-0.7483 0.2961L-0.6651 0.2444L-0.5855 0.1873L-0.5098 0.1252L-0.4383 0.0583L-0.3714 -0.0132L-0.3093 -0.0889L-0.2522 -0.1685L-0.2005 -0.2517L-0.1543 -0.3381L-0.1139 -0.4273L-0.0794 -0.5189L-0.0510 -0.6126L-0.0288 -0.7080L-0.0128 -0.8047L-0.0032 -0.9021L-0.0000 -1.0000"/>
+          <path class="geo" data-a="8" data-b="13" pathLength="1" style="animation-delay:176ms" d="M-1.0000 0.0000L-0.9021 -0.0032L-0.8047 -0.0128L-0.7080 -0.0288L-0.6126 -0.0510L-0.5189 -0.0794L-0.4273 -0.1139L-0.3381 -0.1543L-0.2517 -0.2005L-0.1685 -0.2522L-0.0889 -0.3093L-0.0132 -0.3714L0.0583 -0.4383L0.1252 -0.5098L0.1873 -0.5855L0.2444 -0.6651L0.2961 -0.7483L0.3423 -0.8347L0.3827 -0.9239"/>
+          <path class="geo" data-a="9" data-b="14" pathLength="1" style="animation-delay:198ms" d="M-0.9239 -0.3827L-0.8322 -0.3482L-0.7385 -0.3198L-0.6431 -0.2975L-0.5465 -0.2816L-0.4490 -0.2720L-0.3512 -0.2688L-0.2533 -0.2720L-0.1558 -0.2816L-0.0592 -0.2975L0.0362 -0.3198L0.1299 -0.3482L0.2216 -0.3827L0.3108 -0.4231L0.3971 -0.4693L0.4803 -0.5210L0.5599 -0.5780L0.6356 -0.6402L0.7071 -0.7071"/>
+          <path class="geo" data-a="10" data-b="15" pathLength="1" style="animation-delay:220ms" d="M-0.7071 -0.7071L-0.6356 -0.6402L-0.5599 -0.5780L-0.4803 -0.5210L-0.3971 -0.4693L-0.3108 -0.4231L-0.2216 -0.3827L-0.1299 -0.3482L-0.0362 -0.3198L0.0592 -0.2975L0.1558 -0.2816L0.2533 -0.2720L0.3512 -0.2688L0.4490 -0.2720L0.5465 -0.2816L0.6431 -0.2975L0.7385 -0.3198L0.8322 -0.3482L0.9239 -0.3827"/>
+          <path class="geo" data-a="11" data-b="0" pathLength="1" style="animation-delay:242ms" d="M-0.3827 -0.9239L-0.3423 -0.8347L-0.2961 -0.7483L-0.2444 -0.6651L-0.1873 -0.5855L-0.1252 -0.5098L-0.0583 -0.4383L0.0132 -0.3714L0.0889 -0.3093L0.1685 -0.2522L0.2517 -0.2005L0.3381 -0.1543L0.4273 -0.1139L0.5189 -0.0794L0.6126 -0.0510L0.7080 -0.0288L0.8047 -0.0128L0.9021 -0.0032L1.0000 0.0000"/>
+          <path class="geo" data-a="12" data-b="1" pathLength="1" style="animation-delay:264ms" d="M-0.0000 -1.0000L0.0032 -0.9021L0.0128 -0.8047L0.0288 -0.7080L0.0510 -0.6126L0.0794 -0.5189L0.1139 -0.4273L0.1543 -0.3381L0.2005 -0.2517L0.2522 -0.1685L0.3093 -0.0889L0.3714 -0.0132L0.4383 0.0583L0.5098 0.1252L0.5855 0.1873L0.6651 0.2444L0.7483 0.2961L0.8347 0.3423L0.9239 0.3827"/>
+          <path class="geo" data-a="13" data-b="2" pathLength="1" style="animation-delay:286ms" d="M0.3827 -0.9239L0.3482 -0.8322L0.3198 -0.7385L0.2975 -0.6431L0.2816 -0.5465L0.2720 -0.4490L0.2688 -0.3512L0.2720 -0.2533L0.2816 -0.1558L0.2975 -0.0592L0.3198 0.0362L0.3482 0.1299L0.3827 0.2216L0.4231 0.3108L0.4693 0.3971L0.5210 0.4803L0.5780 0.5599L0.6402 0.6356L0.7071 0.7071"/>
+          <path class="geo" data-a="14" data-b="3" pathLength="1" style="animation-delay:308ms" d="M0.7071 -0.7071L0.6402 -0.6356L0.5780 -0.5599L0.5210 -0.4803L0.4693 -0.3971L0.4231 -0.3108L0.3827 -0.2216L0.3482 -0.1299L0.3198 -0.0362L0.2975 0.0592L0.2816 0.1558L0.2720 0.2533L0.2688 0.3512L0.2720 0.4490L0.2816 0.5465L0.2975 0.6431L0.3198 0.7385L0.3482 0.8322L0.3827 0.9239"/>
+          <path class="geo" data-a="15" data-b="4" pathLength="1" style="animation-delay:330ms" d="M0.9239 -0.3827L0.8347 -0.3423L0.7483 -0.2961L0.6651 -0.2444L0.5855 -0.1873L0.5098 -0.1252L0.4383 -0.0583L0.3714 0.0132L0.3093 0.0889L0.2522 0.1685L0.2005 0.2517L0.1543 0.3381L0.1139 0.4273L0.0794 0.5189L0.0510 0.6126L0.0288 0.7080L0.0128 0.8047L0.0032 0.9021L0.0000 1.0000"/>
+          <path class="geo geo-b" data-a="0" data-b="7" pathLength="1" style="animation-delay:352ms" d="M1.0000 0.0000L0.8903 0.0012L0.7807 0.0048L0.6712 0.0108L0.5618 0.0191L0.4527 0.0299L0.3438 0.0430L0.2352 0.0585L0.1270 0.0764L0.0192 0.0966L-0.0881 0.1192L-0.1949 0.1441L-0.3012 0.1713L-0.4068 0.2008L-0.5118 0.2327L-0.6160 0.2668L-0.7195 0.3032L-0.8221 0.3418L-0.9239 0.3827"/>
+          <path class="geo geo-b" data-a="1" data-b="8" pathLength="1" style="animation-delay:374ms" d="M0.9239 0.3827L0.8221 0.3418L0.7195 0.3032L0.6160 0.2668L0.5118 0.2327L0.4068 0.2008L0.3012 0.1713L0.1949 0.1441L0.0881 0.1192L-0.0192 0.0966L-0.1270 0.0764L-0.2352 0.0585L-0.3438 0.0430L-0.4527 0.0299L-0.5618 0.0191L-0.6712 0.0108L-0.7807 0.0048L-0.8903 0.0012L-1.0000 0.0000"/>
+          <path class="geo geo-b" data-a="2" data-b="9" pathLength="1" style="animation-delay:396ms" d="M0.7071 0.7071L0.6287 0.6304L0.5487 0.5554L0.4670 0.4822L0.3838 0.4108L0.2990 0.3412L0.2127 0.2735L0.1250 0.2077L0.0358 0.1438L-0.0547 0.0819L-0.1466 0.0220L-0.2397 -0.0360L-0.3341 -0.0918L-0.4297 -0.1456L-0.5264 -0.1973L-0.6242 -0.2469L-0.7231 -0.2943L-0.8230 -0.3396L-0.9239 -0.3827"/>
+          <path class="geo geo-b" data-a="3" data-b="10" pathLength="1" style="animation-delay:418ms" d="M0.3827 0.9239L0.3396 0.8230L0.2943 0.7231L0.2469 0.6242L0.1973 0.5264L0.1456 0.4297L0.0918 0.3341L0.0360 0.2397L-0.0220 0.1466L-0.0819 0.0547L-0.1438 -0.0358L-0.2077 -0.1250L-0.2735 -0.2127L-0.3412 -0.2990L-0.4108 -0.3838L-0.4822 -0.4670L-0.5554 -0.5487L-0.6304 -0.6287L-0.7071 -0.7071"/>
+          <path class="geo geo-b" data-a="4" data-b="11" pathLength="1" style="animation-delay:440ms" d="M0.0000 1.0000L-0.0012 0.8903L-0.0048 0.7807L-0.0108 0.6712L-0.0191 0.5618L-0.0299 0.4527L-0.0430 0.3438L-0.0585 0.2352L-0.0764 0.1270L-0.0966 0.0192L-0.1192 -0.0881L-0.1441 -0.1949L-0.1713 -0.3012L-0.2008 -0.4068L-0.2327 -0.5118L-0.2668 -0.6160L-0.3032 -0.7195L-0.3418 -0.8221L-0.3827 -0.9239"/>
+          <path class="geo geo-b" data-a="5" data-b="12" pathLength="1" style="animation-delay:462ms" d="M-0.3827 0.9239L-0.3418 0.8221L-0.3032 0.7195L-0.2668 0.6160L-0.2327 0.5118L-0.2008 0.4068L-0.1713 0.3012L-0.1441 0.1949L-0.1192 0.0881L-0.0966 -0.0192L-0.0764 -0.1270L-0.0585 -0.2352L-0.0430 -0.3438L-0.0299 -0.4527L-0.0191 -0.5618L-0.0108 -0.6712L-0.0048 -0.7807L-0.0012 -0.8903L-0.0000 -1.0000"/>
+          <path class="geo geo-b" data-a="6" data-b="13" pathLength="1" style="animation-delay:484ms" d="M-0.7071 0.7071L-0.6304 0.6287L-0.5554 0.5487L-0.4822 0.4670L-0.4108 0.3838L-0.3412 0.2990L-0.2735 0.2127L-0.2077 0.1250L-0.1438 0.0358L-0.0819 -0.0547L-0.0220 -0.1466L0.0360 -0.2397L0.0918 -0.3341L0.1456 -0.4297L0.1973 -0.5264L0.2469 -0.6242L0.2943 -0.7231L0.3396 -0.8230L0.3827 -0.9239"/>
+          <path class="geo geo-b" data-a="7" data-b="14" pathLength="1" style="animation-delay:506ms" d="M-0.9239 0.3827L-0.8230 0.3396L-0.7231 0.2943L-0.6242 0.2469L-0.5264 0.1973L-0.4297 0.1456L-0.3341 0.0918L-0.2397 0.0360L-0.1466 -0.0220L-0.0547 -0.0819L0.0358 -0.1438L0.1250 -0.2077L0.2127 -0.2735L0.2990 -0.3412L0.3838 -0.4108L0.4670 -0.4822L0.5487 -0.5554L0.6287 -0.6304L0.7071 -0.7071"/>
+          <path class="geo geo-b" data-a="8" data-b="15" pathLength="1" style="animation-delay:528ms" d="M-1.0000 0.0000L-0.8903 -0.0012L-0.7807 -0.0048L-0.6712 -0.0108L-0.5618 -0.0191L-0.4527 -0.0299L-0.3438 -0.0430L-0.2352 -0.0585L-0.1270 -0.0764L-0.0192 -0.0966L0.0881 -0.1192L0.1949 -0.1441L0.3012 -0.1713L0.4068 -0.2008L0.5118 -0.2327L0.6160 -0.2668L0.7195 -0.3032L0.8221 -0.3418L0.9239 -0.3827"/>
+          <path class="geo geo-b" data-a="9" data-b="0" pathLength="1" style="animation-delay:550ms" d="M-0.9239 -0.3827L-0.8221 -0.3418L-0.7195 -0.3032L-0.6160 -0.2668L-0.5118 -0.2327L-0.4068 -0.2008L-0.3012 -0.1713L-0.1949 -0.1441L-0.0881 -0.1192L0.0192 -0.0966L0.1270 -0.0764L0.2352 -0.0585L0.3438 -0.0430L0.4527 -0.0299L0.5618 -0.0191L0.6712 -0.0108L0.7807 -0.0048L0.8903 -0.0012L1.0000 0.0000"/>
+          <path class="geo geo-b" data-a="10" data-b="1" pathLength="1" style="animation-delay:572ms" d="M-0.7071 -0.7071L-0.6287 -0.6304L-0.5487 -0.5554L-0.4670 -0.4822L-0.3838 -0.4108L-0.2990 -0.3412L-0.2127 -0.2735L-0.1250 -0.2077L-0.0358 -0.1438L0.0547 -0.0819L0.1466 -0.0220L0.2397 0.0360L0.3341 0.0918L0.4297 0.1456L0.5264 0.1973L0.6242 0.2469L0.7231 0.2943L0.8230 0.3396L0.9239 0.3827"/>
+          <path class="geo geo-b" data-a="11" data-b="2" pathLength="1" style="animation-delay:594ms" d="M-0.3827 -0.9239L-0.3396 -0.8230L-0.2943 -0.7231L-0.2469 -0.6242L-0.1973 -0.5264L-0.1456 -0.4297L-0.0918 -0.3341L-0.0360 -0.2397L0.0220 -0.1466L0.0819 -0.0547L0.1438 0.0358L0.2077 0.1250L0.2735 0.2127L0.3412 0.2990L0.4108 0.3838L0.4822 0.4670L0.5554 0.5487L0.6304 0.6287L0.7071 0.7071"/>
+          <path class="geo geo-b" data-a="12" data-b="3" pathLength="1" style="animation-delay:616ms" d="M-0.0000 -1.0000L0.0012 -0.8903L0.0048 -0.7807L0.0108 -0.6712L0.0191 -0.5618L0.0299 -0.4527L0.0430 -0.3438L0.0585 -0.2352L0.0764 -0.1270L0.0966 -0.0192L0.1192 0.0881L0.1441 0.1949L0.1713 0.3012L0.2008 0.4068L0.2327 0.5118L0.2668 0.6160L0.3032 0.7195L0.3418 0.8221L0.3827 0.9239"/>
+          <path class="geo geo-b" data-a="13" data-b="4" pathLength="1" style="animation-delay:638ms" d="M0.3827 -0.9239L0.3418 -0.8221L0.3032 -0.7195L0.2668 -0.6160L0.2327 -0.5118L0.2008 -0.4068L0.1713 -0.3012L0.1441 -0.1949L0.1192 -0.0881L0.0966 0.0192L0.0764 0.1270L0.0585 0.2352L0.0430 0.3438L0.0299 0.4527L0.0191 0.5618L0.0108 0.6712L0.0048 0.7807L0.0012 0.8903L0.0000 1.0000"/>
+          <path class="geo geo-b" data-a="14" data-b="5" pathLength="1" style="animation-delay:660ms" d="M0.7071 -0.7071L0.6304 -0.6287L0.5554 -0.5487L0.4822 -0.4670L0.4108 -0.3838L0.3412 -0.2990L0.2735 -0.2127L0.2077 -0.1250L0.1438 -0.0358L0.0819 0.0547L0.0220 0.1466L-0.0360 0.2397L-0.0918 0.3341L-0.1456 0.4297L-0.1973 0.5264L-0.2469 0.6242L-0.2943 0.7231L-0.3396 0.8230L-0.3827 0.9239"/>
+          <path class="geo geo-b" data-a="15" data-b="6" pathLength="1" style="animation-delay:682ms" d="M0.9239 -0.3827L0.8230 -0.3396L0.7231 -0.2943L0.6242 -0.2469L0.5264 -0.1973L0.4297 -0.1456L0.3341 -0.0918L0.2397 -0.0360L0.1466 0.0220L0.0547 0.0819L-0.0358 0.1438L-0.1250 0.2077L-0.2127 0.2735L-0.2990 0.3412L-0.3838 0.4108L-0.4670 0.4822L-0.5487 0.5554L-0.6287 0.6304L-0.7071 0.7071"/>
+              </g>
+              <circle class="disk-edge" cx="0" cy="0" r="1"></circle>
+            </svg>
+          </div>
+          <figcaption class="disk-cap">The Poincaré disk: hyperbolic geodesics meet the boundary at right angles.<span class="hint"> Drag it — the arcs move by a Möbius isometry, so the structure is preserved.</span></figcaption>
+        </figure>
         </div>
         <div class="theme">
           <h3 class="theme-h">Threats to generative media, and defenses that hold</h3>

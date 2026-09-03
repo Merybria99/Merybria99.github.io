@@ -155,6 +155,25 @@ deleting it later would not remove it from a public repo's history. Strip the
 personal details first, then commit it as `cv.pdf` and set `links.cv` to
 `"cv.pdf"`.
 
+## The IFML visit
+
+It shows up in four places, all generated from the `visiting` block in
+`site.json`:
+
+- a line under your name in the hero, linking to ifml.institute
+- the second paragraph of your statement, alongside the protein work
+- the top entry in Background
+- the `<meta description>`, and as a second `affiliation` in the JSON-LD, so
+  search engines connect you to both institutions
+
+`location` in `site.json` is now `Austin, Texas`. When you go back to Rome,
+change that one field and update the `period` on the Background entry.
+
+**Check the dates.** I wrote `2026 – present` because that's certainly true, but
+I don't know when the visit started or how long it runs. If it's a fixed term,
+`2026 Feb – 2026 Dec` reads better than an open `present`, since an open-ended
+visiting position can be misread as a permanent post.
+
 ## The three research figures
 
 Each thread that has one carries a figure illustrating that thread's own work,

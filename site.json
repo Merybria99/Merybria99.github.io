@@ -5,10 +5,10 @@
  "affiliation": "Sapienza University of Rome",
  "statement": [
   "I work on the safety and robustness of generative models. My research asks what breaks when a model is attacked, and what a principled defense would look like — through the geometry of representation space, the energy landscape of adversarial training, and the supply chain that model artifacts travel through.",
-  "Alongside that I work on generative models for proteins — decoding-time methods for protein engineering, and large-scale benchmarking of antibody–antigen structure prediction. The questions rhyme with the vision work: reward gaming, and models that rank their own outputs badly.",
+  "I am currently visiting IFML at UT Austin, working on generative models for proteins — decoding-time methods for protein engineering, and large-scale benchmarking of antibody–antigen structure prediction. The questions rhyme with the vision work: reward gaming, and models that rank their own outputs badly.",
   "Before Sapienza I completed an M.Sc. in Computer Engineering at the University of Salerno, specialising in artificial intelligence and intelligent robotics."
  ],
- "location": "Rome, Italy",
+ "location": "Austin, Texas",
  "email": "briglia@di.uniroma1.it",
  "links": {
   "scholar": "",
@@ -143,6 +143,12 @@
  ],
  "background": [
   {
+   "period": "2026 – present",
+   "title": "Visiting researcher",
+   "org": "NSF AI Institute for Foundations of Machine Learning (IFML), UT Austin",
+   "note": "Generative models for proteins: protein engineering and antibody–antigen structure prediction."
+  },
+  {
    "period": "2023 – present",
    "title": "PhD, National PhD programme in AI for Government and Public Security",
    "org": "Sapienza University of Rome",
@@ -180,5 +186,13 @@
   }
  ],
  "teaching": [],
- "service": []
+ "service": [],
+ "visiting": {
+  "role": "Visiting researcher",
+  "org": "IFML",
+  "orgFull": "NSF AI Institute for Foundations of Machine Learning",
+  "host": "UT Austin",
+  "url": "https://www.ifml.institute/",
+  "note": "working on generative models for proteins"
+ }
 }

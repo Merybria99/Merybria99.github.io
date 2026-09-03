@@ -74,6 +74,10 @@ a:hover{text-decoration-color:currentColor}
   line-height:1.02;letter-spacing:-0.02em;margin:0;color:var(--plum);text-wrap:balance;
 }
 .hrole{font-family:var(--serif);font-style:italic;font-size:clamp(1.0625rem,1rem + 0.4vw,1.25rem);line-height:1.4;margin:0.75rem 0 0;max-width:32ch}
+.hvisit{
+  margin:0.9rem 0 0;font-size:0.9375rem;max-width:40ch;line-height:1.5;
+  padding-left:0.85rem;border-left:2px solid var(--plum);
+}
 .hstate{margin:1.5rem 0 0;color:var(--ink-soft);max-width:52ch}
 .hstate p{margin:0 0 0.85rem}
 .hstate p:last-child{margin-bottom:0}
@@ -244,6 +248,7 @@ a:hover{text-decoration-color:currentColor}
     <div>
       <h1 class="hname">{{NAME}}</h1>
       <p class="hrole">{{ROLE}}</p>
+      {{VISIT}}
       <div class="hstate">
         {{STATEMENT}}
       </div>

@@ -172,6 +172,13 @@ HMETA = [f'<span>{e(D["location"])}</span>',
 if D['links'].get('cv'):
     HMETA.append(f'<a href="{e(D["links"]["cv"])}">Curriculum vitae</a>')
 
+V = D.get('visiting') or {}
+VISIT = ""
+if V:
+    org = f'<a href="{e(V["url"])}" rel="noopener">{e(V["org"])}</a>' if V.get("url") else e(V["org"])
+    VISIT = (f'<p class="hvisit">{e(V["role"])} at {org}, {e(V["host"])}'
+             + (f' \u2014 {e(V["note"])}.' if V.get("note") else '.') + '</p>')
+
 STATEMENT = "\n        ".join(f'<p>{e(s)}</p>' for s in D['statement'])
 
 # ---------------------------------------------------------------- JSON-LD
@@ -182,7 +189,12 @@ graph = [{
     "url": SITE_URL,
     "email": "mailto:" + D['email'],
     "jobTitle": "PhD student",
-    "affiliation": {"@type": "CollegeOrUniversity", "name": D['affiliation']},
+    "affiliation": ([{"@type": "CollegeOrUniversity", "name": D['affiliation']}]
+                    + ([{"@type": "ResearchOrganization",
+                         "name": f"{V['orgFull']} ({V['org']})",
+                         "url": V['url'],
+                         "parentOrganization": {"@type": "CollegeOrUniversity",
+                                                "name": "The University of Texas at Austin"}}] if V else [])),
     "alumniOf": {"@type": "CollegeOrUniversity", "name": "University of Salerno"},
     "knowsAbout": ["Adversarial robustness", "Generative model safety",
                    "Hyperbolic representation learning", "Energy-based models",
@@ -202,8 +214,9 @@ for p in VISIBLE:
 LD = json.dumps({"@context": "https://schema.org", "@graph": graph},
                 ensure_ascii=False, indent=1)
 
-DESC = (f"{D['name']} \u2014 {D['role']}, {D['affiliation']}. "
-        "Research on the safety and robustness of generative models.")
+DESC = (f"{D['name']} \u2014 {D['role']}, {D['affiliation']}"
+        + (f", currently visiting {V['org']} at {V['host']}" if V else "")
+        + ". Research on the safety and robustness of generative models, and on generative models for proteins.")
 
 # ---------------------------------------------------------------- template
 tpl = open('template.html').read()
@@ -214,6 +227,7 @@ out = (tpl
        .replace("{{NAME}}", e(D['name']))
        .replace("{{SHORT}}", e(D['shortName']))
        .replace("{{ROLE}}", e(D['role'] + ", " + D['affiliation']))
+       .replace("{{VISIT}}", VISIT)
        .replace("{{STATEMENT}}", STATEMENT)
        .replace("{{HMETA}}", "\n        ".join(HMETA))
        .replace("{{THEMES}}", THEMES)

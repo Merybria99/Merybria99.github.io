@@ -152,6 +152,30 @@ deleting it later would not remove it from a public repo's history. Strip the
 personal details first, then commit it as `cv.pdf` and set `links.cv` to
 `"cv.pdf"`.
 
+## Palette
+
+Drawn from the portrait: magenta lilies, eucalyptus foliage, warm stone.
+
+| variable | light | dark | role |
+|---|---|---|---|
+| `--paper` | `#f9f2f3` | `#1a1418` | page ground |
+| `--paper-deep` | `#f1e3e7` | `#221a20` | banded sections |
+| `--ink` | `#2c1d28` | `#f2e8ec` | body text, a deep aubergine rather than black |
+| `--ink-soft` | `#755c6a` | `#ac95a3` | secondary text |
+| `--plum` | `#8f2555` | `#e895b4` | your name, section headings |
+| `--sage` | `#3f6559` | `#8fbfac` | links, the cool counterpoint |
+| `--rule` | `#e3d5da` | `#3a2e36` | hairlines |
+
+The sage is doing real work: an all-rose page drifts saccharine, and the green
+holds it back. Every pair passes WCAG AA in both modes — the weakest is
+secondary text on the banded background at 4.83:1 against a 4.5 threshold, so
+if you darken `--paper-deep` much further, darken `--ink-soft` with it.
+
+All seven live in the `:root` block at the top of the `<style>` section, and
+again in the dark-mode block below it. Changing a colour means editing both.
+`--plum` and `--sage` also appear as literal hex inside the favicon data URI, so
+that needs the third edit if you want it to match.
+
 ## Notes
 
 Fonts are Faustina and Archivo from Google Fonts; delete the two `preconnect`

@@ -82,6 +82,9 @@ Three image files, all with metadata stripped:
 | `portrait-320.jpg` | 29 KB | portrait, standard screens |
 | `og.jpg` | 71 KB | link previews on LinkedIn, Slack, WhatsApp |
 
+`figures.py` joins `build.py`, `template.html` and `site.json` as the optional
+generator. `index.html` still stands alone.
+
 The `<img>` uses `srcset`, so phones download the 29 KB file rather than the
 98 KB one. All three must sit next to `index.html` in the repo root, or the
 photo breaks.
@@ -151,6 +154,36 @@ and the soft-skills list. A public page gets scraped.
 deleting it later would not remove it from a public repo's history. Strip the
 personal details first, then commit it as `cv.pdf` and set `links.cv` to
 `"cv.pdf"`.
+
+## The three research figures
+
+Each thread that has one carries a figure illustrating that thread's own work,
+not decoration. All three are fully drawn in the markup and work with JavaScript
+off; JS only adds the interaction.
+
+**Energy lens** — a schematic energy landscape with a natural sample and an
+adversarial one. The slider is attack strength; the toggle switches targeted and
+untargeted. It reproduces the ECCV result: untargeted attacks land at lower
+energy than real data, targeted attacks at higher.
+
+**Geometry** — the Poincaré disk, as before. Drag applies a Möbius isometry.
+
+**Proteins** — a schematic scFv bound to an antigen. Two immunoglobulin variable
+domains, each a beta-sandwich of a four-strand and a five-strand sheet, joined
+by a flexible linker, with three CDR loops per domain meeting at the combining
+site. Drag rotates it; the paths are depth-sorted every frame so the near sheet
+draws over the far one. Hovering any element names it.
+
+Both new figures are labelled *schematic, not measured data* on the page. That
+matters on your site specifically — a reader will assume a figure on a
+structural-biology page is a real structure unless told otherwise. If you'd
+rather show a real one, upload a PDB file and I'll render actual coordinates.
+
+The threats thread has no figure. Say the word if you want one.
+
+`figures.py` builds both new figures. The energy function lives in two places —
+`figures.py` for the static curve and the `<script>` block for the interaction —
+so if you change one, change both. They're checked against each other at build.
 
 ## Palette
 

@@ -3,6 +3,7 @@
 every word of content is in the markup, so the page works with JS disabled."""
 
 import json, math, cmath, re, html
+import figures
 
 D = json.load(open('site.json'))
 SITE_URL = "https://merybria99.github.io"
@@ -52,8 +53,11 @@ for band, step in enumerate(STEPS):
         )
 GEOS = "\n          ".join(geos)
 
-DISK = f"""<figure class="disk-fig">
-          <div class="disk-holder">
+PROTEIN_SVG, PROTEIN_GEOM = figures.protein_figure()
+ENERGY_SVG = figures.energy_figure()
+
+DISK = f"""<figure class="fig fig-disk">
+          <div class="fig-box disk-holder">
             <svg class="disk" id="disk" viewBox="-1.08 -1.08 2.16 2.16" role="img"
                  aria-label="A Poincar\u00e9 disk: geodesics of the hyperbolic plane, drawn as circular arcs that meet the boundary at right angles.">
               <circle class="disk-fill" cx="0" cy="0" r="1"></circle>
@@ -63,7 +67,7 @@ DISK = f"""<figure class="disk-fig">
               <circle class="disk-edge" cx="0" cy="0" r="1"></circle>
             </svg>
           </div>
-          <figcaption class="disk-cap">The Poincar\u00e9 disk: hyperbolic geodesics meet the boundary at right angles.<span class="hint"> Drag it \u2014 the arcs move by a M\u00f6bius isometry, so the structure is preserved.</span></figcaption>
+          <figcaption class="fig-cap">The Poincar\u00e9 disk: hyperbolic geodesics meet the boundary at right angles.<span class="hint"> Drag it \u2014 the arcs move by a M\u00f6bius isometry, so the structure is preserved.</span></figcaption>
         </figure>"""
 
 
@@ -109,12 +113,14 @@ for t in D['research']:
         block = f'\n          <ul class="theme-refs">\n            {refs}\n          </ul>'
     inner = f"""<h3 class="theme-h">{e(t['title'])}</h3>
           <p class="theme-b">{e(t['body'])}</p>{block}"""
-    if t.get('figure') == 'disk':
+    FIGS = {'disk': DISK, 'protein': PROTEIN_SVG, 'energy': ENERGY_SVG}
+    fig = FIGS.get(t.get('figure'))
+    if fig:
         themes_html.append(f"""        <div class="theme theme-illus">
           <div>
             {inner}
           </div>
-          {DISK}
+          {fig}
         </div>""")
     else:
         themes_html.append(f"""        <div class="theme">
@@ -215,7 +221,8 @@ out = (tpl
        .replace("{{PUBS}}", PUBS)
        .replace("{{BG}}", BG)
        .replace("{{SCHOOLS}}", schools)
-       .replace("{{ELSEWHERE}}", ELSEWHERE))
+       .replace("{{ELSEWHERE}}", ELSEWHERE)
+       .replace("{{PROTEIN_GEOM}}", PROTEIN_GEOM))
 
 open('/mnt/user-data/outputs/index.html', 'w').write(out)
 print("wrote index.html:", len(out), "bytes")

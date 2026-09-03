@@ -5,6 +5,7 @@
  "affiliation": "Sapienza University of Rome",
  "statement": [
   "I work on the safety and robustness of generative models. My research asks what breaks when a model is attacked, and what a principled defense would look like — through the geometry of representation space, the energy landscape of adversarial training, and the supply chain that model artifacts travel through.",
+  "Alongside that I work on generative models for proteins — decoding-time methods for protein engineering, and large-scale benchmarking of antibody–antigen structure prediction. The questions rhyme with the vision work: reward gaming, and models that rank their own outputs badly.",
   "Before Sapienza I completed an M.Sc. in Computer Engineering at the University of Salerno, specialising in artificial intelligence and intelligent robotics."
  ],
  "location": "Rome, Italy",
@@ -26,7 +27,8 @@
     "Shedding More Light on Robust Classifiers under the Lens of Energy-based Models",
     "Understanding Adversarial Training with Energy-based Models",
     "What is Adversarial Training for Diffusion Models?"
-   ]
+   ],
+   "figure": "energy"
   },
   {
    "title": "The geometry of representation space",
@@ -35,7 +37,8 @@
     "Not All Latent Spaces Are Flat: Hyperbolic Concept Control",
     "Harnessing Hyperbolic Geometry for Harmful Prompt Detection and Sanitization",
     "Implicit Inversion turns CLIP into a Decoder"
-   ]
+   ],
+   "figure": "disk"
   },
   {
    "title": "Threats to generative media, and defenses that hold",
@@ -47,12 +50,13 @@
    ]
   },
   {
-   "title": "Generative models for structural biology",
-   "body": "A newer thread, applying large-scale benchmarking to antibody–antigen structure prediction, where familiar questions about confidence calibration reappear in an unfamiliar domain: a model that ranks its own predictions badly is a problem whether the output is an image or a fold.",
+   "title": "Generative models for proteins",
+   "body": "On the structure side, benchmarking antibody–antigen complex prediction at scale: cofolding thousands of complexes to ask not only whether models recover the right interface, but whether their own confidence scores can tell which prediction did. On the design side, decoding-time methods for protein engineering that leave the base model untouched. A model that ranks its own outputs badly is the same problem whether the output is an image or a fold.",
    "papers": [
     "Anchored Protein Engineering",
     "Folding scFv–Antigen Complexes at Scale"
-   ]
+   ],
+   "figure": "protein"
   }
  ],
  "publications": [

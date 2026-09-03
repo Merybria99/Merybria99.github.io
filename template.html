@@ -91,8 +91,43 @@ a:hover{text-decoration-color:currentColor}
   background:var(--paper-deep);
 }
 
-.disk-fig{margin:0;min-width:0}
-.disk-holder{width:100%;max-width:13rem;margin:0}
+.fig{margin:0;min-width:0}
+.fig-box{width:100%;max-width:13rem;margin:0}
+.fig-cap{font-size:0.75rem;color:var(--ink-soft);margin:0.75rem 0 0;line-height:1.5;max-width:30ch}
+.fig-cap .hint{display:none}
+.drag .fig-cap .hint{display:inline}
+
+/* scFv schematic */
+.fig-protein .fig-box{max-width:11rem}
+.protein{display:block;width:100%;height:auto;touch-action:none;overflow:visible}
+.js .protein{cursor:grab}
+.js .protein:active{cursor:grabbing}
+.pstrand{fill:none;stroke:var(--sage);stroke-width:0.10;stroke-linecap:round;opacity:0.85}
+.pstrand-b{opacity:0.5}
+.pcdr{fill:none;stroke:var(--plum);stroke-width:0.13;stroke-linecap:round}
+.ploop{fill:none;stroke:var(--ink-soft);stroke-width:0.055;stroke-linecap:round;opacity:0.55}
+.plink{fill:none;stroke:var(--ink-soft);stroke-width:0.06;stroke-dasharray:0.16 0.14;stroke-linecap:round;opacity:0.8}
+.pag{fill:color-mix(in srgb,var(--plum) 15%,transparent);stroke:var(--plum);stroke-width:0.07;opacity:0.9}
+
+/* energy landscape */
+.fig-energy .fig-box{max-width:100%}
+.energy{display:block;width:100%;height:auto}
+.ecurve{fill:none;stroke:var(--ink-soft);stroke-width:0.9;stroke-linecap:round;opacity:0.7}
+.edelta{stroke:var(--plum);stroke-width:0.7;stroke-dasharray:1.6 1.4;opacity:0.75}
+.enat{fill:var(--sage)}
+.eadv{fill:var(--plum)}
+.econtrols{margin-top:0.6rem;gap:0.45rem}
+.erow{display:flex;align-items:center;gap:0.5rem;font-size:0.75rem;color:var(--ink-soft)}
+.erow input[type=range]{flex:1;min-width:0;accent-color:var(--plum)}
+.ebtns{gap:0.35rem}
+.ebtn{
+  font:inherit;font-size:0.6875rem;padding:0.1rem 0.5rem;cursor:pointer;
+  background:none;color:var(--ink-soft);border:1px solid var(--rule);border-radius:999px;
+}
+.ebtn.is-on{border-color:var(--plum);color:var(--plum)}
+.ereadout{font-size:0.75rem;color:var(--ink);margin:0;font-variant-numeric:tabular-nums}
+.econtrols{display:none}
+.js .econtrols{display:grid}
 .disk{display:block;width:100%;height:auto;touch-action:none}
 .js .disk{cursor:grab}
 .js .disk:active{cursor:grabbing}
@@ -100,9 +135,7 @@ a:hover{text-decoration-color:currentColor}
 .disk-fill{fill:var(--paper-deep)}
 .geo{fill:none;stroke:var(--plum);stroke-width:0.008;stroke-linecap:round;opacity:0.5}
 .geo-b{stroke:var(--sage);opacity:0.38}
-.disk-cap{font-size:0.75rem;color:var(--ink-soft);margin:0.75rem 0 0;line-height:1.5;max-width:30ch}
-.disk-cap .hint{display:none}
-.js .disk-cap .hint{display:inline}
+
 
 @keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
 .geo{stroke-dasharray:1;animation:draw 1s ease-out backwards}
@@ -113,7 +146,7 @@ a:hover{text-decoration-color:currentColor}
 .sec-sub{color:var(--ink-soft);font-size:0.875rem;margin:0 0 2.25rem;max-width:var(--measure)}
 
 .themes{display:grid;gap:2.5rem}
-.theme-illus{display:grid;grid-template-columns:minmax(0,1fr) 13rem;gap:clamp(1.5rem,4vw,3rem);align-items:start}
+.theme-illus{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,14rem);gap:clamp(1.5rem,4vw,3rem);align-items:start}
 .theme-h{font-family:var(--serif);font-size:1.125rem;font-weight:600;margin:0 0 0.5rem}
 .theme-b{margin:0;color:var(--ink-soft);max-width:var(--measure)}
 .theme-refs{list-style:none;margin:0.9rem 0 0;padding:0;display:grid;gap:0.35rem;max-width:var(--measure)}
@@ -164,7 +197,8 @@ a:hover{text-decoration-color:currentColor}
   .hero{grid-template-columns:1fr;padding-block:2rem 2.5rem;gap:2rem}
   .portrait{justify-self:start;max-width:11rem}
   .theme-illus{grid-template-columns:1fr}
-  .disk-holder{max-width:12rem;margin-inline:auto}
+  .fig-box{max-width:12rem;margin-inline:auto}
+  .fig-energy .fig-box{max-width:100%}
   .pub{grid-template-columns:1fr;gap:0}
   .pub-yr{padding:0 0 0.3rem}
   .bg-item{grid-template-columns:1fr}
@@ -175,11 +209,11 @@ a:hover{text-decoration-color:currentColor}
   html{scroll-behavior:auto}
   .geo{animation:none;stroke-dasharray:none}
   .chev{transition:none}
-  .js .disk{cursor:default}
+  .js .disk,.js .protein{cursor:default}
   .pub{transition:none}
 }
 @media print{
-  .nav,.disk-fig,.foot,.skip{display:none}
+  .nav,.fig,.foot,.skip{display:none}
   .portrait{max-width:8rem}
   .band{background:none;border:0}
   .pub-abs{display:none}
@@ -269,114 +303,224 @@ a:hover{text-decoration-color:currentColor}
 
 </main>
 
+<script type="application/json" id="protein-geom">{{PROTEIN_GEOM}}</script>
+
 <footer class="wrap foot">
   <p>&copy; 2026 {{NAME}}</p>
 </footer>
 
 <script>
-/* Progressive enhancement only. Every arc is already drawn in the markup;
-   this makes the disk draggable by applying the Mobius isometry
-   z -> (z + a) / (1 + conj(a).z), which moves the ideal endpoints while
-   preserving the hyperbolic structure. */
+/* Progressive enhancement only. Every figure is fully drawn in the markup;
+   this file adds the interactions. */
 (function () {
   "use strict";
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { return; }
+  var root = document.documentElement;
+  root.className += " js";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!reduce) { root.className += " drag"; }
 
-  document.documentElement.className += " js";
-
-  var svg = document.getElementById("disk");
-  var paths = [].slice.call(svg.querySelectorAll(".geo"));
-  var N = 16, SEG = 18, CAP = 0.6;
-  if (!paths.length) { return; }
-
-  var pairs = paths.map(function (p) {
-    return [+p.getAttribute("data-a"), +p.getAttribute("data-b")];
-  });
-
-  function mobius(z, a) {
-    var nRe = z[0] + a[0], nIm = z[1] + a[1];
-    var dRe = 1 + (a[0] * z[0] + a[1] * z[1]);
-    var dIm = a[0] * z[1] - a[1] * z[0];
-    var den = dRe * dRe + dIm * dIm;
-    if (den < 1e-12) { return z; }
-    return [(nRe * dRe + nIm * dIm) / den, (nIm * dRe - nRe * dIm) / den];
+  /* ---------- shared: drag-to-rotate plumbing ---------- */
+  function draggable(el, onMove, onRelease) {
+    var down = false;
+    el.addEventListener("pointerdown", function (ev) {
+      down = true;
+      if (el.setPointerCapture) { el.setPointerCapture(ev.pointerId); }
+      onMove(ev, true);
+    });
+    el.addEventListener("pointermove", function (ev) {
+      if (ev.pointerType !== "mouse" && !down) { return; }
+      onMove(ev, false);
+    });
+    function up() { down = false; if (onRelease) { onRelease(); } }
+    el.addEventListener("pointerup", up);
+    el.addEventListener("pointercancel", up);
+    el.addEventListener("pointerleave", function () {
+      if (!down) { return; }
+      up();
+    });
   }
 
-  function d(p1, p2) {
-    var dot = p1[0] * p2[0] + p1[1] * p2[1];
-    var line = "M" + p1[0].toFixed(4) + " " + p1[1].toFixed(4) +
-               "L" + p2[0].toFixed(4) + " " + p2[1].toFixed(4);
-    if (Math.abs(1 + dot) < 1e-4) { return line; }
-    var cx = (p1[0] + p2[0]) / (1 + dot);
-    var cy = (p1[1] + p2[1]) / (1 + dot);
-    var r2 = cx * cx + cy * cy - 1;
-    if (r2 <= 0) { return line; }
-    var r = Math.sqrt(r2);
-    var a1 = Math.atan2(p1[1] - cy, p1[0] - cx);
-    var a2 = Math.atan2(p2[1] - cy, p2[0] - cx);
-    var t = a2 - a1;
-    while (t > Math.PI) { t -= 2 * Math.PI; }
-    while (t < -Math.PI) { t += 2 * Math.PI; }
-    var out = "";
-    for (var i = 0; i <= SEG; i++) {
-      var u = a1 + t * (i / SEG);
-      out += (i === 0 ? "M" : "L") +
-             (cx + r * Math.cos(u)).toFixed(4) + " " +
-             (cy + r * Math.sin(u)).toFixed(4);
+  /* ================= energy landscape ================= */
+  (function () {
+    var svg = document.getElementById("energy");
+    if (!svg) { return; }
+    var dot = document.getElementById("eadv");
+    var bar = document.getElementById("edelta");
+    var out = document.getElementById("ereadout");
+    var eps = document.getElementById("eeps");
+    var bU = document.getElementById("euntgt");
+    var bT = document.getElementById("etgt");
+    var NAT = 0.34, ADV = 0.66, TGT = 0.08;
+    var targeted = false;
+
+    function E(x) {
+      return 1.02 - 0.30 * x - 0.52 / (1.0 + Math.exp(-(x - 0.44) / 0.075));
     }
-    return out;
-  }
+    function ex(x) { return 6 + x * 88; }
+    function ey(e) { return 6 + (e / 1.05) * 32; }
 
-  function render(a) {
-    var ideal = [];
-    for (var i = 0; i < N; i++) {
-      var th = (i / N) * Math.PI * 2;
-      ideal.push(mobius([Math.cos(th), Math.sin(th)], a));
+    function paint() {
+      var t = (+eps.value) / 100;
+      var x = targeted ? NAT - t * (NAT - TGT) : NAT + t * (ADV - NAT);
+      var e = E(x), ny = ey(E(NAT));
+      dot.setAttribute("cx", ex(x).toFixed(2));
+      dot.setAttribute("cy", ey(e).toFixed(2));
+      bar.setAttribute("x1", ex(x).toFixed(2));
+      bar.setAttribute("x2", ex(x).toFixed(2));
+      bar.setAttribute("y1", ny.toFixed(2));
+      bar.setAttribute("y2", ey(e).toFixed(2));
+      var d = e - E(NAT);
+      var sign = d < 0 ? "\u2212" : "+";
+      var word = Math.abs(d) < 0.01 ? "the same energy as the natural sample"
+               : d < 0 ? "lower energy than the natural sample"
+                       : "higher energy than the natural sample";
+      out.innerHTML = "\u0394E " + sign + Math.abs(d).toFixed(2) + " \u00b7 " + word;
     }
-    for (var k = 0; k < pairs.length; k++) {
-      paths[k].setAttribute("d", d(ideal[pairs[k][0]], ideal[pairs[k][1]]));
+
+    eps.addEventListener("input", paint);
+    bU.addEventListener("click", function () {
+      targeted = false; bU.className = "ebtn is-on"; bT.className = "ebtn"; paint();
+    });
+    bT.addEventListener("click", function () {
+      targeted = true; bT.className = "ebtn is-on"; bU.className = "ebtn"; paint();
+    });
+    paint();
+  })();
+
+  if (reduce) { return; }
+
+  /* ================= scFv, drag to rotate ================= */
+  (function () {
+    var svg = document.getElementById("protein");
+    var src = document.getElementById("protein-geom");
+    if (!svg || !src) { return; }
+    var els;
+    try { els = JSON.parse(src.textContent); } catch (err) { return; }
+
+    var nodes = [];
+    [].forEach.call(svg.querySelectorAll("path[data-i]"), function (p) {
+      nodes[+p.getAttribute("data-i")] = p;
+    });
+    if (nodes.length !== els.length) { return; }
+
+    var ry = 0.55, rx = -0.34, ry0 = 0.55, rx0 = -0.34, px = 0, py = 0;
+
+    function paint() {
+      var cy = Math.cos(ry), sy = Math.sin(ry);
+      var cx = Math.cos(rx), sx = Math.sin(rx);
+      var order = [];
+      for (var i = 0; i < els.length; i++) {
+        var pts = els[i].p, d = "", z = 0;
+        for (var j = 0; j < pts.length; j++) {
+          var X = pts[j][0], Y = pts[j][1], Z = pts[j][2];
+          var x1 = X * cy + Z * sy, z1 = -X * sy + Z * cy;
+          var y2 = Y * cx - z1 * sx, z2 = Y * sx + z1 * cx;
+          d += (j ? "L" : "M") + x1.toFixed(3) + " " + (-y2).toFixed(3);
+          z += z2;
+        }
+        if (els[i].closed) { d += "Z"; }
+        nodes[i].setAttribute("d", d);
+        order.push([z / pts.length, nodes[i]]);
+      }
+      order.sort(function (a, b) { return a[0] - b[0]; });
+      for (var k = 0; k < order.length; k++) { svg.appendChild(order[k][1]); }
     }
-  }
 
-  var target = [0, 0], cur = [0, 0], ticking = false, live = false;
-  setTimeout(function () { live = true; }, 1300);
+    draggable(svg, function (ev, start) {
+      if (start) { px = ev.clientX; py = ev.clientY; ry0 = ry; rx0 = rx; return; }
+      var r = svg.getBoundingClientRect();
+      if (!r.width) { return; }
+      ry = ry0 + ((ev.clientX - px) / r.width) * 4.2;
+      rx = rx0 + ((ev.clientY - py) / r.height) * 2.0;
+      rx = Math.max(-1.15, Math.min(0.55, rx));
+      paint();
+    });
+  })();
 
-  function tick() {
-    var dx = target[0] - cur[0], dy = target[1] - cur[1];
-    if (Math.abs(dx) < 0.0006 && Math.abs(dy) < 0.0006) {
-      cur[0] = target[0]; cur[1] = target[1];
-      render(cur); ticking = false; return;
+  /* ================= Poincare disk ================= */
+  (function () {
+    var svg = document.getElementById("disk");
+    if (!svg) { return; }
+    var paths = [].slice.call(svg.querySelectorAll(".geo"));
+    var N = 16, SEG = 18, CAP = 0.6;
+    if (!paths.length) { return; }
+
+    var pairs = paths.map(function (p) {
+      return [+p.getAttribute("data-a"), +p.getAttribute("data-b")];
+    });
+
+    function mobius(z, a) {
+      var nRe = z[0] + a[0], nIm = z[1] + a[1];
+      var dRe = 1 + (a[0] * z[0] + a[1] * z[1]);
+      var dIm = a[0] * z[1] - a[1] * z[0];
+      var den = dRe * dRe + dIm * dIm;
+      if (den < 1e-12) { return z; }
+      return [(nRe * dRe + nIm * dIm) / den, (nIm * dRe - nRe * dIm) / den];
     }
-    cur[0] += dx * 0.14; cur[1] += dy * 0.14;
-    render(cur);
-    requestAnimationFrame(tick);
-  }
-  function nudge() { if (!ticking) { ticking = true; requestAnimationFrame(tick); } }
 
-  function aim(ev) {
-    if (!live) { return; }
-    var r = svg.getBoundingClientRect();
-    if (!r.width || !r.height) { return; }
-    var x = ((ev.clientX - r.left) / r.width) * 2 - 1;
-    var y = ((ev.clientY - r.top) / r.height) * 2 - 1;
-    var m = Math.sqrt(x * x + y * y);
-    if (m > CAP) { x = (x / m) * CAP; y = (y / m) * CAP; }
-    target = [x, y];
-    nudge();
-  }
-  function release() { target = [0, 0]; nudge(); }
+    function d(p1, p2) {
+      var dot = p1[0] * p2[0] + p1[1] * p2[1];
+      var line = "M" + p1[0].toFixed(4) + " " + p1[1].toFixed(4) +
+                 "L" + p2[0].toFixed(4) + " " + p2[1].toFixed(4);
+      if (Math.abs(1 + dot) < 1e-4) { return line; }
+      var cx = (p1[0] + p2[0]) / (1 + dot);
+      var cy = (p1[1] + p2[1]) / (1 + dot);
+      var r2 = cx * cx + cy * cy - 1;
+      if (r2 <= 0) { return line; }
+      var r = Math.sqrt(r2);
+      var a1 = Math.atan2(p1[1] - cy, p1[0] - cx);
+      var a2 = Math.atan2(p2[1] - cy, p2[0] - cx);
+      var t = a2 - a1;
+      while (t > Math.PI) { t -= 2 * Math.PI; }
+      while (t < -Math.PI) { t += 2 * Math.PI; }
+      var out = "";
+      for (var i = 0; i <= SEG; i++) {
+        var u = a1 + t * (i / SEG);
+        out += (i === 0 ? "M" : "L") +
+               (cx + r * Math.cos(u)).toFixed(4) + " " +
+               (cy + r * Math.sin(u)).toFixed(4);
+      }
+      return out;
+    }
 
-  svg.addEventListener("pointerdown", function (ev) {
-    if (svg.setPointerCapture) { svg.setPointerCapture(ev.pointerId); }
-    aim(ev);
-  });
-  svg.addEventListener("pointermove", function (ev) {
-    if (ev.pointerType !== "mouse" && ev.buttons === 0) { return; }
-    aim(ev);
-  });
-  svg.addEventListener("pointerup", release);
-  svg.addEventListener("pointercancel", release);
-  svg.addEventListener("pointerleave", release);
+    function render(a) {
+      var ideal = [];
+      for (var i = 0; i < N; i++) {
+        var th = (i / N) * Math.PI * 2;
+        ideal.push(mobius([Math.cos(th), Math.sin(th)], a));
+      }
+      for (var k = 0; k < pairs.length; k++) {
+        paths[k].setAttribute("d", d(ideal[pairs[k][0]], ideal[pairs[k][1]]));
+      }
+    }
+
+    var target = [0, 0], cur = [0, 0], ticking = false, live = false;
+    setTimeout(function () { live = true; }, 1300);
+
+    function tick() {
+      var dx = target[0] - cur[0], dy = target[1] - cur[1];
+      if (Math.abs(dx) < 0.0006 && Math.abs(dy) < 0.0006) {
+        cur[0] = target[0]; cur[1] = target[1];
+        render(cur); ticking = false; return;
+      }
+      cur[0] += dx * 0.14; cur[1] += dy * 0.14;
+      render(cur);
+      requestAnimationFrame(tick);
+    }
+    function nudge() { if (!ticking) { ticking = true; requestAnimationFrame(tick); } }
+
+    draggable(svg, function (ev) {
+      if (!live) { return; }
+      var r = svg.getBoundingClientRect();
+      if (!r.width || !r.height) { return; }
+      var x = ((ev.clientX - r.left) / r.width) * 2 - 1;
+      var y = ((ev.clientY - r.top) / r.height) * 2 - 1;
+      var m = Math.sqrt(x * x + y * y);
+      if (m > CAP) { x = (x / m) * CAP; y = (y / m) * CAP; }
+      target = [x, y];
+      nudge();
+    }, function () { target = [0, 0]; nudge(); });
+  })();
 })();
 </script>
 

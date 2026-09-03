@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Maria Rosaria Briglia</title>
-<meta name="description" content="Maria Rosaria Briglia — PhD student in AI for Government and Public Security, Sapienza University of Rome. Research on the safety and robustness of generative models.">
+<meta name="description" content="Maria Rosaria Briglia — PhD student in AI for Government and Public Security, Sapienza University of Rome, currently visiting IFML at UT Austin. Research on the safety and robustness of generative models, and on generative models for proteins.">
 <link rel="canonical" href="https://merybria99.github.io">
 <meta property="og:title" content="Maria Rosaria Briglia">
-<meta property="og:description" content="Maria Rosaria Briglia — PhD student in AI for Government and Public Security, Sapienza University of Rome. Research on the safety and robustness of generative models.">
+<meta property="og:description" content="Maria Rosaria Briglia — PhD student in AI for Government and Public Security, Sapienza University of Rome, currently visiting IFML at UT Austin. Research on the safety and robustness of generative models, and on generative models for proteins.">
 <meta property="og:url" content="https://merybria99.github.io">
 <meta property="og:image" content="https://merybria99.github.io/og.jpg">
 <meta property="og:image:alt" content="Maria Rosaria Briglia">
@@ -29,10 +29,21 @@
    "url": "https://merybria99.github.io",
    "email": "mailto:briglia@di.uniroma1.it",
    "jobTitle": "PhD student",
-   "affiliation": {
-    "@type": "CollegeOrUniversity",
-    "name": "Sapienza University of Rome"
-   },
+   "affiliation": [
+    {
+     "@type": "CollegeOrUniversity",
+     "name": "Sapienza University of Rome"
+    },
+    {
+     "@type": "ResearchOrganization",
+     "name": "NSF AI Institute for Foundations of Machine Learning (IFML)",
+     "url": "https://www.ifml.institute/",
+     "parentOrganization": {
+      "@type": "CollegeOrUniversity",
+      "name": "The University of Texas at Austin"
+     }
+    }
+   ],
    "alumniOf": {
     "@type": "CollegeOrUniversity",
     "name": "University of Salerno"
@@ -193,6 +204,10 @@ a:hover{text-decoration-color:currentColor}
   line-height:1.02;letter-spacing:-0.02em;margin:0;color:var(--plum);text-wrap:balance;
 }
 .hrole{font-family:var(--serif);font-style:italic;font-size:clamp(1.0625rem,1rem + 0.4vw,1.25rem);line-height:1.4;margin:0.75rem 0 0;max-width:32ch}
+.hvisit{
+  margin:0.9rem 0 0;font-size:0.9375rem;max-width:40ch;line-height:1.5;
+  padding-left:0.85rem;border-left:2px solid var(--plum);
+}
 .hstate{margin:1.5rem 0 0;color:var(--ink-soft);max-width:52ch}
 .hstate p{margin:0 0 0.85rem}
 .hstate p:last-child{margin-bottom:0}
@@ -210,8 +225,43 @@ a:hover{text-decoration-color:currentColor}
   background:var(--paper-deep);
 }
 
-.disk-fig{margin:0;min-width:0}
-.disk-holder{width:100%;max-width:13rem;margin:0}
+.fig{margin:0;min-width:0}
+.fig-box{width:100%;max-width:13rem;margin:0}
+.fig-cap{font-size:0.75rem;color:var(--ink-soft);margin:0.75rem 0 0;line-height:1.5;max-width:30ch}
+.fig-cap .hint{display:none}
+.drag .fig-cap .hint{display:inline}
+
+/* scFv schematic */
+.fig-protein .fig-box{max-width:11rem}
+.protein{display:block;width:100%;height:auto;touch-action:none;overflow:visible}
+.js .protein{cursor:grab}
+.js .protein:active{cursor:grabbing}
+.pstrand{fill:none;stroke:var(--sage);stroke-width:0.10;stroke-linecap:round;opacity:0.85}
+.pstrand-b{opacity:0.5}
+.pcdr{fill:none;stroke:var(--plum);stroke-width:0.13;stroke-linecap:round}
+.ploop{fill:none;stroke:var(--ink-soft);stroke-width:0.055;stroke-linecap:round;opacity:0.55}
+.plink{fill:none;stroke:var(--ink-soft);stroke-width:0.06;stroke-dasharray:0.16 0.14;stroke-linecap:round;opacity:0.8}
+.pag{fill:color-mix(in srgb,var(--plum) 15%,transparent);stroke:var(--plum);stroke-width:0.07;opacity:0.9}
+
+/* energy landscape */
+.fig-energy .fig-box{max-width:100%}
+.energy{display:block;width:100%;height:auto}
+.ecurve{fill:none;stroke:var(--ink-soft);stroke-width:0.9;stroke-linecap:round;opacity:0.7}
+.edelta{stroke:var(--plum);stroke-width:0.7;stroke-dasharray:1.6 1.4;opacity:0.75}
+.enat{fill:var(--sage)}
+.eadv{fill:var(--plum)}
+.econtrols{margin-top:0.6rem;gap:0.45rem}
+.erow{display:flex;align-items:center;gap:0.5rem;font-size:0.75rem;color:var(--ink-soft)}
+.erow input[type=range]{flex:1;min-width:0;accent-color:var(--plum)}
+.ebtns{gap:0.35rem}
+.ebtn{
+  font:inherit;font-size:0.6875rem;padding:0.1rem 0.5rem;cursor:pointer;
+  background:none;color:var(--ink-soft);border:1px solid var(--rule);border-radius:999px;
+}
+.ebtn.is-on{border-color:var(--plum);color:var(--plum)}
+.ereadout{font-size:0.75rem;color:var(--ink);margin:0;font-variant-numeric:tabular-nums}
+.econtrols{display:none}
+.js .econtrols{display:grid}
 .disk{display:block;width:100%;height:auto;touch-action:none}
 .js .disk{cursor:grab}
 .js .disk:active{cursor:grabbing}
@@ -219,9 +269,7 @@ a:hover{text-decoration-color:currentColor}
 .disk-fill{fill:var(--paper-deep)}
 .geo{fill:none;stroke:var(--plum);stroke-width:0.008;stroke-linecap:round;opacity:0.5}
 .geo-b{stroke:var(--sage);opacity:0.38}
-.disk-cap{font-size:0.75rem;color:var(--ink-soft);margin:0.75rem 0 0;line-height:1.5;max-width:30ch}
-.disk-cap .hint{display:none}
-.js .disk-cap .hint{display:inline}
+
 
 @keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
 .geo{stroke-dasharray:1;animation:draw 1s ease-out backwards}
@@ -232,7 +280,7 @@ a:hover{text-decoration-color:currentColor}
 .sec-sub{color:var(--ink-soft);font-size:0.875rem;margin:0 0 2.25rem;max-width:var(--measure)}
 
 .themes{display:grid;gap:2.5rem}
-.theme-illus{display:grid;grid-template-columns:minmax(0,1fr) 13rem;gap:clamp(1.5rem,4vw,3rem);align-items:start}
+.theme-illus{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,14rem);gap:clamp(1.5rem,4vw,3rem);align-items:start}
 .theme-h{font-family:var(--serif);font-size:1.125rem;font-weight:600;margin:0 0 0.5rem}
 .theme-b{margin:0;color:var(--ink-soft);max-width:var(--measure)}
 .theme-refs{list-style:none;margin:0.9rem 0 0;padding:0;display:grid;gap:0.35rem;max-width:var(--measure)}
@@ -283,7 +331,8 @@ a:hover{text-decoration-color:currentColor}
   .hero{grid-template-columns:1fr;padding-block:2rem 2.5rem;gap:2rem}
   .portrait{justify-self:start;max-width:11rem}
   .theme-illus{grid-template-columns:1fr}
-  .disk-holder{max-width:12rem;margin-inline:auto}
+  .fig-box{max-width:12rem;margin-inline:auto}
+  .fig-energy .fig-box{max-width:100%}
   .pub{grid-template-columns:1fr;gap:0}
   .pub-yr{padding:0 0 0.3rem}
   .bg-item{grid-template-columns:1fr}
@@ -294,11 +343,11 @@ a:hover{text-decoration-color:currentColor}
   html{scroll-behavior:auto}
   .geo{animation:none;stroke-dasharray:none}
   .chev{transition:none}
-  .js .disk{cursor:default}
+  .js .disk,.js .protein{cursor:default}
   .pub{transition:none}
 }
 @media print{
-  .nav,.disk-fig,.foot,.skip{display:none}
+  .nav,.fig,.foot,.skip{display:none}
   .portrait{max-width:8rem}
   .band{background:none;border:0}
   .pub-abs{display:none}
@@ -329,12 +378,14 @@ a:hover{text-decoration-color:currentColor}
     <div>
       <h1 class="hname">Maria Rosaria Briglia</h1>
       <p class="hrole">PhD student in AI for Government and Public Security, Sapienza University of Rome</p>
+      <p class="hvisit">Visiting researcher at <a href="https://www.ifml.institute/" rel="noopener">IFML</a>, UT Austin — working on generative models for proteins.</p>
       <div class="hstate">
         <p>I work on the safety and robustness of generative models. My research asks what breaks when a model is attacked, and what a principled defense would look like — through the geometry of representation space, the energy landscape of adversarial training, and the supply chain that model artifacts travel through.</p>
+        <p>I am currently visiting IFML at UT Austin, working on generative models for proteins — decoding-time methods for protein engineering, and large-scale benchmarking of antibody–antigen structure prediction. The questions rhyme with the vision work: reward gaming, and models that rank their own outputs badly.</p>
         <p>Before Sapienza I completed an M.Sc. in Computer Engineering at the University of Salerno, specialising in artificial intelligence and intelligent robotics.</p>
       </div>
       <p class="hmeta">
-        <span>Rome, Italy</span>
+        <span>Austin, Texas</span>
         <a href="mailto:briglia@di.uniroma1.it">briglia@di.uniroma1.it</a>
       </p>
     </div>
@@ -353,14 +404,37 @@ a:hover{text-decoration-color:currentColor}
       <h2 class="sec-h">Research</h2>
       <p class="sec-sub">Four threads, with the papers that belong to each.</p>
       <div class="themes">
-        <div class="theme">
-          <h3 class="theme-h">Adversarial training through an energy lens</h3>
+        <div class="theme theme-illus">
+          <div>
+            <h3 class="theme-h">Adversarial training through an energy lens</h3>
           <p class="theme-b">Reinterpreting robust classifiers as energy-based models, which reframes catastrophic overfitting and robust overfitting as behaviour of the energy landscape rather than isolated training pathologies — and turns that reading into concrete regularizers and sample weighting schemes.</p>
           <ul class="theme-refs">
             <li><a href="#p-shedding-more-light-on-robust-classifiers-under-the-lens-of-">Shedding More Light on Robust Classifiers under the Lens of Energy-based Models</a></li>
             <li><a href="#p-understanding-adversarial-training-with-energy-based-models">Understanding Adversarial Training with Energy-based Models</a></li>
             <li><a href="#p-what-is-adversarial-training-for-diffusion-models">What is Adversarial Training for Diffusion Models?</a></li>
           </ul>
+          </div>
+          <figure class="fig fig-energy">
+          <div class="fig-box">
+            <svg class="energy" id="energy" viewBox="0 0 100 46" role="img"
+                 aria-label="Schematic energy landscape. A natural sample sits in a shallow well; an untargeted adversarial example sits at lower energy, further into the model's own distribution.">
+              <path class="ecurve" d="M6.00 37.04L6.55 36.98L7.10 36.92L7.65 36.86L8.20 36.79L8.75 36.73L9.30 36.67L9.85 36.61L10.40 36.54L10.95 36.48L11.50 36.41L12.05 36.35L12.60 36.28L13.15 36.21L13.70 36.14L14.25 36.07L14.80 36.00L15.35 35.93L15.90 35.86L16.45 35.78L17.00 35.71L17.55 35.63L18.10 35.55L18.65 35.47L19.20 35.39L19.75 35.30L20.30 35.22L20.85 35.13L21.40 35.04L21.95 34.94L22.50 34.84L23.05 34.74L23.60 34.64L24.15 34.53L24.70 34.41L25.25 34.30L25.80 34.18L26.35 34.05L26.90 33.92L27.45 33.78L28.00 33.63L28.55 33.48L29.10 33.33L29.65 33.16L30.20 32.99L30.75 32.81L31.30 32.62L31.85 32.43L32.40 32.22L32.95 32.01L33.50 31.78L34.05 31.55L34.60 31.30L35.15 31.05L35.70 30.78L36.25 30.50L36.80 30.22L37.35 29.92L37.90 29.61L38.45 29.29L39.00 28.97L39.55 28.63L40.10 28.28L40.65 27.93L41.20 27.57L41.75 27.20L42.30 26.83L42.85 26.45L43.40 26.07L43.95 25.68L44.50 25.29L45.05 24.91L45.60 24.52L46.15 24.14L46.70 23.75L47.25 23.38L47.80 23.00L48.35 22.64L48.90 22.28L49.45 21.92L50.00 21.58L50.55 21.24L51.10 20.92L51.65 20.60L52.20 20.30L52.75 20.00L53.30 19.72L53.85 19.44L54.40 19.18L54.95 18.93L55.50 18.68L56.05 18.45L56.60 18.23L57.15 18.02L57.70 17.81L58.25 17.62L58.80 17.43L59.35 17.25L59.90 17.08L60.45 16.92L61.00 16.76L61.55 16.61L62.10 16.47L62.65 16.33L63.20 16.20L63.75 16.08L64.30 15.96L64.85 15.84L65.40 15.73L65.95 15.62L66.50 15.52L67.05 15.42L67.60 15.32L68.15 15.22L68.70 15.13L69.25 15.04L69.80 14.96L70.35 14.87L70.90 14.79L71.45 14.71L72.00 14.63L72.55 14.55L73.10 14.48L73.65 14.40L74.20 14.33L74.75 14.26L75.30 14.19L75.85 14.12L76.40 14.05L76.95 13.99L77.50 13.92L78.05 13.85L78.60 13.79L79.15 13.72L79.70 13.66L80.25 13.60L80.80 13.53L81.35 13.47L81.90 13.41L82.45 13.35L83.00 13.29L83.55 13.22L84.10 13.16L84.65 13.10L85.20 13.04L85.75 12.98L86.30 12.92L86.85 12.86L87.40 12.81L87.95 12.75L88.50 12.69L89.05 12.63L89.60 12.57L90.15 12.51L90.70 12.45L91.25 12.39L91.80 12.34L92.35 12.28L92.90 12.22L93.45 12.16L94.00 12.10"/>
+              <line class="edelta" id="edelta" x1="50.00" y1="30.67" x2="50.00" y2="21.58"/>
+              <circle class="enat" cx="35.92" cy="30.67" r="1.9"><title>natural sample</title></circle>
+              <circle class="eadv" id="eadv" cx="50.00" cy="21.58" r="1.9"><title>adversarial example</title></circle>
+            </svg>
+          </div>
+          <div class="econtrols">
+            <label class="erow"><span>attack strength</span>
+              <input type="range" id="eeps" min="0" max="100" value="50" aria-label="Attack strength epsilon"></label>
+            <div class="erow ebtns" role="group" aria-label="Attack type">
+              <button type="button" id="euntgt" class="ebtn is-on">untargeted</button>
+              <button type="button" id="etgt" class="ebtn">targeted</button>
+            </div>
+            <p class="ereadout" id="ereadout" aria-live="polite">&#916;E &#8722;0.30 &middot; lower energy than the natural sample</p>
+          </div>
+          <figcaption class="fig-cap">Schematic, not measured data. Untargeted attacks land at lower energy than real data; targeted attacks do the opposite.</figcaption>
+        </figure>
         </div>
         <div class="theme theme-illus">
           <div>
@@ -372,8 +446,8 @@ a:hover{text-decoration-color:currentColor}
             <li><a href="#p-implicit-inversion-turns-clip-into-a-decoder">Implicit Inversion turns CLIP into a Decoder</a></li>
           </ul>
           </div>
-          <figure class="disk-fig">
-          <div class="disk-holder">
+          <figure class="fig fig-disk">
+          <div class="fig-box disk-holder">
             <svg class="disk" id="disk" viewBox="-1.08 -1.08 2.16 2.16" role="img"
                  aria-label="A Poincaré disk: geodesics of the hyperbolic plane, drawn as circular arcs that meet the boundary at right angles.">
               <circle class="disk-fill" cx="0" cy="0" r="1"></circle>
@@ -414,7 +488,7 @@ a:hover{text-decoration-color:currentColor}
               <circle class="disk-edge" cx="0" cy="0" r="1"></circle>
             </svg>
           </div>
-          <figcaption class="disk-cap">The Poincaré disk: hyperbolic geodesics meet the boundary at right angles.<span class="hint"> Drag it — the arcs move by a Möbius isometry, so the structure is preserved.</span></figcaption>
+          <figcaption class="fig-cap">The Poincaré disk: hyperbolic geodesics meet the boundary at right angles.<span class="hint"> Drag it — the arcs move by a Möbius isometry, so the structure is preserved.</span></figcaption>
         </figure>
         </div>
         <div class="theme">
@@ -424,12 +498,54 @@ a:hover{text-decoration-color:currentColor}
             <li><a href="#p-neutralizing-proactive-defense-using-diffusion-based-upsampl">Neutralizing Proactive Defense using Diffusion-based Upsampling</a></li>
           </ul>
         </div>
-        <div class="theme">
-          <h3 class="theme-h">Generative models for structural biology</h3>
-          <p class="theme-b">A newer thread, applying large-scale benchmarking to antibody–antigen structure prediction, where familiar questions about confidence calibration reappear in an unfamiliar domain: a model that ranks its own predictions badly is a problem whether the output is an image or a fold.</p>
+        <div class="theme theme-illus">
+          <div>
+            <h3 class="theme-h">Generative models for proteins</h3>
+          <p class="theme-b">On the structure side, benchmarking antibody–antigen complex prediction at scale: cofolding thousands of complexes to ask not only whether models recover the right interface, but whether their own confidence scores can tell which prediction did. On the design side, decoding-time methods for protein engineering that leave the base model untouched. A model that ranks its own outputs badly is the same problem whether the output is an image or a fold.</p>
           <ul class="theme-refs">
             <li><a href="#p-folding-scfv-antigen-complexes-at-scale">Folding scFv–Antigen Complexes at Scale</a></li>
           </ul>
+          </div>
+          <figure class="fig fig-protein">
+          <div class="fig-box">
+            <svg class="protein" id="protein" viewBox="-2.91 -4.41 5.82 7.37" role="img"
+                 aria-label="Schematic of a single-chain variable fragment bound to an antigen: two immunoglobulin variable domains, each a beta-sandwich, with three CDR loops apiece meeting at the combining site.">
+            <path class="pcdr" data-i="24" d="M2.320 -1.221L2.126 -1.344L1.940 -1.442L1.771 -1.493L1.625 -1.483L1.502 -1.407L1.402 -1.270L1.318 -1.087L1.243 -0.878"><title>VL — CDR-L1</title></path>
+            <path class="pstrand pstrand-b" data-i="19" d="M1.695 2.042L1.584 1.568L1.502 1.094L1.473 0.622L1.502 0.151L1.584 -0.318L1.695 -0.786"><title>VL — VH/VL beta-sheet</title></path>
+            <path class="pstrand pstrand-b" data-i="20" d="M1.243 1.950L1.355 1.482L1.436 1.013L1.466 0.542L1.436 0.070L1.355 -0.404L1.243 -0.878"><title>VL — VH/VL beta-sheet</title></path>
+            <path class="pcdr" data-i="25" d="M1.809 -1.326L1.623 -1.494L1.446 -1.630L1.286 -1.706L1.148 -1.703L1.033 -1.616L0.941 -1.451L0.866 -1.226L0.800 -0.969"><title>VL — CDR-L2</title></path>
+            <path class="pcdr" data-i="26" d="M1.297 -1.431L1.120 -1.644L0.951 -1.817L0.800 -1.918L0.670 -1.923L0.565 -1.825L0.481 -1.632L0.414 -1.365L0.357 -1.060"><title>VL — CDR-L3</title></path>
+            <path class="pstrand pstrand-b" data-i="21" d="M0.800 1.859L0.689 1.385L0.607 0.911L0.577 0.439L0.607 -0.032L0.689 -0.501L0.800 -0.969"><title>VL — VH/VL beta-sheet</title></path>
+            <path class="pag" data-i="31" d="M1.381 -2.829L1.451 -3.019L1.466 -3.213L1.424 -3.403L1.328 -3.582L1.180 -3.743L0.987 -3.880L0.756 -3.987L0.497 -4.060L0.218 -4.097L-0.070 -4.096L-0.354 -4.057L-0.625 -3.982L-0.872 -3.873L-1.086 -3.735L-1.258 -3.573L-1.381 -3.393L-1.451 -3.203L-1.466 -3.009L-1.424 -2.819L-1.328 -2.640L-1.180 -2.479L-0.987 -2.343L-0.756 -2.236L-0.497 -2.162L-0.218 -2.125L0.070 -2.126L0.354 -2.165L0.625 -2.240L0.872 -2.349L1.086 -2.487L1.258 -2.649L1.381 -2.829Z"><title>antigen — antigen</title></path>
+            <path class="pstrand pstrand-b" data-i="22" d="M0.357 1.769L0.468 1.301L0.550 0.832L0.580 0.361L0.550 -0.111L0.468 -0.585L0.357 -1.060"><title>VL — VH/VL beta-sheet</title></path>
+            <path class="pstrand pstrand-b" data-i="23" d="M-0.095 1.676L-0.206 1.202L-0.288 0.728L-0.318 0.256L-0.288 -0.215L-0.206 -0.684L-0.095 -1.152"><title>VL — VH/VL beta-sheet</title></path>
+            <path class="pstrand" data-i="15" d="M2.320 1.607L2.431 1.139L2.513 0.670L2.543 0.199L2.513 -0.273L2.431 -0.747L2.320 -1.221"><title>VL — VH/VL beta-sheet</title></path>
+            <path class="pstrand" data-i="3" d="M-0.786 1.535L-0.674 1.067L-0.593 0.598L-0.563 0.127L-0.593 -0.345L-0.674 -0.819L-0.786 -1.293"><title>VH — VH/VL beta-sheet</title></path>
+            <path class="pstrand" data-i="16" d="M1.809 1.502L1.697 1.028L1.616 0.554L1.586 0.082L1.616 -0.389L1.697 -0.858L1.809 -1.326"><title>VL — VH/VL beta-sheet</title></path>
+            <path class="ploop" data-i="27" d="M1.809 1.502L1.683 1.698L1.556 1.872L1.430 2.002L1.304 2.077L1.178 2.091L1.052 2.050L0.926 1.966L0.800 1.859"><title>VL — framework loop</title></path>
+            <path class="pcdr" data-i="11" d="M-1.297 -1.398L-1.120 -1.769L-0.951 -2.091L-0.800 -2.321L-0.670 -2.432L-0.565 -2.414L-0.481 -2.276L-0.414 -2.047L-0.357 -1.769"><title>VH — CDR-H3</title></path>
+            <path class="pstrand" data-i="2" d="M-1.297 1.431L-1.408 0.956L-1.490 0.482L-1.520 0.010L-1.490 -0.461L-1.408 -0.930L-1.297 -1.398"><title>VH — VH/VL beta-sheet</title></path>
+            <path class="pstrand" data-i="17" d="M1.297 1.398L1.408 0.930L1.490 0.461L1.520 -0.010L1.490 -0.482L1.408 -0.956L1.297 -1.431"><title>VL — VH/VL beta-sheet</title></path>
+            <path class="ploop" data-i="28" d="M1.297 1.398L1.180 1.596L1.062 1.770L0.944 1.903L0.827 1.979L0.709 1.995L0.592 1.956L0.474 1.874L0.357 1.769"><title>VL — framework loop</title></path>
+            <path class="pstrand" data-i="1" d="M-1.809 1.326L-1.697 0.858L-1.616 0.389L-1.586 -0.082L-1.616 -0.554L-1.697 -1.028L-1.809 -1.502"><title>VH — VH/VL beta-sheet</title></path>
+            <path class="pcdr" data-i="10" d="M-1.809 -1.502L-1.623 -1.825L-1.446 -2.105L-1.286 -2.307L-1.148 -2.407L-1.033 -2.397L-0.941 -2.284L-0.866 -2.093L-0.800 -1.859"><title>VH — CDR-H2</title></path>
+            <path class="pstrand" data-i="18" d="M0.786 1.293L0.674 0.819L0.593 0.345L0.563 -0.127L0.593 -0.598L0.674 -1.067L0.786 -1.535"><title>VL — VH/VL beta-sheet</title></path>
+            <path class="ploop" data-i="29" d="M0.786 1.293L0.675 1.493L0.565 1.669L0.455 1.803L0.345 1.881L0.235 1.898L0.125 1.861L0.015 1.780L-0.095 1.676"><title>VL — framework loop</title></path>
+            <path class="pstrand" data-i="0" d="M-2.320 1.221L-2.431 0.747L-2.513 0.273L-2.543 -0.199L-2.513 -0.670L-2.431 -1.139L-2.320 -1.607"><title>VH — VH/VL beta-sheet</title></path>
+            <path class="pcdr" data-i="9" d="M-2.320 -1.607L-2.126 -1.881L-1.940 -2.120L-1.771 -2.293L-1.625 -2.382L-1.502 -2.379L-1.402 -2.291L-1.318 -2.138L-1.243 -1.950"><title>VH — CDR-H1</title></path>
+            <path class="pstrand pstrand-b" data-i="8" d="M0.095 1.152L0.206 0.684L0.288 0.215L0.318 -0.256L0.288 -0.728L0.206 -1.202L0.095 -1.676"><title>VH — VH/VL beta-sheet</title></path>
+            <path class="ploop" data-i="14" d="M-0.786 1.535L-0.675 1.639L-0.565 1.719L-0.455 1.757L-0.345 1.739L-0.235 1.661L-0.125 1.528L-0.015 1.351L0.095 1.152"><title>VH — framework loop</title></path>
+            <path class="pstrand pstrand-b" data-i="7" d="M-0.357 1.060L-0.468 0.585L-0.550 0.111L-0.580 -0.361L-0.550 -0.832L-0.468 -1.301L-0.357 -1.769"><title>VH — VH/VL beta-sheet</title></path>
+            <path class="ploop" data-i="13" d="M-1.297 1.431L-1.180 1.536L-1.062 1.618L-0.944 1.657L-0.827 1.641L-0.709 1.564L-0.592 1.432L-0.474 1.257L-0.357 1.060"><title>VH — framework loop</title></path>
+            <path class="pstrand pstrand-b" data-i="6" d="M-0.800 0.969L-0.689 0.501L-0.607 0.032L-0.577 -0.439L-0.607 -0.911L-0.689 -1.385L-0.800 -1.859"><title>VH — VH/VL beta-sheet</title></path>
+            <path class="ploop" data-i="12" d="M-1.809 1.326L-1.683 1.433L-1.556 1.517L-1.430 1.558L-1.304 1.543L-1.178 1.469L-1.052 1.338L-0.926 1.165L-0.800 0.969"><title>VH — framework loop</title></path>
+            <path class="pstrand pstrand-b" data-i="5" d="M-1.243 0.878L-1.355 0.404L-1.436 -0.070L-1.466 -0.542L-1.436 -1.013L-1.355 -1.482L-1.243 -1.950"><title>VH — VH/VL beta-sheet</title></path>
+            <path class="plink" data-i="30" d="M-0.471 1.308L-0.331 1.380L-0.206 1.464L-0.094 1.562L0.010 1.674L0.109 1.796L0.208 1.919L0.311 2.034L0.423 2.131L0.547 2.201L0.686 2.234L0.840 2.229L1.008 2.185L1.189 2.109L1.379 2.009L1.574 1.898L1.770 1.789"><title>linker — flexible linker</title></path>
+            <path class="pstrand pstrand-b" data-i="4" d="M-1.695 0.786L-1.584 0.318L-1.502 -0.151L-1.473 -0.622L-1.502 -1.094L-1.584 -1.568L-1.695 -2.042"><title>VH — VH/VL beta-sheet</title></path>
+            </svg>
+          </div>
+          <figcaption class="fig-cap">Schematic scFv: two variable domains, six CDR loops meeting at the combining site, an antigen above.<span class="hint"> Drag to rotate.</span></figcaption>
+        </figure>
         </div>
       </div>
     </div>
@@ -534,6 +650,14 @@ a:hover{text-decoration-color:currentColor}
       <p class="sec-sub">Education, and the research position that came before the PhD.</p>
       <ul class="bg-list">
         <li class="bg-item">
+          <p class="bg-p">2026 – present</p>
+          <div>
+            <p class="bg-t">Visiting researcher</p>
+            <p class="bg-o">NSF AI Institute for Foundations of Machine Learning (IFML), UT Austin</p>
+            <p class="bg-n">Generative models for proteins: protein engineering and antibody–antigen structure prediction.</p>
+          </div>
+        </li>
+        <li class="bg-item">
           <p class="bg-p">2023 – present</p>
           <div>
             <p class="bg-t">PhD, National PhD programme in AI for Government and Public Security</p>
@@ -587,114 +711,224 @@ a:hover{text-decoration-color:currentColor}
 
 </main>
 
+<script type="application/json" id="protein-geom">[{"k":"sa","d":"VH","p":[[-2.28,-1.5,-0.72],[-2.38,-1.0,-0.77],[-2.453205080756888,-0.5,-0.8066025403784438],[-2.48,0.0,-0.82],[-2.453205080756888,0.5,-0.8066025403784438],[-2.38,1.0,-0.77],[-2.28,1.5,-0.72]]},{"k":"sa","d":"VH","p":[[-1.68,-1.5,-0.72],[-1.5799999999999998,-1.0,-0.6699999999999999],[-1.506794919243112,-0.5,-0.6333974596215561],[-1.48,0.0,-0.62],[-1.506794919243112,0.5,-0.6333974596215561],[-1.5799999999999998,1.0,-0.6699999999999999],[-1.68,1.5,-0.72]]},{"k":"sa","d":"VH","p":[[-1.0799999999999998,-1.5,-0.72],[-1.18,-1.0,-0.77],[-1.2532050807568877,-0.5,-0.8066025403784438],[-1.2799999999999998,0.0,-0.82],[-1.2532050807568877,0.5,-0.8066025403784438],[-1.18,1.0,-0.77],[-1.0799999999999998,1.5,-0.72]]},{"k":"sa","d":"VH","p":[[-0.47999999999999987,-1.5,-0.72],[-0.3799999999999999,-1.0,-0.6699999999999999],[-0.3067949192431121,-0.5,-0.6333974596215561],[-0.2799999999999998,0.0,-0.62],[-0.3067949192431121,0.5,-0.6333974596215561],[-0.3799999999999999,1.0,-0.6699999999999999],[-0.47999999999999987,1.5,-0.72]]},{"k":"sb","d":"VH","p":[[-2.4299999999999997,-1.5,0.72],[-2.33,-1.0,0.77],[-2.256794919243112,-0.5,0.8066025403784438],[-2.23,0.0,0.82],[-2.256794919243112,0.5,0.8066025403784438],[-2.33,1.0,0.77],[-2.4299999999999997,1.5,0.72]]},{"k":"sb","d":"VH","p":[[-1.9,-1.5,0.72],[-2.0,-1.0,0.6699999999999999],[-2.0732050807568876,-0.5,0.6333974596215561],[-2.0999999999999996,0.0,0.62],[-2.0732050807568876,0.5,0.6333974596215561],[-2.0,1.0,0.6699999999999999],[-1.9,1.5,0.72]]},{"k":"sb","d":"VH","p":[[-1.38,-1.5,0.72],[-1.2799999999999998,-1.0,0.77],[-1.2067949192431122,-0.5,0.8066025403784438],[-1.18,0.0,0.82],[-1.2067949192431122,0.5,0.8066025403784438],[-1.2799999999999998,1.0,0.77],[-1.38,1.5,0.72]]},{"k":"sb","d":"VH","p":[[-0.8599999999999999,-1.5,0.72],[-0.9599999999999999,-1.0,0.6699999999999999],[-1.0332050807568876,-0.5,0.6333974596215561],[-1.0599999999999998,0.0,0.62],[-1.0332050807568876,0.5,0.6333974596215561],[-0.9599999999999999,1.0,0.6699999999999999],[-0.8599999999999999,1.5,0.72]]},{"k":"sb","d":"VH","p":[[-0.32999999999999985,-1.5,0.72],[-0.22999999999999976,-1.0,0.77],[-0.15679491924311217,-0.5,0.8066025403784438],[-0.1299999999999999,0.0,0.82],[-0.15679491924311217,0.5,0.8066025403784438],[-0.22999999999999976,1.0,0.77],[-0.32999999999999985,1.5,0.72]]},{"k":"cdr","d":"VH","n":"CDR-H1","p":[[-2.28,1.5,-0.72],[-2.2325,1.7104758878007993,-0.4251949702904731],[-2.185,1.8889087296526013,-0.14786796564403576],[-2.1375,2.0081337428812076,0.0971638597533861],[-2.09,2.05,0.3],[-2.0425,2.0081337428812076,0.45716385975338597],[-1.9949999999999999,1.8889087296526013,0.5721320343559644],[-1.9474999999999998,1.7104758878007995,0.654805029709527],[-1.9,1.5,0.72]]},{"k":"cdr","d":"VH","n":"CDR-H2","p":[[-1.68,1.5,-0.72],[-1.6424999999999998,1.760224734008261,-0.4251949702904731],[-1.605,1.9808326112068524,-0.14786796564403576],[-1.5675,2.128238082107675,0.0971638597533861],[-1.5299999999999998,2.18,0.3],[-1.4925,2.128238082107675,0.45716385975338597],[-1.4549999999999998,1.9808326112068524,0.5721320343559644],[-1.4175,1.760224734008261,0.654805029709527],[-1.38,1.5,0.72]]},{"k":"cdr","d":"VH","n":"CDR-H3","p":[[-1.0799999999999998,1.5,-0.72],[-1.0524999999999998,1.8099735802157229,-0.4251949702904731],[-1.025,2.0727564927611035,-0.14786796564403576],[-0.9974999999999998,2.2483424213341423,0.0971638597533861],[-0.9699999999999999,2.31,0.3],[-0.9424999999999999,2.2483424213341423,0.45716385975338597],[-0.9149999999999998,2.0727564927611035,0.5721320343559644],[-0.8874999999999998,1.8099735802157229,0.654805029709527],[-0.8599999999999999,1.5,0.72]]},{"k":"fw","d":"VH","p":[[-1.68,-1.5,-0.72],[-1.6424999999999998,-1.6607270415933377,-0.54],[-1.605,-1.79698484809835,-0.36],[-1.5675,-1.8880294036547405,-0.17999999999999994],[-1.5299999999999998,-1.92,0.0],[-1.4925,-1.8880294036547405,0.17999999999999994],[-1.4549999999999998,-1.79698484809835,0.3600000000000001],[-1.4175,-1.6607270415933377,0.54],[-1.38,-1.5,0.72]]},{"k":"fw","d":"VH","p":[[-1.0799999999999998,-1.5,-0.72],[-1.0524999999999998,-1.6607270415933377,-0.54],[-1.025,-1.79698484809835,-0.36],[-0.9974999999999998,-1.8880294036547405,-0.17999999999999994],[-0.9699999999999999,-1.92,0.0],[-0.9424999999999999,-1.8880294036547405,0.17999999999999994],[-0.9149999999999998,-1.79698484809835,0.3600000000000001],[-0.8874999999999998,-1.6607270415933377,0.54],[-0.8599999999999999,-1.5,0.72]]},{"k":"fw","d":"VH","p":[[-0.47999999999999987,-1.5,-0.72],[-0.4612499999999998,-1.6607270415933377,-0.54],[-0.4424999999999999,-1.79698484809835,-0.36],[-0.42374999999999985,-1.8880294036547405,-0.17999999999999994],[-0.4049999999999998,-1.92,0.0],[-0.38624999999999987,-1.8880294036547405,0.17999999999999994],[-0.36749999999999994,-1.79698484809835,0.3600000000000001],[-0.3487499999999999,-1.6607270415933377,0.54],[-0.32999999999999985,-1.5,0.72]]},{"k":"sa","d":"VL","p":[[2.28,-1.5,0.72],[2.38,-1.0,0.77],[2.453205080756888,-0.5,0.8066025403784438],[2.48,0.0,0.82],[2.453205080756888,0.5,0.8066025403784438],[2.38,1.0,0.77],[2.28,1.5,0.72]]},{"k":"sa","d":"VL","p":[[1.68,-1.5,0.72],[1.5799999999999998,-1.0,0.6699999999999999],[1.506794919243112,-0.5,0.6333974596215561],[1.48,0.0,0.62],[1.506794919243112,0.5,0.6333974596215561],[1.5799999999999998,1.0,0.6699999999999999],[1.68,1.5,0.72]]},{"k":"sa","d":"VL","p":[[1.0799999999999998,-1.5,0.72],[1.18,-1.0,0.77],[1.2532050807568877,-0.5,0.8066025403784438],[1.2799999999999998,0.0,0.82],[1.2532050807568877,0.5,0.8066025403784438],[1.18,1.0,0.77],[1.0799999999999998,1.5,0.72]]},{"k":"sa","d":"VL","p":[[0.47999999999999987,-1.5,0.72],[0.3799999999999999,-1.0,0.6699999999999999],[0.3067949192431121,-0.5,0.6333974596215561],[0.2799999999999998,0.0,0.62],[0.3067949192431121,0.5,0.6333974596215561],[0.3799999999999999,1.0,0.6699999999999999],[0.47999999999999987,1.5,0.72]]},{"k":"sb","d":"VL","p":[[2.4299999999999997,-1.5,-0.72],[2.33,-1.0,-0.77],[2.256794919243112,-0.5,-0.8066025403784438],[2.23,0.0,-0.82],[2.256794919243112,0.5,-0.8066025403784438],[2.33,1.0,-0.77],[2.4299999999999997,1.5,-0.72]]},{"k":"sb","d":"VL","p":[[1.9,-1.5,-0.72],[2.0,-1.0,-0.6699999999999999],[2.0732050807568876,-0.5,-0.6333974596215561],[2.0999999999999996,0.0,-0.62],[2.0732050807568876,0.5,-0.6333974596215561],[2.0,1.0,-0.6699999999999999],[1.9,1.5,-0.72]]},{"k":"sb","d":"VL","p":[[1.38,-1.5,-0.72],[1.2799999999999998,-1.0,-0.77],[1.2067949192431122,-0.5,-0.8066025403784438],[1.18,0.0,-0.82],[1.2067949192431122,0.5,-0.8066025403784438],[1.2799999999999998,1.0,-0.77],[1.38,1.5,-0.72]]},{"k":"sb","d":"VL","p":[[0.8599999999999999,-1.5,-0.72],[0.9599999999999999,-1.0,-0.6699999999999999],[1.0332050807568876,-0.5,-0.6333974596215561],[1.0599999999999998,0.0,-0.62],[1.0332050807568876,0.5,-0.6333974596215561],[0.9599999999999999,1.0,-0.6699999999999999],[0.8599999999999999,1.5,-0.72]]},{"k":"sb","d":"VL","p":[[0.32999999999999985,-1.5,-0.72],[0.22999999999999976,-1.0,-0.77],[0.15679491924311217,-0.5,-0.8066025403784438],[0.1299999999999999,0.0,-0.82],[0.15679491924311217,0.5,-0.8066025403784438],[0.22999999999999976,1.0,-0.77],[0.32999999999999985,1.5,-0.72]]},{"k":"cdr","d":"VL","n":"CDR-L1","p":[[2.28,1.5,0.72],[2.2325,1.7104758878007993,0.4251949702904731],[2.185,1.8889087296526013,0.14786796564403576],[2.1375,2.0081337428812076,-0.0971638597533861],[2.09,2.05,-0.3],[2.0425,2.0081337428812076,-0.45716385975338597],[1.9949999999999999,1.8889087296526013,-0.5721320343559644],[1.9474999999999998,1.7104758878007995,-0.654805029709527],[1.9,1.5,-0.72]]},{"k":"cdr","d":"VL","n":"CDR-L2","p":[[1.68,1.5,0.72],[1.6424999999999998,1.760224734008261,0.4251949702904731],[1.605,1.9808326112068524,0.14786796564403576],[1.5675,2.128238082107675,-0.0971638597533861],[1.5299999999999998,2.18,-0.3],[1.4925,2.128238082107675,-0.45716385975338597],[1.4549999999999998,1.9808326112068524,-0.5721320343559644],[1.4175,1.760224734008261,-0.654805029709527],[1.38,1.5,-0.72]]},{"k":"cdr","d":"VL","n":"CDR-L3","p":[[1.0799999999999998,1.5,0.72],[1.0524999999999998,1.8099735802157229,0.4251949702904731],[1.025,2.0727564927611035,0.14786796564403576],[0.9974999999999998,2.2483424213341423,-0.0971638597533861],[0.9699999999999999,2.31,-0.3],[0.9424999999999999,2.2483424213341423,-0.45716385975338597],[0.9149999999999998,2.0727564927611035,-0.5721320343559644],[0.8874999999999998,1.8099735802157229,-0.654805029709527],[0.8599999999999999,1.5,-0.72]]},{"k":"fw","d":"VL","p":[[1.68,-1.5,0.72],[1.6424999999999998,-1.6607270415933377,0.54],[1.605,-1.79698484809835,0.36],[1.5675,-1.8880294036547405,0.17999999999999994],[1.5299999999999998,-1.92,-0.0],[1.4925,-1.8880294036547405,-0.17999999999999994],[1.4549999999999998,-1.79698484809835,-0.3600000000000001],[1.4175,-1.6607270415933377,-0.54],[1.38,-1.5,-0.72]]},{"k":"fw","d":"VL","p":[[1.0799999999999998,-1.5,0.72],[1.0524999999999998,-1.6607270415933377,0.54],[1.025,-1.79698484809835,0.36],[0.9974999999999998,-1.8880294036547405,0.17999999999999994],[0.9699999999999999,-1.92,-0.0],[0.9424999999999999,-1.8880294036547405,-0.17999999999999994],[0.9149999999999998,-1.79698484809835,-0.3600000000000001],[0.8874999999999998,-1.6607270415933377,-0.54],[0.8599999999999999,-1.5,-0.72]]},{"k":"fw","d":"VL","p":[[0.47999999999999987,-1.5,0.72],[0.4612499999999998,-1.6607270415933377,0.54],[0.4424999999999999,-1.79698484809835,0.36],[0.42374999999999985,-1.8880294036547405,0.17999999999999994],[0.4049999999999998,-1.92,-0.0],[0.38624999999999987,-1.8880294036547405,-0.17999999999999994],[0.36749999999999994,-1.79698484809835,-0.3600000000000001],[0.3487499999999999,-1.6607270415933377,-0.54],[0.32999999999999985,-1.5,-0.72]]},{"k":"link","d":"linker","p":[[-1.38,-2.05,1.35],[-1.2075,-2.08957030952638,1.3354703844144518],[-1.035,-2.1339726913697348,1.2932889358515653],[-0.8624999999999999,-2.1866568421986146,1.2275415225277433],[-0.69,-2.248586253410956,1.1445967087185807],[-0.5175,-2.317638305841239,1.0524888694871575],[-0.345,-2.388637373793731,0.9601399481431279],[-0.17249999999999988,-2.454028796094618,0.87649524019895],[0.0,-2.505078322768962,0.8096569153359199],[0.17249999999999988,-2.5333796889556104,0.7660992079983164],[0.345,-2.532391622884836,0.7500412964754941],[0.5175000000000001,-2.4987165447349335,0.7630386159776753],[0.69,-2.432878297441009,0.8038321927981318],[0.8624999999999998,-2.3394471137628345,0.8684705936731252],[1.0350000000000001,-2.226479684694152,0.9506926778241338],[1.2075,-2.104368238693858,1.0425340767487794],[1.38,-1.9843013401281209,1.135098655638968]]},{"k":"ag","d":"antigen","p":[[1.62,3.3,0.0],[1.5888721542532334,3.440465031851612,0.18533580591532184],[1.4966848426682846,3.5755320713028644,0.3635492607468353],[1.3469807719301234,3.7000105677741133,0.5277917213686221],[1.145512985522207,3.809116882454314,0.67175144212722],[0.9000237774917558,3.8986581208578324,0.7898961316874179],[0.6199471604314456,3.965193263408126,0.8776855558857224],[0.3160463216661279,4.006165401890326,0.9317460163830689],[9.919639073093561e-17,4.02,0.95],[-0.31604632166612767,4.006165401890326,0.9317460163830689],[-0.6199471604314454,3.965193263408126,0.8776855558857224],[-0.9000237774917552,3.8986581208578324,0.7898961316874181],[-1.145512985522207,3.809116882454314,0.6717514421272202],[-1.3469807719301234,3.7000105677741133,0.5277917213686221],[-1.4966848426682846,3.5755320713028644,0.36354926074683536],[-1.5888721542532334,3.4404650318516126,0.18533580591532217],[-1.62,3.3,1.1634144591899854e-16],[-1.5888721542532334,3.1595349681483875,-0.18533580591532192],[-1.4966848426682848,3.024467928697135,-0.3635492607468352],[-1.3469807719301237,2.8999894322258863,-0.5277917213686218],[-1.1455129855222073,2.7908831175456856,-0.67175144212722],[-0.9000237774917555,2.7013418791421673,-0.7898961316874179],[-0.6199471604314464,2.6348067365918735,-0.8776855558857222],[-0.31604632166612845,2.593834598109674,-0.9317460163830688],[-2.9758917219280684e-16,2.58,-0.95],[0.3160463216661279,2.593834598109674,-0.9317460163830689],[0.6199471604314458,2.6348067365918735,-0.8776855558857223],[0.900023777491755,2.7013418791421673,-0.7898961316874181],[1.1455129855222068,2.7908831175456856,-0.6717514421272203],[1.3469807719301234,2.8999894322258863,-0.5277917213686221],[1.4966848426682842,3.0244679286971348,-0.36354926074683586],[1.5888721542532331,3.159534968148387,-0.18533580591532228],[1.62,3.3,-2.326828918379971e-16]],"closed":true}]</script>
+
 <footer class="wrap foot">
   <p>&copy; 2026 Maria Rosaria Briglia</p>
 </footer>
 
 <script>
-/* Progressive enhancement only. Every arc is already drawn in the markup;
-   this makes the disk draggable by applying the Mobius isometry
-   z -> (z + a) / (1 + conj(a).z), which moves the ideal endpoints while
-   preserving the hyperbolic structure. */
+/* Progressive enhancement only. Every figure is fully drawn in the markup;
+   this file adds the interactions. */
 (function () {
   "use strict";
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { return; }
+  var root = document.documentElement;
+  root.className += " js";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!reduce) { root.className += " drag"; }
 
-  document.documentElement.className += " js";
-
-  var svg = document.getElementById("disk");
-  var paths = [].slice.call(svg.querySelectorAll(".geo"));
-  var N = 16, SEG = 18, CAP = 0.6;
-  if (!paths.length) { return; }
-
-  var pairs = paths.map(function (p) {
-    return [+p.getAttribute("data-a"), +p.getAttribute("data-b")];
-  });
-
-  function mobius(z, a) {
-    var nRe = z[0] + a[0], nIm = z[1] + a[1];
-    var dRe = 1 + (a[0] * z[0] + a[1] * z[1]);
-    var dIm = a[0] * z[1] - a[1] * z[0];
-    var den = dRe * dRe + dIm * dIm;
-    if (den < 1e-12) { return z; }
-    return [(nRe * dRe + nIm * dIm) / den, (nIm * dRe - nRe * dIm) / den];
+  /* ---------- shared: drag-to-rotate plumbing ---------- */
+  function draggable(el, onMove, onRelease) {
+    var down = false;
+    el.addEventListener("pointerdown", function (ev) {
+      down = true;
+      if (el.setPointerCapture) { el.setPointerCapture(ev.pointerId); }
+      onMove(ev, true);
+    });
+    el.addEventListener("pointermove", function (ev) {
+      if (ev.pointerType !== "mouse" && !down) { return; }
+      onMove(ev, false);
+    });
+    function up() { down = false; if (onRelease) { onRelease(); } }
+    el.addEventListener("pointerup", up);
+    el.addEventListener("pointercancel", up);
+    el.addEventListener("pointerleave", function () {
+      if (!down) { return; }
+      up();
+    });
   }
 
-  function d(p1, p2) {
-    var dot = p1[0] * p2[0] + p1[1] * p2[1];
-    var line = "M" + p1[0].toFixed(4) + " " + p1[1].toFixed(4) +
-               "L" + p2[0].toFixed(4) + " " + p2[1].toFixed(4);
-    if (Math.abs(1 + dot) < 1e-4) { return line; }
-    var cx = (p1[0] + p2[0]) / (1 + dot);
-    var cy = (p1[1] + p2[1]) / (1 + dot);
-    var r2 = cx * cx + cy * cy - 1;
-    if (r2 <= 0) { return line; }
-    var r = Math.sqrt(r2);
-    var a1 = Math.atan2(p1[1] - cy, p1[0] - cx);
-    var a2 = Math.atan2(p2[1] - cy, p2[0] - cx);
-    var t = a2 - a1;
-    while (t > Math.PI) { t -= 2 * Math.PI; }
-    while (t < -Math.PI) { t += 2 * Math.PI; }
-    var out = "";
-    for (var i = 0; i <= SEG; i++) {
-      var u = a1 + t * (i / SEG);
-      out += (i === 0 ? "M" : "L") +
-             (cx + r * Math.cos(u)).toFixed(4) + " " +
-             (cy + r * Math.sin(u)).toFixed(4);
+  /* ================= energy landscape ================= */
+  (function () {
+    var svg = document.getElementById("energy");
+    if (!svg) { return; }
+    var dot = document.getElementById("eadv");
+    var bar = document.getElementById("edelta");
+    var out = document.getElementById("ereadout");
+    var eps = document.getElementById("eeps");
+    var bU = document.getElementById("euntgt");
+    var bT = document.getElementById("etgt");
+    var NAT = 0.34, ADV = 0.66, TGT = 0.08;
+    var targeted = false;
+
+    function E(x) {
+      return 1.02 - 0.30 * x - 0.52 / (1.0 + Math.exp(-(x - 0.44) / 0.075));
     }
-    return out;
-  }
+    function ex(x) { return 6 + x * 88; }
+    function ey(e) { return 6 + (e / 1.05) * 32; }
 
-  function render(a) {
-    var ideal = [];
-    for (var i = 0; i < N; i++) {
-      var th = (i / N) * Math.PI * 2;
-      ideal.push(mobius([Math.cos(th), Math.sin(th)], a));
+    function paint() {
+      var t = (+eps.value) / 100;
+      var x = targeted ? NAT - t * (NAT - TGT) : NAT + t * (ADV - NAT);
+      var e = E(x), ny = ey(E(NAT));
+      dot.setAttribute("cx", ex(x).toFixed(2));
+      dot.setAttribute("cy", ey(e).toFixed(2));
+      bar.setAttribute("x1", ex(x).toFixed(2));
+      bar.setAttribute("x2", ex(x).toFixed(2));
+      bar.setAttribute("y1", ny.toFixed(2));
+      bar.setAttribute("y2", ey(e).toFixed(2));
+      var d = e - E(NAT);
+      var sign = d < 0 ? "\u2212" : "+";
+      var word = Math.abs(d) < 0.01 ? "the same energy as the natural sample"
+               : d < 0 ? "lower energy than the natural sample"
+                       : "higher energy than the natural sample";
+      out.innerHTML = "\u0394E " + sign + Math.abs(d).toFixed(2) + " \u00b7 " + word;
     }
-    for (var k = 0; k < pairs.length; k++) {
-      paths[k].setAttribute("d", d(ideal[pairs[k][0]], ideal[pairs[k][1]]));
+
+    eps.addEventListener("input", paint);
+    bU.addEventListener("click", function () {
+      targeted = false; bU.className = "ebtn is-on"; bT.className = "ebtn"; paint();
+    });
+    bT.addEventListener("click", function () {
+      targeted = true; bT.className = "ebtn is-on"; bU.className = "ebtn"; paint();
+    });
+    paint();
+  })();
+
+  if (reduce) { return; }
+
+  /* ================= scFv, drag to rotate ================= */
+  (function () {
+    var svg = document.getElementById("protein");
+    var src = document.getElementById("protein-geom");
+    if (!svg || !src) { return; }
+    var els;
+    try { els = JSON.parse(src.textContent); } catch (err) { return; }
+
+    var nodes = [];
+    [].forEach.call(svg.querySelectorAll("path[data-i]"), function (p) {
+      nodes[+p.getAttribute("data-i")] = p;
+    });
+    if (nodes.length !== els.length) { return; }
+
+    var ry = 0.55, rx = -0.34, ry0 = 0.55, rx0 = -0.34, px = 0, py = 0;
+
+    function paint() {
+      var cy = Math.cos(ry), sy = Math.sin(ry);
+      var cx = Math.cos(rx), sx = Math.sin(rx);
+      var order = [];
+      for (var i = 0; i < els.length; i++) {
+        var pts = els[i].p, d = "", z = 0;
+        for (var j = 0; j < pts.length; j++) {
+          var X = pts[j][0], Y = pts[j][1], Z = pts[j][2];
+          var x1 = X * cy + Z * sy, z1 = -X * sy + Z * cy;
+          var y2 = Y * cx - z1 * sx, z2 = Y * sx + z1 * cx;
+          d += (j ? "L" : "M") + x1.toFixed(3) + " " + (-y2).toFixed(3);
+          z += z2;
+        }
+        if (els[i].closed) { d += "Z"; }
+        nodes[i].setAttribute("d", d);
+        order.push([z / pts.length, nodes[i]]);
+      }
+      order.sort(function (a, b) { return a[0] - b[0]; });
+      for (var k = 0; k < order.length; k++) { svg.appendChild(order[k][1]); }
     }
-  }
 
-  var target = [0, 0], cur = [0, 0], ticking = false, live = false;
-  setTimeout(function () { live = true; }, 1300);
+    draggable(svg, function (ev, start) {
+      if (start) { px = ev.clientX; py = ev.clientY; ry0 = ry; rx0 = rx; return; }
+      var r = svg.getBoundingClientRect();
+      if (!r.width) { return; }
+      ry = ry0 + ((ev.clientX - px) / r.width) * 4.2;
+      rx = rx0 + ((ev.clientY - py) / r.height) * 2.0;
+      rx = Math.max(-1.15, Math.min(0.55, rx));
+      paint();
+    });
+  })();
 
-  function tick() {
-    var dx = target[0] - cur[0], dy = target[1] - cur[1];
-    if (Math.abs(dx) < 0.0006 && Math.abs(dy) < 0.0006) {
-      cur[0] = target[0]; cur[1] = target[1];
-      render(cur); ticking = false; return;
+  /* ================= Poincare disk ================= */
+  (function () {
+    var svg = document.getElementById("disk");
+    if (!svg) { return; }
+    var paths = [].slice.call(svg.querySelectorAll(".geo"));
+    var N = 16, SEG = 18, CAP = 0.6;
+    if (!paths.length) { return; }
+
+    var pairs = paths.map(function (p) {
+      return [+p.getAttribute("data-a"), +p.getAttribute("data-b")];
+    });
+
+    function mobius(z, a) {
+      var nRe = z[0] + a[0], nIm = z[1] + a[1];
+      var dRe = 1 + (a[0] * z[0] + a[1] * z[1]);
+      var dIm = a[0] * z[1] - a[1] * z[0];
+      var den = dRe * dRe + dIm * dIm;
+      if (den < 1e-12) { return z; }
+      return [(nRe * dRe + nIm * dIm) / den, (nIm * dRe - nRe * dIm) / den];
     }
-    cur[0] += dx * 0.14; cur[1] += dy * 0.14;
-    render(cur);
-    requestAnimationFrame(tick);
-  }
-  function nudge() { if (!ticking) { ticking = true; requestAnimationFrame(tick); } }
 
-  function aim(ev) {
-    if (!live) { return; }
-    var r = svg.getBoundingClientRect();
-    if (!r.width || !r.height) { return; }
-    var x = ((ev.clientX - r.left) / r.width) * 2 - 1;
-    var y = ((ev.clientY - r.top) / r.height) * 2 - 1;
-    var m = Math.sqrt(x * x + y * y);
-    if (m > CAP) { x = (x / m) * CAP; y = (y / m) * CAP; }
-    target = [x, y];
-    nudge();
-  }
-  function release() { target = [0, 0]; nudge(); }
+    function d(p1, p2) {
+      var dot = p1[0] * p2[0] + p1[1] * p2[1];
+      var line = "M" + p1[0].toFixed(4) + " " + p1[1].toFixed(4) +
+                 "L" + p2[0].toFixed(4) + " " + p2[1].toFixed(4);
+      if (Math.abs(1 + dot) < 1e-4) { return line; }
+      var cx = (p1[0] + p2[0]) / (1 + dot);
+      var cy = (p1[1] + p2[1]) / (1 + dot);
+      var r2 = cx * cx + cy * cy - 1;
+      if (r2 <= 0) { return line; }
+      var r = Math.sqrt(r2);
+      var a1 = Math.atan2(p1[1] - cy, p1[0] - cx);
+      var a2 = Math.atan2(p2[1] - cy, p2[0] - cx);
+      var t = a2 - a1;
+      while (t > Math.PI) { t -= 2 * Math.PI; }
+      while (t < -Math.PI) { t += 2 * Math.PI; }
+      var out = "";
+      for (var i = 0; i <= SEG; i++) {
+        var u = a1 + t * (i / SEG);
+        out += (i === 0 ? "M" : "L") +
+               (cx + r * Math.cos(u)).toFixed(4) + " " +
+               (cy + r * Math.sin(u)).toFixed(4);
+      }
+      return out;
+    }
 
-  svg.addEventListener("pointerdown", function (ev) {
-    if (svg.setPointerCapture) { svg.setPointerCapture(ev.pointerId); }
-    aim(ev);
-  });
-  svg.addEventListener("pointermove", function (ev) {
-    if (ev.pointerType !== "mouse" && ev.buttons === 0) { return; }
-    aim(ev);
-  });
-  svg.addEventListener("pointerup", release);
-  svg.addEventListener("pointercancel", release);
-  svg.addEventListener("pointerleave", release);
+    function render(a) {
+      var ideal = [];
+      for (var i = 0; i < N; i++) {
+        var th = (i / N) * Math.PI * 2;
+        ideal.push(mobius([Math.cos(th), Math.sin(th)], a));
+      }
+      for (var k = 0; k < pairs.length; k++) {
+        paths[k].setAttribute("d", d(ideal[pairs[k][0]], ideal[pairs[k][1]]));
+      }
+    }
+
+    var target = [0, 0], cur = [0, 0], ticking = false, live = false;
+    setTimeout(function () { live = true; }, 1300);
+
+    function tick() {
+      var dx = target[0] - cur[0], dy = target[1] - cur[1];
+      if (Math.abs(dx) < 0.0006 && Math.abs(dy) < 0.0006) {
+        cur[0] = target[0]; cur[1] = target[1];
+        render(cur); ticking = false; return;
+      }
+      cur[0] += dx * 0.14; cur[1] += dy * 0.14;
+      render(cur);
+      requestAnimationFrame(tick);
+    }
+    function nudge() { if (!ticking) { ticking = true; requestAnimationFrame(tick); } }
+
+    draggable(svg, function (ev) {
+      if (!live) { return; }
+      var r = svg.getBoundingClientRect();
+      if (!r.width || !r.height) { return; }
+      var x = ((ev.clientX - r.left) / r.width) * 2 - 1;
+      var y = ((ev.clientY - r.top) / r.height) * 2 - 1;
+      var m = Math.sqrt(x * x + y * y);
+      if (m > CAP) { x = (x / m) * CAP; y = (y / m) * CAP; }
+      target = [x, y];
+      nudge();
+    }, function () { target = [0, 0]; nudge(); });
+  })();
 })();
 </script>
 

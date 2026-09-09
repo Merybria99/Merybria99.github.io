@@ -69,7 +69,7 @@ GitHub Pages serves.
 
 ## Your photo, and where the disk went
 
-The portrait sits in the hero as a plain rectangle with a 3px radius. The disk
+The portrait sits in the hero as a circle, cropped square. The disk
 moved down into the *geometry of representation space* thread, where it
 illustrates the two papers next to it instead of decorating the top.
 
@@ -77,8 +77,8 @@ Four image files, all with metadata stripped:
 
 | file | size | use |
 |---|---|---|
-| `portrait-640.jpg` | 65 KB | portrait, retina screens |
-| `portrait-320.jpg` | 21 KB | portrait, standard screens |
+| `portrait-640.jpg` | 51 KB | portrait, 640x640, retina screens |
+| `portrait-320.jpg` | 17 KB | portrait, 320x320, standard screens |
 | `og.jpg` | 47 KB | link previews on LinkedIn, Slack, WhatsApp |
 | `portrait-courtyard-640.jpg` | 106 KB | the earlier photo, unused but kept |
 
@@ -87,10 +87,14 @@ The `<img>` uses `srcset`, so phones fetch the 21 KB file. All must sit next to
 
 ### Changing the shape
 
-One line, in `.portrait img`. The alternatives are listed in a comment right
-above it: `0` for hard edges, `3px` as now, `14px` for softly rounded, `50%` for
-a circle — though the crop is 4:5, so a circle reads as an oval unless you also
-change the export to square.
+The portrait is a circle. Because the image is now exported **square**, every
+soft option is a one-line change in `.portrait img` — the values are listed in a
+comment right above it: `50%` for the circle, `22%` for a squircle, `6%` for a
+gently rounded square, `0` for hard edges. No re-export needed for any of them.
+
+If you ever want a 4:5 portrait rectangle back, that does need re-exporting at
+640x800 and 320x400, and the `width`/`height` attributes on the `<img>` have to
+match or the page will jump as the image loads.
 
 ### About the photo itself
 
@@ -145,7 +149,8 @@ statement is for.
    The highest-value thing to add.
 3. **Your email.** The site shows `briglia@di.uniroma1.it`, from your CV, but you
    configured git with `mariarosaria.briglia@uniroma1.it`. Pick one.
-4. **Advisor and lab.** Almost every PhD page names both; yours names neither.
+4. **Your Sapienza advisor.** Adam Klivans is now named for the UT Austin visit,
+   but nobody is named for the PhD itself.
 5. **Scholar, ORCID, LinkedIn.** `links` in `site.json` has slots waiting.
 6. Two papers are dated 2025 but list ICLR 2026 as the venue — *What is
    Adversarial Training for Diffusion Models?* and *Implicit Inversion turns CLIP
@@ -166,6 +171,44 @@ deleting it later would not remove it from a public repo's history. Strip the
 personal details first, then commit it as `cv.pdf` and set `links.cv` to
 `"cv.pdf"`.
 
+## News
+
+The `news` array in `site.json` drives the section. Newest first; the page does
+not sort. An entry with a `paper` field turns that title into a link to the
+paper below, so keep it matching character for character.
+
+```js
+{ "date": "Jan 2026",
+  "text": "Three papers accepted at ICLR 2026.",
+  "paper": "Harnessing Hyperbolic Geometry for Harmful Prompt Detection and Sanitization" }
+```
+
+**Worth adding:** your three ICLR 2026 acceptances. I left them out because I
+don't know the notification date and would rather not guess one on your page.
+
+## Curriculum vitae
+
+`cv.pdf` is generated from `site.json` by `build_cv.py`, so it can't drift from
+the site:
+
+```sh
+python3 build_cv.py       # writes cv.pdf
+```
+
+Two pages. Research threads, the eight publications, education and positions,
+summer schools, awards, technical skills.
+
+**Two deliberate omissions.** Your FlowCV file carries your home address, both
+phone numbers, your date of birth and your gender. A CV you hand to a named
+person can carry those; one downloadable from a public page cannot, and git
+would keep them retrievable forever even after a later deletion. It also omits
+the four papers under review — a public CV listing them would defeat hiding them
+on the site.
+
+So keep the FlowCV version for sending directly to people, and let this one be
+the public face. If you'd rather publish your own file instead, drop it in as
+`cv.pdf` and it will be served in place of this one.
+
 ## The IFML visit
 
 It shows up in four places, all generated from the `visiting` block in
@@ -180,10 +223,9 @@ It shows up in four places, all generated from the `visiting` block in
 `location` in `site.json` is now `Austin, Texas`. When you go back to Rome,
 change that one field and update the `period` on the Background entry.
 
-**Check the dates.** I wrote `2026 – present` because that's certainly true, but
-I don't know when the visit started or how long it runs. If it's a fixed term,
-`2026 Feb – 2026 Dec` reads better than an open `present`, since an open-ended
-visiting position can be misread as a permanent post.
+Dates now come from your CV: November 2025 – present, under Prof. Adam Klivans.
+If the visit has a fixed end date, a closed range reads better than an open
+`present`, which can be misread as a permanent post.
 
 ## The three research figures
 

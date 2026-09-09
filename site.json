@@ -5,7 +5,7 @@
  "affiliation": "Sapienza University of Rome",
  "statement": [
   "I work on the safety and robustness of generative models. My research asks what breaks when a model is attacked, and what a principled defense would look like — through the geometry of representation space, the energy landscape of adversarial training, and the supply chain that model artifacts travel through.",
-  "I am currently visiting IFML at UT Austin, working on generative models for proteins — decoding-time methods for protein engineering, and large-scale benchmarking of antibody–antigen structure prediction. The questions rhyme with the vision work: reward gaming, and models that rank their own outputs badly.",
+  "I am currently visiting IFML at UT Austin, working with Adam Klivans on generative models for proteins — representation learning and mechanistic interpretability applied to protein engineering, decoding-time design methods, and large-scale benchmarking of antibody–antigen structure prediction. The questions rhyme with the vision work: reward gaming, and models that rank their own outputs badly.",
   "Before Sapienza I completed an M.Sc. in Computer Engineering at the University of Salerno, specialising in artificial intelligence and intelligent robotics."
  ],
  "location": "Austin, Texas",
@@ -16,7 +16,7 @@
   "linkedin": "",
   "orcid": "",
   "bluesky": "",
-  "cv": ""
+  "cv": "cv.pdf"
  },
  "githubUser": "",
  "research": [
@@ -34,7 +34,7 @@
    "title": "The geometry of representation space",
    "body": "Concept control and prompt safety depend on the shape of the space you are steering in. Euclidean adjustments to text embeddings are the standard tool; hyperbolic space, with parallel transport in place of vector arithmetic, gives more expressive and more stable manipulation of concepts.",
    "papers": [
-    "Not All Latent Spaces Are Flat: Hyperbolic Concept Control",
+    "Semantic Steering via Hyperbolic Geometry",
     "Harnessing Hyperbolic Geometry for Harmful Prompt Detection and Sanitization",
     "Implicit Inversion turns CLIP into a Decoder"
    ],
@@ -60,6 +60,14 @@
   }
  ],
  "publications": [
+  {
+   "year": "2026",
+   "title": "CIRCE: Chemistry-Informed Reaction-Catalyst Embeddings for Enzyme Retrieval",
+   "venue": "Under submission",
+   "status": "submitted",
+   "hidden": true,
+   "abstract": "Enzymes can make chemical production more selective and sustainable, but identifying enzymes for desired reactions and characterizing enzyme promiscuity remain major bottlenecks. Framing this task as reaction-enzyme retrieval is especially challenging because the useful sequence signal may be localized to a small, often unannotated functional region, while reaction annotations may be incomplete and enzyme promiscuity can create multiple valid matches. We introduce CIRCE (Chemistry-Informed Reaction–Catalyst Embeddings), a single-stage dual encoder that represents these two modalities with functional-site-guided protein pooling and molecular-set reaction chemistry. On the official ReactZyme benchmark, CIRCE reaches a macro-averaged mean reciprocal rank of 0.6489 across six settings, compared with 0.5735 for TIGER ESM2Text. These results show that chemistry- and site-informed representations, through chemically and biologically motivated inductive biases, can improve enzyme-reaction retrieval."
+  },
   {
    "year": "2026",
    "title": "Architectural Backdoors in Vision-Language Model Supply Chains via Representation Steering",
@@ -92,10 +100,17 @@
   },
   {
    "year": "2026",
-   "title": "Not All Latent Spaces Are Flat: Hyperbolic Concept Control",
-   "venue": "arXiv preprint",
-   "status": "preprint",
-   "abstract": "As modern text-to-image (T2I) models draw closer to synthesizing highly realistic content, the threat of unsafe content generation grows, and it becomes paramount to exercise control. Existing approaches steer these models by applying Euclidean adjustments to text embeddings, redirecting the generation away from unsafe concepts. In this work, we introduce hyperbolic control (HyCon): a novel control mechanism based on parallel transport that leverages semantically aligned hyperbolic representation space to yield more expressive and stable manipulation of concepts. HyCon reuses off-the-shelf generative models and a state-of-the-art hyperbolic text encoder, linked via a lightweight adapter. HyCon achieves state-of-the-art results across four safety benchmarks and four T2I backbones, showing that hyperbolic steering is a practical and flexible approach for more reliable T2I generation."
+   "title": "Semantic Steering via Hyperbolic Geometry",
+   "venue": "Beyond Euclidean Workshop, ECCV 2026",
+   "status": "published",
+   "abstract": "As modern text-to-image (T2I) models draw closer to synthesizing highly realistic content, the threat of unsafe content generation grows, and it becomes paramount to exercise control. Existing approaches steer these models by applying Euclidean adjustments to text embeddings, redirecting the generation away from unsafe concepts. In this work, we introduce hyperbolic control (HyCon): a novel control mechanism based on parallel transport that leverages semantically aligned hyperbolic representation space to yield more expressive and stable manipulation of concepts. HyCon reuses off-the-shelf generative models and a state-of-the-art hyperbolic text encoder, linked via a lightweight adapter. HyCon achieves state-of-the-art results across four safety benchmarks and four T2I backbones, showing that hyperbolic steering is a practical and flexible approach for more reliable T2I generation.",
+   "highlight": "Oral",
+   "links": [
+    {
+     "label": "Workshop",
+     "url": "https://sites.google.com/view/beyondeuclidean"
+    }
+   ]
   },
   {
    "year": "2026",
@@ -143,10 +158,10 @@
  ],
  "background": [
   {
-   "period": "2026 – present",
+   "period": "2025 Nov – present",
    "title": "Visiting researcher",
    "org": "NSF AI Institute for Foundations of Machine Learning (IFML), UT Austin",
-   "note": "Generative models for proteins: protein engineering and antibody–antigen structure prediction."
+   "note": "Visiting period under the supervision of Prof. Adam Klivans, applying representation learning and mechanistic interpretability to protein engineering."
   },
   {
    "period": "2023 – present",
@@ -193,6 +208,28 @@
   "orgFull": "NSF AI Institute for Foundations of Machine Learning",
   "host": "UT Austin",
   "url": "https://www.ifml.institute/",
-  "note": "working on generative models for proteins"
- }
+  "note": "applying representation learning and mechanistic interpretability to protein engineering",
+  "period": "November 2025 – present",
+  "supervisor": "Prof. Adam Klivans"
+ },
+ "news": [
+  {
+   "date": "Sep 2026",
+   "text": "Semantic Steering via Hyperbolic Geometry was accepted as an oral presentation at the Beyond Euclidean workshop, ECCV 2026.",
+   "paper": "Semantic Steering via Hyperbolic Geometry"
+  },
+  {
+   "date": "Nov 2025",
+   "text": "Started a visiting position at IFML, UT Austin, with Prof. Adam Klivans, on representation learning and mechanistic interpretability for protein engineering."
+  },
+  {
+   "date": "Aug 2025",
+   "text": "Attended the CISPA–ELLIS Summer School at the Helmholtz Center for Information Security, Saarbrücken."
+  },
+  {
+   "date": "Sep 2024",
+   "text": "Presented Shedding More Light on Robust Classifiers under the Lens of Energy-based Models at ECCV 2024.",
+   "paper": "Shedding More Light on Robust Classifiers under the Lens of Energy-based Models"
+  }
+ ]
 }

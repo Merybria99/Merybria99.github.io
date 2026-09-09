@@ -65,7 +65,7 @@ a:hover{text-decoration-color:currentColor}
 .nav a:hover{color:var(--ink);text-decoration:underline;text-decoration-color:var(--plum)}
 
 .hero{
-  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,17rem);
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,16rem);
   gap:clamp(2rem,5vw,4rem);align-items:center;
   padding-block:clamp(2.5rem,7vw,5rem) clamp(2.5rem,6vw,4rem);
 }
@@ -74,8 +74,9 @@ a:hover{text-decoration-color:currentColor}
   line-height:1.02;letter-spacing:-0.02em;margin:0;color:var(--plum);text-wrap:balance;
 }
 .hrole{font-family:var(--serif);font-style:italic;font-size:clamp(1.0625rem,1rem + 0.4vw,1.25rem);line-height:1.4;margin:0.75rem 0 0;max-width:32ch}
+.hvisit-when{color:var(--ink-soft);font-size:0.8125rem;white-space:nowrap}
 .hvisit{
-  margin:0.9rem 0 0;font-size:0.9375rem;max-width:40ch;line-height:1.5;
+  margin:0.9rem 0 0;font-size:0.9375rem;max-width:42ch;line-height:1.5;
   padding-left:0.85rem;border-left:2px solid var(--plum);
 }
 .hstate{margin:1.5rem 0 0;color:var(--ink-soft);max-width:52ch}
@@ -88,17 +89,16 @@ a:hover{text-decoration-color:currentColor}
 .hmeta a{color:var(--ink-soft)}
 .hmeta a:hover{color:var(--sage)}
 
-.portrait{justify-self:center;margin:0;width:100%;max-width:17rem}
+.portrait{justify-self:center;margin:0;width:100%;max-width:16rem}
 .portrait img{
   display:block;width:100%;height:auto;
   background:var(--paper-deep);
-  /* Shape lives on this one line. Alternatives:
-       0                                  hard-edged rectangle
-       3px                                a whisper of a radius (current)
-       14px                               softly rounded
-       50%                                circle (crop is 4:5, so it will read as an oval)
-       50% 50% 4px 4px / 40% 40% 2px 2px  the arch, if you change your mind */
-  border-radius:3px;
+  /* The image is square, so every option below works from this one line:
+       50%    circle (current)
+       22%    squircle, soft but still a portrait shape
+       6%     gently rounded square
+       0      hard edges */
+  border-radius:50%;
 }
 
 .fig{margin:0;min-width:0}
@@ -151,6 +151,24 @@ a:hover{text-decoration-color:currentColor}
 .geo{stroke-dasharray:1;animation:draw 1s ease-out backwards}
 
 .band{background:var(--paper-deep);border-block:1px solid var(--rule)}
+
+/* news */
+.sec-news{padding-block:0 clamp(2.5rem,5vw,3.5rem)}
+.news{list-style:none;margin:1.25rem 0 0;padding:0;display:grid;gap:0.9rem}
+.news-item{display:grid;grid-template-columns:5.5rem minmax(0,1fr);gap:0 1.25rem;align-items:baseline}
+.news-date{font-size:0.75rem;color:var(--plum);white-space:nowrap}
+.news-text{max-width:var(--measure);line-height:1.55}
+.news-text a{color:var(--ink);text-decoration-color:var(--rule)}
+.news-text a:hover{color:var(--sage)}
+
+/* cv */
+.cv-btn{
+  display:inline-block;font-size:0.9375rem;text-decoration:none;
+  color:var(--paper);background:var(--plum);
+  padding:0.5rem 1.1rem;border-radius:3px;
+}
+.cv-btn:hover{background:var(--ink)}
+.cv-btn:focus-visible{outline-offset:3px}
 .sec{padding-block:clamp(2.75rem,6vw,4.5rem)}
 .sec-h{font-family:var(--serif);font-weight:600;font-size:1.375rem;letter-spacing:-0.01em;margin:0 0 0.35rem;color:var(--plum)}
 .sec-sub{color:var(--ink-soft);font-size:0.875rem;margin:0 0 2.25rem;max-width:var(--measure)}
@@ -174,6 +192,7 @@ a:hover{text-decoration-color:currentColor}
 .pub-v{font-size:0.875rem;color:var(--ink-soft);margin:0.35rem 0 0;display:flex;flex-wrap:wrap;gap:0.5rem;align-items:baseline}
 .tag{font-size:0.6875rem;line-height:1.7;padding:0 0.45rem;border-radius:999px;border:1px solid var(--rule);color:var(--ink-soft);white-space:nowrap}
 .tag-submitted{border-color:var(--plum);color:var(--plum)}
+.tag-oral{border-color:var(--sage);color:var(--sage)}
 .pub-links{display:flex;flex-wrap:wrap;gap:1rem;margin:0.55rem 0 0;font-size:0.875rem}
 .pub-abs{margin:0.65rem 0 0}
 .pub-abs summary{list-style:none;cursor:pointer;color:var(--sage);font-size:0.875rem;display:inline-flex;align-items:center;gap:0.4rem}
@@ -214,6 +233,7 @@ a:hover{text-decoration-color:currentColor}
   .bg-item{grid-template-columns:1fr}
   .bg-p{padding:0 0 0.2rem}
   .mini li{grid-template-columns:3.5rem minmax(0,1fr);gap:1rem}
+  .news-item{grid-template-columns:1fr;gap:0.15rem}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -223,7 +243,7 @@ a:hover{text-decoration-color:currentColor}
   .pub{transition:none}
 }
 @media print{
-  .nav,.fig,.foot,.skip{display:none}
+  .nav,.fig,.foot,.skip,.cv-btn{display:none}
   .portrait{max-width:8rem}
   .band{background:none;border:0}
   .pub-abs{display:none}
@@ -240,9 +260,11 @@ a:hover{text-decoration-color:currentColor}
   <div class="wrap masthead-inner">
     <a class="sig" href="#top">{{SHORT}}</a>
     <nav class="nav" aria-label="Sections">
+      <a href="#news">News</a>
       <a href="#research">Research</a>
       <a href="#publications">Publications</a>
       <a href="#background">Background</a>
+      <a href="#cv">CV</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
@@ -266,10 +288,17 @@ a:hover{text-decoration-color:currentColor}
     <figure class="portrait">
       <img src="portrait-640.jpg"
            srcset="portrait-320.jpg 320w, portrait-640.jpg 640w"
-           sizes="(max-width:820px) 11rem, 17rem"
-           width="640" height="800" fetchpriority="high" decoding="async"
+           sizes="(max-width:820px) 11rem, 16rem"
+           width="640" height="640" fetchpriority="high" decoding="async"
            alt="Portrait of {{NAME}}.">
     </figure>
+  </section>
+
+  <section class="wrap sec sec-news" id="news">
+    <h2 class="sec-h">News</h2>
+    <ul class="news">
+{{NEWS}}
+    </ul>
   </section>
 
   <section class="band" id="research">
@@ -299,6 +328,14 @@ a:hover{text-decoration-color:currentColor}
       <ul class="mini">
           {{SCHOOLS}}
       </ul>
+    </div>
+  </section>
+
+  <section class="band" id="cv">
+    <div class="wrap sec">
+      <h2 class="sec-h">Curriculum vitae</h2>
+      <p class="sec-sub">Publications, education, and the visiting position, generated from the same source as this page. Papers under review are left out, as they are here.</p>
+      {{CVBLOCK}}
     </div>
   </section>
 

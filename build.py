@@ -80,9 +80,11 @@ HIDDEN = {p['title'] for p in D['publications'] if p.get('hidden')}
 pubs_html = []
 for p in VISIBLE:
     tag = ""
+    if p.get('highlight'):
+        tag += f'<span class="tag tag-oral">{e(p["highlight"])}</span>'
     label = STATUS.get(p.get('status'))
     if label and p['venue'] != label:
-        tag = f'<span class="tag tag-{p["status"]}">{e(label)}</span>'
+        tag += f'<span class="tag tag-{p["status"]}">{e(label)}</span>'
     links = ""
     if p.get('links'):
         items = " ".join(
@@ -172,12 +174,34 @@ HMETA = [f'<span>{e(D["location"])}</span>',
 if D['links'].get('cv'):
     HMETA.append(f'<a href="{e(D["links"]["cv"])}">Curriculum vitae</a>')
 
+NEWS = ""
+_news = D.get('news') or []
+if _news:
+    rows = []
+    for n in _news:
+        body = e(n['text'])
+        if n.get('paper'):
+            body = body.replace(e(n['paper']),
+                                f'<a href="#{slug(n["paper"])}">{e(n["paper"])}</a>', 1)
+        rows.append(f'          <li class="news-item">'
+                    f'<span class="news-date">{e(n["date"])}</span>'
+                    f'<span class="news-text">{body}</span></li>')
+    NEWS = "\n".join(rows)
+
+CVBLOCK = ""
+_cv = (D.get('links') or {}).get('cv')
+if _cv:
+    CVBLOCK = (f'<a class="cv-btn" href="{e(_cv)}" download>Download CV (PDF)</a>')
+
 V = D.get('visiting') or {}
 VISIT = ""
 if V:
     org = f'<a href="{e(V["url"])}" rel="noopener">{e(V["org"])}</a>' if V.get("url") else e(V["org"])
-    VISIT = (f'<p class="hvisit">{e(V["role"])} at {org}, {e(V["host"])}'
-             + (f' \u2014 {e(V["note"])}.' if V.get("note") else '.') + '</p>')
+    sup = f' with {e(V["supervisor"])}' if V.get("supervisor") else ''
+    VISIT = (f'<p class="hvisit">{e(V["role"])} at {org}, {e(V["host"])}{sup}'
+             + (f' \u2014 {e(V["note"])}.' if V.get("note") else '.')
+             + (f' <span class="hvisit-when">{e(V["period"])}</span>' if V.get("period") else '')
+             + '</p>')
 
 STATEMENT = "\n        ".join(f'<p>{e(s)}</p>' for s in D['statement'])
 
@@ -235,6 +259,8 @@ out = (tpl
        .replace("{{PUBS}}", PUBS)
        .replace("{{BG}}", BG)
        .replace("{{SCHOOLS}}", schools)
+       .replace("{{NEWS}}", NEWS)
+       .replace("{{CVBLOCK}}", CVBLOCK)
        .replace("{{ELSEWHERE}}", ELSEWHERE)
        .replace("{{PROTEIN_GEOM}}", PROTEIN_GEOM))
 

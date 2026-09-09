@@ -115,6 +115,12 @@ for p in VIS:
     two_col(p["year"], [Paragraph(p["title"], S["title"]),
                         Paragraph(venue, S["venue"])])
 
+# ---------------------------------------------------------------- service
+if D.get("service"):
+    section("Service")
+    for sv in D["service"]:
+        two_col(sv["year"], [Paragraph(sv["text"], S["body"])])
+
 # ---------------------------------------------------------------- education
 section("Education and positions")
 for b in D["background"]:

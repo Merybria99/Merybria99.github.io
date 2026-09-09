@@ -8,7 +8,7 @@ flexible peptide linker, with three CDR loops per domain meeting at one end to
 form the combining site.
 """
 
-import json, math
+import html, json, math
 
 # ----------------------------------------------------------------- 3D helpers
 def rot(p, ry, rx):
@@ -224,3 +224,87 @@ if __name__ == "__main__":
         print(f"  E({label:15}) = {energy(x):.3f}")
     print("  dE untargeted =", round(energy(ADV_X) - energy(NAT_X), 3), "(want negative)")
     print("  dE targeted   =", round(energy(TGT_X) - energy(NAT_X), 3), "(want positive)")
+
+
+e = html.escape
+
+
+# ------------------------------------------------------------ world map
+# Equirectangular (plate carrée): x = lon, y = -lat. Antarctica cropped.
+LON0, LON1, LAT0, LAT1 = -168.0, 182.0, -58.0, 84.0
+
+
+def mx(lon):
+    return lon
+
+
+def my(lat):
+    return -lat
+
+
+def graticule():
+    out = []
+    for lon in range(-150, 181, 30):
+        out.append(f'<path class="grat" d="M{mx(lon):.1f} {my(LAT1):.1f}L{mx(lon):.1f} {my(LAT0):.1f}"/>')
+    for lat in range(-30, 61, 30):
+        out.append(f'<path class="grat" d="M{mx(LON0):.1f} {my(lat):.1f}L{mx(LON1):.1f} {my(lat):.1f}"/>')
+    out.append(f'<path class="grat grat-eq" d="M{mx(LON0):.1f} 0L{mx(LON1):.1f} 0"/>')
+    return out
+
+
+def map_figure(C):
+    places = C["places"]
+    home = next((p for p in places if p.get("home")), places[0])
+    hx, hy = mx(home["lon"]), my(home["lat"])
+
+    arcs = []
+    for i, p in enumerate(places):
+        if p is home:
+            continue
+        x, y = mx(p["lon"]), my(p["lat"])
+        # bulge poleward, scaled by distance so short hops stay flat
+        d = ((x - hx) ** 2 + (y - hy) ** 2) ** 0.5
+        cx, cy = (hx + x) / 2, (hy + y) / 2 - min(d * 0.28, 26)
+        arcs.append(f'<path class="marc" data-i="{i}" '
+                    f'd="M{hx:.2f} {hy:.2f}Q{cx:.2f} {cy:.2f} {x:.2f} {y:.2f}"/>')
+
+    pins = []
+    for i, p in enumerate(places):
+        x, y = mx(p["lon"]), my(p["lat"])
+        cls = "pin pin-" + p["kind"] + (" pin-home" if p.get("home") else "")
+        pins.append(
+            f'<g class="{cls}" data-i="{i}">'
+            f'<circle class="pin-hit" cx="{x:.2f}" cy="{y:.2f}" r="7"/>'
+            f'<circle class="pin-dot" cx="{x:.2f}" cy="{y:.2f}" r="2.6"/>'
+            f'<title>{e(p["name"])} \u2014 {e(p["city"])}</title></g>')
+
+    legend = []
+    for i, p in enumerate(places):
+        legend.append(
+            f'<li class="leg-item leg-{p["kind"]}">'
+            f'<button type="button" class="leg-btn" data-i="{i}">'
+            f'<span class="leg-name">{e(p["name"])}</span>'
+            f'<span class="leg-city">{e(p["city"])}</span>'
+            f'<span class="leg-note">{e(p["note"])}</span></button></li>')
+
+    vb = f"{LON0:.0f} {my(LAT1):.0f} {LON1 - LON0:.0f} {LAT1 - LAT0:.0f}"
+    return f'''<figure class="mapfig">
+        <svg class="wmap" id="wmap" viewBox="{vb}" role="img"
+             aria-label="World map marking the institutions behind this work: Rome and Fisciano in Italy, Austin in Texas, Saarbr\u00fccken in Germany, and Eindhoven in the Netherlands.">
+          <g id="wmap-land"></g>
+          <g class="grats">
+            {chr(10).join("            " + g for g in graticule()).strip()}
+          </g>
+          <g class="marcs">
+            {chr(10).join("            " + a for a in arcs).strip()}
+          </g>
+          <g class="pins">
+            {chr(10).join("            " + p for p in pins).strip()}
+          </g>
+        </svg>
+        <p class="map-live" id="map-live" aria-live="polite"></p>
+        <ul class="legend-list">
+          {chr(10).join("          " + l for l in legend).strip()}
+        </ul>
+        <figcaption class="fig-cap map-cap">Filled markers are institutions I have worked with; hollow ones are schools I attended. {e(C.get("attribution",""))}</figcaption>
+      </figure>'''

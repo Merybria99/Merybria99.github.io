@@ -183,8 +183,57 @@ paper below, so keep it matching character for character.
   "paper": "Harnessing Hyperbolic Geometry for Harmful Prompt Detection and Sanitization" }
 ```
 
-**Worth adding:** your three ICLR 2026 acceptances. I left them out because I
-don't know the notification date and would rather not guess one on your page.
+An entry with a `url` instead gets a "More" link appended.
+
+**Two things to tidy.** The top two items are dated just `2026` because I don't
+know the month you joined The Good AI Lab, or ECCV 2026's workshop date. Set
+those and the column reads consistently. And your three ICLR 2026 acceptances
+belong here — I left them out rather than guess the notification date.
+
+## Service
+
+`service` in `site.json` renders under Background *and* as its own section in
+the CV. That second part matters: a news item scrolls away, but "co-organizer of
+a workshop at a top-tier venue" is exactly what a hiring committee scans a CV
+for, so it needs a permanent home.
+
+Both current entries also appear in Background as ongoing affiliations, since
+neither is a one-off event.
+
+**One wording choice to check.** You wrote "I am organizing"; I wrote
+"co-organizing", since U&ME has run twice before with a team behind it and
+overclaiming sole credit for a workshop is the kind of thing colleagues notice.
+If you are in fact the sole organizer, drop the "co-".
+
+For the record, I verified both names before putting them up: U&ME is the
+Workshop and Challenge on Unlearning and Model Editing, third edition, after
+ECCV 2024 and ICCV 2025. The Good AI Lab is an independent collective, not a
+Sapienza group, so it is listed as an affiliation rather than under your PhD.
+
+## Collaborations map
+
+An equirectangular world map in the `Collaborations` section, driven by the
+`collaborations.places` array in `site.json`. Each entry needs `name`, `city`,
+`lat`, `lon`, a `kind` of `work` or `school`, and a one-line `note`. One entry
+carries `"home": true` — the arcs all radiate from it.
+
+Filled plum markers are institutions with documented work; hollow sage ones are
+schools attended. Hovering or tabbing to a pin, or to its legend entry,
+highlights both and the arc between them.
+
+**One external dependency, and it is optional.** The graticule, the arcs, the
+pins and the whole legend are in the markup, so the map works offline and with
+JavaScript off. Coastlines are fetched at runtime from Natural Earth via
+world-atlas on jsDelivr; if that request fails you get the graticule map, which
+is still readable. To remove the dependency, download the file once, commit it
+next to `index.html`, and point the `URL` constant in the `<script>` at the
+local copy.
+
+**This map is thin, and that is a data problem, not a code one.** Four of the
+six markers are institutions you have actually worked with, and three of those
+are in Italy. It becomes worth having once your co-authors' affiliations are on
+it. Send me author lists and I will add them; the array takes any number of
+entries.
 
 ## Curriculum vitae
 

@@ -291,6 +291,47 @@ a:hover{text-decoration-color:currentColor}
 .news-text a{color:var(--ink);text-decoration-color:var(--rule)}
 .news-text a:hover{color:var(--sage)}
 
+/* world map */
+.mapfig{margin:0}
+.wmap{
+  display:block;width:100%;height:auto;
+  background:color-mix(in srgb,var(--paper-deep) 60%,transparent);
+  border:1px solid var(--rule);border-radius:3px;
+}
+.land{fill:var(--paper-deep);stroke:var(--rule);stroke-width:0.3;stroke-linejoin:round}
+.grat{fill:none;stroke:var(--rule);stroke-width:0.35;opacity:0.7}
+.grat-eq{stroke-width:0.5;opacity:0.9}
+.marc{fill:none;stroke:var(--plum);stroke-width:0.55;opacity:0.3;stroke-linecap:round;transition:opacity .15s ease,stroke-width .15s ease}
+.marc.is-on{opacity:1;stroke-width:0.9}
+.pin-hit{fill:transparent}
+.pin-dot{stroke-width:0.7;transition:r .15s ease}
+.pin-work .pin-dot{fill:var(--plum);stroke:var(--paper)}
+.pin-school .pin-dot{fill:var(--paper);stroke:var(--sage);stroke-width:0.9}
+.pin-home .pin-dot{fill:var(--plum);stroke:var(--paper);stroke-width:1.1}
+.js .pin{cursor:pointer}
+.pin.is-on .pin-dot{r:4.2;stroke-width:1.5}
+.map-live{
+  font-size:0.8125rem;color:var(--ink);margin:0.75rem 0 0;min-height:1.3em;
+  font-variant-numeric:tabular-nums;
+}
+.legend-list{
+  list-style:none;margin:1rem 0 0;padding:0;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:0.5rem 1.5rem;
+}
+.leg-btn{
+  font:inherit;text-align:left;background:none;cursor:pointer;width:100%;
+  border:0;border-left:2px solid var(--rule);padding:0.1rem 0 0.1rem 0.7rem;margin:0;
+  display:grid;gap:0.05rem;transition:border-color .15s ease;
+}
+.leg-work .leg-btn{border-left-color:var(--plum)}
+.leg-school .leg-btn{border-left-color:var(--sage)}
+.leg-btn:hover,.leg-btn.is-on{background:color-mix(in srgb,var(--plum) 8%,transparent)}
+.leg-name{font-size:0.875rem;color:var(--ink);line-height:1.35}
+.leg-city{font-size:0.75rem;color:var(--ink-soft)}
+.leg-note{font-size:0.75rem;color:var(--ink-soft);line-height:1.45}
+.map-cap{max-width:var(--measure);margin-top:1rem}
+html:not(.js) .map-live{display:none}
+
 /* cv */
 .cv-btn{
   display:inline-block;font-size:0.9375rem;text-decoration:none;
@@ -364,16 +405,19 @@ a:hover{text-decoration-color:currentColor}
   .bg-p{padding:0 0 0.2rem}
   .mini li{grid-template-columns:3.5rem minmax(0,1fr);gap:1rem}
   .news-item{grid-template-columns:1fr;gap:0.15rem}
+  .legend-list{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
+  .marc,.pin-dot,.leg-btn{transition:none}
   .geo{animation:none;stroke-dasharray:none}
   .chev{transition:none}
   .js .disk,.js .protein{cursor:default}
   .pub{transition:none}
 }
 @media print{
-  .nav,.fig,.foot,.skip,.cv-btn{display:none}
+  .nav,.fig,.foot,.skip,.cv-btn,.map-live{display:none}
+  .wmap{border-color:#999}
   .portrait{max-width:8rem}
   .band{background:none;border:0}
   .pub-abs{display:none}
@@ -394,6 +438,7 @@ a:hover{text-decoration-color:currentColor}
       <a href="#research">Research</a>
       <a href="#publications">Publications</a>
       <a href="#background">Background</a>
+      <a href="#collaborations">Collaborations</a>
       <a href="#cv">CV</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -431,6 +476,8 @@ a:hover{text-decoration-color:currentColor}
   <section class="wrap sec sec-news" id="news">
     <h2 class="sec-h">News</h2>
     <ul class="news">
+          <li class="news-item"><span class="news-date">2026</span><span class="news-text">Co-organizing the 3rd Workshop and Challenge on Unlearning and Model Editing (U&amp;ME) at ECCV 2026. <a href="https://sites.google.com/view/u-and-me-workshop/" rel="noopener">More</a></span></li>
+          <li class="news-item"><span class="news-date">2026</span><span class="news-text">Joined The Good AI Lab, a collective advancing AI research with a focus on social impact. <a href="https://thegoodailab.org" rel="noopener">More</a></span></li>
           <li class="news-item"><span class="news-date">Sep 2026</span><span class="news-text"><a href="#p-semantic-steering-via-hyperbolic-geometry">Semantic Steering via Hyperbolic Geometry</a> was accepted as an oral presentation at the Beyond Euclidean workshop, ECCV 2026.</span></li>
           <li class="news-item"><span class="news-date">Nov 2025</span><span class="news-text">Started a visiting position at IFML, UT Austin, with Prof. Adam Klivans, on representation learning and mechanistic interpretability for protein engineering.</span></li>
           <li class="news-item"><span class="news-date">Aug 2025</span><span class="news-text">Attended the CISPA–ELLIS Summer School at the Helmholtz Center for Information Security, Saarbrücken.</span></li>
@@ -698,6 +745,14 @@ a:hover{text-decoration-color:currentColor}
           </div>
         </li>
         <li class="bg-item">
+          <p class="bg-p">2026 – present</p>
+          <div>
+            <p class="bg-t">Member</p>
+            <p class="bg-o">The Good AI Lab</p>
+            <p class="bg-n">A collective of researchers and engineers from universities, labs and companies, working on AI research with social impact.</p>
+          </div>
+        </li>
+        <li class="bg-item">
           <p class="bg-p">2023 – present</p>
           <div>
             <p class="bg-t">PhD, National PhD programme in AI for Government and Public Security</p>
@@ -735,7 +790,67 @@ a:hover{text-decoration-color:currentColor}
           <li><span>2025</span><span>CISPA – ELLIS Summer School, Saarbrücken, Germany</span></li>
           <li><span>2024</span><span>Generative Modeling Summer School, Eindhoven University of Technology</span></li>
       </ul>
+      <p class="mini-h">Service</p>
+      <ul class="mini">
+          <li><span>2026</span><span><a href="https://sites.google.com/view/u-and-me-workshop/" rel="noopener">Co-organizer, 3rd Workshop and Challenge on Unlearning and Model Editing (U&amp;ME), ECCV 2026</a></span></li>
+          <li><span>2026</span><span><a href="https://thegoodailab.org" rel="noopener">Member, The Good AI Lab</a></span></li>
+      </ul>
     </div>
+  </section>
+
+  <section class="wrap sec" id="collaborations">
+    <h2 class="sec-h">Collaborations</h2>
+    <p class="sec-sub">The institutions behind this work, and where they are.</p>
+    <figure class="mapfig">
+        <svg class="wmap" id="wmap" viewBox="-168 -84 350 142" role="img"
+             aria-label="World map marking the institutions behind this work: Rome and Fisciano in Italy, Austin in Texas, Saarbrücken in Germany, and Eindhoven in the Netherlands.">
+          <g id="wmap-land"></g>
+          <g class="grats">
+            <path class="grat" d="M-150.0 -84.0L-150.0 58.0"/>
+            <path class="grat" d="M-120.0 -84.0L-120.0 58.0"/>
+            <path class="grat" d="M-90.0 -84.0L-90.0 58.0"/>
+            <path class="grat" d="M-60.0 -84.0L-60.0 58.0"/>
+            <path class="grat" d="M-30.0 -84.0L-30.0 58.0"/>
+            <path class="grat" d="M0.0 -84.0L0.0 58.0"/>
+            <path class="grat" d="M30.0 -84.0L30.0 58.0"/>
+            <path class="grat" d="M60.0 -84.0L60.0 58.0"/>
+            <path class="grat" d="M90.0 -84.0L90.0 58.0"/>
+            <path class="grat" d="M120.0 -84.0L120.0 58.0"/>
+            <path class="grat" d="M150.0 -84.0L150.0 58.0"/>
+            <path class="grat" d="M180.0 -84.0L180.0 58.0"/>
+            <path class="grat" d="M-168.0 30.0L182.0 30.0"/>
+            <path class="grat" d="M-168.0 0.0L182.0 0.0"/>
+            <path class="grat" d="M-168.0 -30.0L182.0 -30.0"/>
+            <path class="grat" d="M-168.0 -60.0L182.0 -60.0"/>
+            <path class="grat grat-eq" d="M-168.0 0L182.0 0"/>
+          </g>
+          <g class="marcs">
+            <path class="marc" data-i="1" d="M12.50 -41.90Q-42.62 -62.09 -97.74 -30.29"/>
+            <path class="marc" data-i="2" d="M12.50 -41.90Q13.64 -42.05 14.79 -40.77"/>
+            <path class="marc" data-i="3" d="M12.50 -41.90Q12.56 -41.91 12.62 -41.85"/>
+            <path class="marc" data-i="4" d="M12.50 -41.90Q9.75 -48.13 7.00 -49.23"/>
+            <path class="marc" data-i="5" d="M12.50 -41.90Q8.99 -49.99 5.49 -51.45"/>
+          </g>
+          <g class="pins">
+            <g class="pin pin-work pin-home" data-i="0"><circle class="pin-hit" cx="12.50" cy="-41.90" r="7"/><circle class="pin-dot" cx="12.50" cy="-41.90" r="2.6"/><title>Sapienza University of Rome — Rome, Italy</title></g>
+            <g class="pin pin-work" data-i="1"><circle class="pin-hit" cx="-97.74" cy="-30.29" r="7"/><circle class="pin-dot" cx="-97.74" cy="-30.29" r="2.6"/><title>IFML, UT Austin — Austin, Texas</title></g>
+            <g class="pin pin-work" data-i="2"><circle class="pin-hit" cx="14.79" cy="-40.77" r="7"/><circle class="pin-dot" cx="14.79" cy="-40.77" r="2.6"/><title>University of Salerno — Fisciano, Italy</title></g>
+            <g class="pin pin-work" data-i="3"><circle class="pin-hit" cx="12.62" cy="-41.85" r="7"/><circle class="pin-dot" cx="12.62" cy="-41.85" r="2.6"/><title>RFI (Rete Ferroviaria Italiana) — Italy</title></g>
+            <g class="pin pin-school" data-i="4"><circle class="pin-hit" cx="7.00" cy="-49.23" r="7"/><circle class="pin-dot" cx="7.00" cy="-49.23" r="2.6"/><title>CISPA Helmholtz Center for Information Security — Saarbrücken, Germany</title></g>
+            <g class="pin pin-school" data-i="5"><circle class="pin-hit" cx="5.49" cy="-51.45" r="7"/><circle class="pin-dot" cx="5.49" cy="-51.45" r="2.6"/><title>Eindhoven University of Technology — Eindhoven, Netherlands</title></g>
+          </g>
+        </svg>
+        <p class="map-live" id="map-live" aria-live="polite"></p>
+        <ul class="legend-list">
+          <li class="leg-item leg-work"><button type="button" class="leg-btn" data-i="0"><span class="leg-name">Sapienza University of Rome</span><span class="leg-city">Rome, Italy</span><span class="leg-note">PhD, AI for Government and Public Security.</span></button></li>
+          <li class="leg-item leg-work"><button type="button" class="leg-btn" data-i="1"><span class="leg-name">IFML, UT Austin</span><span class="leg-city">Austin, Texas</span><span class="leg-note">Visiting researcher with Prof. Adam Klivans, on proteins.</span></button></li>
+          <li class="leg-item leg-work"><button type="button" class="leg-btn" data-i="2"><span class="leg-name">University of Salerno</span><span class="leg-city">Fisciano, Italy</span><span class="leg-note">M.Sc. and B.Sc., and the artificial-vision research scholarship.</span></button></li>
+          <li class="leg-item leg-work"><button type="button" class="leg-btn" data-i="3"><span class="leg-name">RFI (Rete Ferroviaria Italiana)</span><span class="leg-city">Italy</span><span class="leg-note">Industrial partner on real-time anomaly detection along the railway track.</span></button></li>
+          <li class="leg-item leg-school"><button type="button" class="leg-btn" data-i="4"><span class="leg-name">CISPA Helmholtz Center for Information Security</span><span class="leg-city">Saarbrücken, Germany</span><span class="leg-note">CISPA – ELLIS Summer School, 2025.</span></button></li>
+          <li class="leg-item leg-school"><button type="button" class="leg-btn" data-i="5"><span class="leg-name">Eindhoven University of Technology</span><span class="leg-city">Eindhoven, Netherlands</span><span class="leg-note">Generative Modeling Summer School, 2024.</span></button></li>
+        </ul>
+        <figcaption class="fig-cap map-cap">Filled markers are institutions I have worked with; hollow ones are schools I attended. Coastlines from Natural Earth, public domain.</figcaption>
+      </figure>
   </section>
 
   <section class="band" id="cv">
@@ -842,6 +957,106 @@ a:hover{text-decoration-color:currentColor}
       targeted = true; bT.className = "ebtn is-on"; bU.className = "ebtn"; paint();
     });
     paint();
+  })();
+
+
+  /* ================= collaborations map ================= */
+  (function () {
+    var svg = document.getElementById("wmap");
+    if (!svg) { return; }
+    var live = document.getElementById("map-live");
+    var pins = [].slice.call(svg.querySelectorAll(".pin"));
+    var arcs = [].slice.call(svg.querySelectorAll(".marc"));
+    var btns = [].slice.call(document.querySelectorAll(".leg-btn"));
+
+    function byIndex(list, i) {
+      return list.filter(function (n) { return n.getAttribute("data-i") === String(i); });
+    }
+    /* className is a read-only SVGAnimatedString on SVG elements, so go
+       through get/setAttribute, which behaves the same for SVG and HTML. */
+    function mark(n, want) {
+      var c = (n.getAttribute("class") || "").replace(/\s*is-on/g, "");
+      n.setAttribute("class", want ? c + " is-on" : c);
+    }
+    function clear() {
+      pins.concat(arcs).concat(btns).forEach(function (n) { mark(n, false); });
+      live.textContent = "";
+    }
+    function on(i) {
+      clear();
+      byIndex(pins, i).concat(byIndex(arcs, i)).concat(byIndex(btns, i))
+        .forEach(function (n) { mark(n, true); });
+      var b = byIndex(btns, i)[0];
+      if (b) {
+        live.textContent = b.querySelector(".leg-name").textContent + " \u2014 " +
+                           b.querySelector(".leg-city").textContent;
+      }
+    }
+
+    pins.concat(btns).forEach(function (n) {
+      var i = n.getAttribute("data-i");
+      n.addEventListener("mouseenter", function () { on(i); });
+      n.addEventListener("focus", function () { on(i); });
+      n.addEventListener("mouseleave", clear);
+      n.addEventListener("blur", clear);
+      n.addEventListener("click", function () { on(i); });
+    });
+
+    /* Coastlines, added if they load. The map is already legible without them:
+       graticule, arcs and pins are all in the markup. Natural Earth via
+       world-atlas (TopoJSON), decoded inline so there is no library to pull in. */
+    var URL = "https://cdn.jsdelivr.net/npm/visionscarto-world-atlas@1/world/110m.json";
+    fetch(URL).then(function (r) {
+      if (!r.ok) { throw new Error(r.status); }
+      return r.json();
+    }).then(function (topo) {
+      var obj = (topo.objects && (topo.objects.land || topo.objects.countries));
+      if (!obj || !topo.arcs) { return; }
+      var tr = topo.transform || { scale: [1, 1], translate: [0, 0] };
+      var sc = tr.scale, tl = tr.translate;
+
+      var decoded = topo.arcs.map(function (arc) {
+        var x = 0, y = 0;
+        return arc.map(function (d) {
+          x += d[0]; y += d[1];
+          return [x * sc[0] + tl[0], y * sc[1] + tl[1]];
+        });
+      });
+
+      function ring(idxs) {
+        var pts = [];
+        idxs.forEach(function (i) {
+          var a = i < 0 ? decoded[~i].slice().reverse() : decoded[i];
+          pts = pts.concat(pts.length ? a.slice(1) : a);
+        });
+        return pts;
+      }
+      function polys(geom) {
+        if (geom.type === "Polygon") { return [geom.arcs]; }
+        if (geom.type === "MultiPolygon") { return geom.arcs; }
+        if (geom.type === "GeometryCollection") {
+          return geom.geometries.reduce(function (acc, g) { return acc.concat(polys(g)); }, []);
+        }
+        return [];
+      }
+
+      var d = "";
+      polys(obj).forEach(function (poly) {
+        poly.forEach(function (r) {
+          var pts = ring(r);
+          if (pts.length < 3) { return; }
+          for (var k = 0; k < pts.length; k++) {
+            d += (k ? "L" : "M") + pts[k][0].toFixed(2) + " " + (-pts[k][1]).toFixed(2);
+          }
+          d += "Z";
+        });
+      });
+      if (!d) { return; }
+      var p = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      p.setAttribute("class", "land");
+      p.setAttribute("d", d);
+      document.getElementById("wmap-land").appendChild(p);
+    }).catch(function () { /* graticule map stands on its own */ });
   })();
 
   if (reduce) { return; }

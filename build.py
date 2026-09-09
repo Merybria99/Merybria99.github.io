@@ -55,6 +55,7 @@ GEOS = "\n          ".join(geos)
 
 PROTEIN_SVG, PROTEIN_GEOM = figures.protein_figure()
 ENERGY_SVG = figures.energy_figure()
+MAP_SVG = figures.map_figure(D['collaborations']) if D.get('collaborations') else ''
 
 DISK = f"""<figure class="fig fig-disk">
           <div class="fig-box disk-holder">
@@ -142,6 +143,17 @@ for b in D['background']:
         </li>""")
 BG = "\n".join(bg_html)
 
+SERVICE = ""
+if D.get('service'):
+    _rows = []
+    for sv in D['service']:
+        txt = e(sv['text'])
+        if sv.get('url'):
+            txt = f'<a href="{e(sv["url"])}" rel="noopener">{txt}</a>'
+        _rows.append(f'<li><span>{e(sv["year"])}</span><span>{txt}</span></li>')
+    SERVICE = ('<p class="mini-h">Service</p>\n      <ul class="mini">\n          '
+               + "\n          ".join(_rows) + '\n      </ul>')
+
 schools = "\n          ".join(
     f'<li><span>{e(s["year"])}</span><span>{e(s["name"])}, {e(s["where"])}</span></li>'
     for s in D['schools'])
@@ -183,6 +195,8 @@ if _news:
         if n.get('paper'):
             body = body.replace(e(n['paper']),
                                 f'<a href="#{slug(n["paper"])}">{e(n["paper"])}</a>', 1)
+        elif n.get('url'):
+            body += f' <a href="{e(n["url"])}" rel="noopener">More</a>' 
         rows.append(f'          <li class="news-item">'
                     f'<span class="news-date">{e(n["date"])}</span>'
                     f'<span class="news-text">{body}</span></li>')
@@ -259,7 +273,9 @@ out = (tpl
        .replace("{{PUBS}}", PUBS)
        .replace("{{BG}}", BG)
        .replace("{{SCHOOLS}}", schools)
+       .replace("{{SERVICE}}", SERVICE)
        .replace("{{NEWS}}", NEWS)
+       .replace("{{MAP}}", MAP_SVG)
        .replace("{{CVBLOCK}}", CVBLOCK)
        .replace("{{ELSEWHERE}}", ELSEWHERE)
        .replace("{{PROTEIN_GEOM}}", PROTEIN_GEOM))

@@ -164,6 +164,12 @@
    "note": "Visiting period under the supervision of Prof. Adam Klivans, applying representation learning and mechanistic interpretability to protein engineering."
   },
   {
+   "period": "2026 – present",
+   "title": "Member",
+   "org": "The Good AI Lab",
+   "note": "A collective of researchers and engineers from universities, labs and companies, working on AI research with social impact."
+  },
+  {
    "period": "2023 – present",
    "title": "PhD, National PhD programme in AI for Government and Public Security",
    "org": "Sapienza University of Rome",
@@ -201,7 +207,18 @@
   }
  ],
  "teaching": [],
- "service": [],
+ "service": [
+  {
+   "year": "2026",
+   "text": "Co-organizer, 3rd Workshop and Challenge on Unlearning and Model Editing (U&ME), ECCV 2026",
+   "url": "https://sites.google.com/view/u-and-me-workshop/"
+  },
+  {
+   "year": "2026",
+   "text": "Member, The Good AI Lab",
+   "url": "https://thegoodailab.org"
+  }
+ ],
  "visiting": {
   "role": "Visiting researcher",
   "org": "IFML",
@@ -213,6 +230,16 @@
   "supervisor": "Prof. Adam Klivans"
  },
  "news": [
+  {
+   "date": "2026",
+   "text": "Co-organizing the 3rd Workshop and Challenge on Unlearning and Model Editing (U&ME) at ECCV 2026.",
+   "url": "https://sites.google.com/view/u-and-me-workshop/"
+  },
+  {
+   "date": "2026",
+   "text": "Joined The Good AI Lab, a collective advancing AI research with a focus on social impact.",
+   "url": "https://thegoodailab.org"
+  },
   {
    "date": "Sep 2026",
    "text": "Semantic Steering via Hyperbolic Geometry was accepted as an oral presentation at the Beyond Euclidean workshop, ECCV 2026.",
@@ -231,5 +258,60 @@
    "text": "Presented Shedding More Light on Robust Classifiers under the Lens of Energy-based Models at ECCV 2024.",
    "paper": "Shedding More Light on Robust Classifiers under the Lens of Energy-based Models"
   }
- ]
+ ],
+ "collaborations": {
+  "home": "Sapienza University of Rome",
+  "attribution": "Coastlines from Natural Earth, public domain.",
+  "places": [
+   {
+    "name": "Sapienza University of Rome",
+    "city": "Rome, Italy",
+    "lat": 41.902,
+    "lon": 12.496,
+    "kind": "work",
+    "home": true,
+    "note": "PhD, AI for Government and Public Security."
+   },
+   {
+    "name": "IFML, UT Austin",
+    "city": "Austin, Texas",
+    "lat": 30.286,
+    "lon": -97.739,
+    "kind": "work",
+    "note": "Visiting researcher with Prof. Adam Klivans, on proteins."
+   },
+   {
+    "name": "University of Salerno",
+    "city": "Fisciano, Italy",
+    "lat": 40.775,
+    "lon": 14.789,
+    "kind": "work",
+    "note": "M.Sc. and B.Sc., and the artificial-vision research scholarship."
+   },
+   {
+    "name": "RFI (Rete Ferroviaria Italiana)",
+    "city": "Italy",
+    "lat": 41.85,
+    "lon": 12.62,
+    "kind": "work",
+    "note": "Industrial partner on real-time anomaly detection along the railway track."
+   },
+   {
+    "name": "CISPA Helmholtz Center for Information Security",
+    "city": "Saarbrücken, Germany",
+    "lat": 49.234,
+    "lon": 6.996,
+    "kind": "school",
+    "note": "CISPA – ELLIS Summer School, 2025."
+   },
+   {
+    "name": "Eindhoven University of Technology",
+    "city": "Eindhoven, Netherlands",
+    "lat": 51.448,
+    "lon": 5.49,
+    "kind": "school",
+    "note": "Generative Modeling Summer School, 2024."
+   }
+  ]
+ }
 }

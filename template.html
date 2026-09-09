@@ -161,6 +161,47 @@ a:hover{text-decoration-color:currentColor}
 .news-text a{color:var(--ink);text-decoration-color:var(--rule)}
 .news-text a:hover{color:var(--sage)}
 
+/* world map */
+.mapfig{margin:0}
+.wmap{
+  display:block;width:100%;height:auto;
+  background:color-mix(in srgb,var(--paper-deep) 60%,transparent);
+  border:1px solid var(--rule);border-radius:3px;
+}
+.land{fill:var(--paper-deep);stroke:var(--rule);stroke-width:0.3;stroke-linejoin:round}
+.grat{fill:none;stroke:var(--rule);stroke-width:0.35;opacity:0.7}
+.grat-eq{stroke-width:0.5;opacity:0.9}
+.marc{fill:none;stroke:var(--plum);stroke-width:0.55;opacity:0.3;stroke-linecap:round;transition:opacity .15s ease,stroke-width .15s ease}
+.marc.is-on{opacity:1;stroke-width:0.9}
+.pin-hit{fill:transparent}
+.pin-dot{stroke-width:0.7;transition:r .15s ease}
+.pin-work .pin-dot{fill:var(--plum);stroke:var(--paper)}
+.pin-school .pin-dot{fill:var(--paper);stroke:var(--sage);stroke-width:0.9}
+.pin-home .pin-dot{fill:var(--plum);stroke:var(--paper);stroke-width:1.1}
+.js .pin{cursor:pointer}
+.pin.is-on .pin-dot{r:4.2;stroke-width:1.5}
+.map-live{
+  font-size:0.8125rem;color:var(--ink);margin:0.75rem 0 0;min-height:1.3em;
+  font-variant-numeric:tabular-nums;
+}
+.legend-list{
+  list-style:none;margin:1rem 0 0;padding:0;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:0.5rem 1.5rem;
+}
+.leg-btn{
+  font:inherit;text-align:left;background:none;cursor:pointer;width:100%;
+  border:0;border-left:2px solid var(--rule);padding:0.1rem 0 0.1rem 0.7rem;margin:0;
+  display:grid;gap:0.05rem;transition:border-color .15s ease;
+}
+.leg-work .leg-btn{border-left-color:var(--plum)}
+.leg-school .leg-btn{border-left-color:var(--sage)}
+.leg-btn:hover,.leg-btn.is-on{background:color-mix(in srgb,var(--plum) 8%,transparent)}
+.leg-name{font-size:0.875rem;color:var(--ink);line-height:1.35}
+.leg-city{font-size:0.75rem;color:var(--ink-soft)}
+.leg-note{font-size:0.75rem;color:var(--ink-soft);line-height:1.45}
+.map-cap{max-width:var(--measure);margin-top:1rem}
+html:not(.js) .map-live{display:none}
+
 /* cv */
 .cv-btn{
   display:inline-block;font-size:0.9375rem;text-decoration:none;
@@ -234,16 +275,19 @@ a:hover{text-decoration-color:currentColor}
   .bg-p{padding:0 0 0.2rem}
   .mini li{grid-template-columns:3.5rem minmax(0,1fr);gap:1rem}
   .news-item{grid-template-columns:1fr;gap:0.15rem}
+  .legend-list{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
+  .marc,.pin-dot,.leg-btn{transition:none}
   .geo{animation:none;stroke-dasharray:none}
   .chev{transition:none}
   .js .disk,.js .protein{cursor:default}
   .pub{transition:none}
 }
 @media print{
-  .nav,.fig,.foot,.skip,.cv-btn{display:none}
+  .nav,.fig,.foot,.skip,.cv-btn,.map-live{display:none}
+  .wmap{border-color:#999}
   .portrait{max-width:8rem}
   .band{background:none;border:0}
   .pub-abs{display:none}
@@ -264,6 +308,7 @@ a:hover{text-decoration-color:currentColor}
       <a href="#research">Research</a>
       <a href="#publications">Publications</a>
       <a href="#background">Background</a>
+      <a href="#collaborations">Collaborations</a>
       <a href="#cv">CV</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -328,7 +373,14 @@ a:hover{text-decoration-color:currentColor}
       <ul class="mini">
           {{SCHOOLS}}
       </ul>
+      {{SERVICE}}
     </div>
+  </section>
+
+  <section class="wrap sec" id="collaborations">
+    <h2 class="sec-h">Collaborations</h2>
+    <p class="sec-sub">The institutions behind this work, and where they are.</p>
+    {{MAP}}
   </section>
 
   <section class="band" id="cv">
@@ -433,6 +485,106 @@ a:hover{text-decoration-color:currentColor}
       targeted = true; bT.className = "ebtn is-on"; bU.className = "ebtn"; paint();
     });
     paint();
+  })();
+
+
+  /* ================= collaborations map ================= */
+  (function () {
+    var svg = document.getElementById("wmap");
+    if (!svg) { return; }
+    var live = document.getElementById("map-live");
+    var pins = [].slice.call(svg.querySelectorAll(".pin"));
+    var arcs = [].slice.call(svg.querySelectorAll(".marc"));
+    var btns = [].slice.call(document.querySelectorAll(".leg-btn"));
+
+    function byIndex(list, i) {
+      return list.filter(function (n) { return n.getAttribute("data-i") === String(i); });
+    }
+    /* className is a read-only SVGAnimatedString on SVG elements, so go
+       through get/setAttribute, which behaves the same for SVG and HTML. */
+    function mark(n, want) {
+      var c = (n.getAttribute("class") || "").replace(/\s*is-on/g, "");
+      n.setAttribute("class", want ? c + " is-on" : c);
+    }
+    function clear() {
+      pins.concat(arcs).concat(btns).forEach(function (n) { mark(n, false); });
+      live.textContent = "";
+    }
+    function on(i) {
+      clear();
+      byIndex(pins, i).concat(byIndex(arcs, i)).concat(byIndex(btns, i))
+        .forEach(function (n) { mark(n, true); });
+      var b = byIndex(btns, i)[0];
+      if (b) {
+        live.textContent = b.querySelector(".leg-name").textContent + " \u2014 " +
+                           b.querySelector(".leg-city").textContent;
+      }
+    }
+
+    pins.concat(btns).forEach(function (n) {
+      var i = n.getAttribute("data-i");
+      n.addEventListener("mouseenter", function () { on(i); });
+      n.addEventListener("focus", function () { on(i); });
+      n.addEventListener("mouseleave", clear);
+      n.addEventListener("blur", clear);
+      n.addEventListener("click", function () { on(i); });
+    });
+
+    /* Coastlines, added if they load. The map is already legible without them:
+       graticule, arcs and pins are all in the markup. Natural Earth via
+       world-atlas (TopoJSON), decoded inline so there is no library to pull in. */
+    var URL = "https://cdn.jsdelivr.net/npm/visionscarto-world-atlas@1/world/110m.json";
+    fetch(URL).then(function (r) {
+      if (!r.ok) { throw new Error(r.status); }
+      return r.json();
+    }).then(function (topo) {
+      var obj = (topo.objects && (topo.objects.land || topo.objects.countries));
+      if (!obj || !topo.arcs) { return; }
+      var tr = topo.transform || { scale: [1, 1], translate: [0, 0] };
+      var sc = tr.scale, tl = tr.translate;
+
+      var decoded = topo.arcs.map(function (arc) {
+        var x = 0, y = 0;
+        return arc.map(function (d) {
+          x += d[0]; y += d[1];
+          return [x * sc[0] + tl[0], y * sc[1] + tl[1]];
+        });
+      });
+
+      function ring(idxs) {
+        var pts = [];
+        idxs.forEach(function (i) {
+          var a = i < 0 ? decoded[~i].slice().reverse() : decoded[i];
+          pts = pts.concat(pts.length ? a.slice(1) : a);
+        });
+        return pts;
+      }
+      function polys(geom) {
+        if (geom.type === "Polygon") { return [geom.arcs]; }
+        if (geom.type === "MultiPolygon") { return geom.arcs; }
+        if (geom.type === "GeometryCollection") {
+          return geom.geometries.reduce(function (acc, g) { return acc.concat(polys(g)); }, []);
+        }
+        return [];
+      }
+
+      var d = "";
+      polys(obj).forEach(function (poly) {
+        poly.forEach(function (r) {
+          var pts = ring(r);
+          if (pts.length < 3) { return; }
+          for (var k = 0; k < pts.length; k++) {
+            d += (k ? "L" : "M") + pts[k][0].toFixed(2) + " " + (-pts[k][1]).toFixed(2);
+          }
+          d += "Z";
+        });
+      });
+      if (!d) { return; }
+      var p = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      p.setAttribute("class", "land");
+      p.setAttribute("d", d);
+      document.getElementById("wmap-land").appendChild(p);
+    }).catch(function () { /* graticule map stands on its own */ });
   })();
 
   if (reduce) { return; }

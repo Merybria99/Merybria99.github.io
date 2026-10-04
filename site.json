@@ -4,308 +4,339 @@
   "role": "PhD student in AI for Government and Public Security",
   "affiliation": "Sapienza University of Rome",
   "statement": [
-   "I work on the safety and robustness of generative models. My research asks what breaks when a model is attacked, and what a principled defense would look like — through the geometry of representation space, energy-based formulations, and the security of multimodal systems.",
-   "I am currently visiting IFML at UT Austin, working with Adam Klivans on generative models for proteins — representation learning and mechanistic interpretability applied to protein engineering.",
-   "Before Sapienza I completed an M.Sc. in Computer Engineering at the University of Salerno, specialising in artificial intelligence and intelligent robotics."
+    "I work on the safety and robustness of generative models. My research asks what breaks when a model is attacked, and what a principled defense would look like — through the geometry of representation space, energy-based formulations, and the security of multimodal systems.",
+    "I am currently visiting IFML at UT Austin, working with Adam Klivans on generative models for proteins — representation learning and mechanistic interpretability applied to protein engineering.",
+    "Before Sapienza I completed an M.Sc. in Computer Engineering at the University of Salerno, specialising in artificial intelligence and intelligent robotics."
   ],
   "location": "Austin, Texas",
   "email": "briglia@di.uniroma1.it",
   "links": {
-   "scholar": "",
-   "github": "",
-   "linkedin": "",
-   "orcid": "",
-   "bluesky": "",
-   "cv": "cv.pdf"
+    "scholar": "",
+    "github": "",
+    "linkedin": "",
+    "orcid": "",
+    "bluesky": "",
+    "cv": "cv.pdf"
   },
   "githubUser": "",
   "research": [
-   {
-    "title": "Adversarial training through an energy lens",
-    "body": "Reinterpreting robust classifiers as energy-based models, which reframes catastrophic overfitting and robust overfitting as behaviour of the energy landscape rather than isolated training artifacts.",
-    "papers": [
-     "Shedding More Light on Robust Classifiers under the Lens of Energy-based Models",
-     "Understanding Adversarial Training with Energy-based Models",
-     "What is Adversarial Training for Diffusion Models?"
-    ],
-    "figure": "energy"
-   },
-   {
-    "title": "The geometry of representation space",
-    "body": "Concept control and prompt safety depend on the shape of the space you are steering in. Euclidean adjustments to text embeddings are the standard tool; hyperbolic space, with parallel geodesics and boundary structure, gives a more faithful geometry for some representational phenomena.",
-    "papers": [
-     "Semantic Steering via Hyperbolic Geometry",
-     "Harnessing Hyperbolic Geometry for Harmful Prompt Detection and Sanitization",
-     "Implicit Inversion turns CLIP into a Decoder"
-    ],
-    "figure": "disk"
-   },
-   {
-    "title": "Threats to generative media, and defenses that hold",
-    "body": "Proactive image protection rests on an assumed threat model, and I test those assumptions — whether watermark-style defenses survive diffusion-based reconstruction that re-synthesise the original image content.",
-    "papers": [
-     "Architectural Backdoors in Vision-Language Model Supply Chains via Representation Steering",
-     "Neutralizing Proactive Defense using Diffusion-based Upsampling",
-     "Mind the Modality Gap: From Constitutional AI to Contextual Safety Through Language Bridging"
-    ]
-   },
-   {
-    "title": "Generative models for proteins",
-    "body": "On the structure side, benchmarking antibody–antigen complex prediction at scale: cofolding thousands of complexes to ask not only whether models recover the right interface, but whether the evaluation captures the real failure modes.",
-    "papers": [
-     "Anchored Protein Engineering",
-     "Folding scFv–Antigen Complexes at Scale"
-    ],
-    "figure": "protein"
-   }
+    {
+      "title": "Adversarial training through an energy lens",
+      "body": "Reinterpreting robust classifiers as energy-based models, which reframes catastrophic overfitting and robust overfitting as behaviour of the energy landscape rather than isolated training artifacts.",
+      "papers": [
+        "Shedding More Light on Robust Classifiers under the Lens of Energy-based Models",
+        "Understanding Adversarial Training with Energy-based Models",
+        "What is Adversarial Training for Diffusion Models?"
+      ],
+      "figure": "energy"
+    },
+    {
+      "title": "The geometry of representation space",
+      "body": "Concept control and prompt safety depend on the shape of the space you are steering in. Euclidean adjustments to text embeddings are the standard tool; hyperbolic space, with parallel geodesics and boundary structure, gives a more faithful geometry for some representational phenomena.",
+      "papers": [
+        "Semantic Steering via Hyperbolic Geometry",
+        "Harnessing Hyperbolic Geometry for Harmful Prompt Detection and Sanitization",
+        "Implicit Inversion turns CLIP into a Decoder"
+      ],
+      "figure": "disk"
+    },
+    {
+      "title": "Threats to generative media, and defenses that hold",
+      "body": "Proactive image protection rests on an assumed threat model, and I test those assumptions — whether watermark-style defenses survive diffusion-based reconstruction that re-synthesise the original image content.",
+      "papers": [
+        "Architectural Backdoors in Vision-Language Model Supply Chains via Representation Steering",
+        "Neutralizing Proactive Defense using Diffusion-based Upsampling",
+        "Mind the Modality Gap: From Constitutional AI to Contextual Safety Through Language Bridging"
+      ]
+    },
+    {
+      "title": "Generative models for proteins",
+      "body": "On the structure side, benchmarking antibody–antigen complex prediction at scale: cofolding thousands of complexes to ask not only whether models recover the right interface, but whether the evaluation captures the real failure modes.",
+      "papers": [
+        "APEX: Anchored Protein Engineering via Quantized Expectation",
+        "Anchored Protein Engineering",
+        "Folding scFv–Antigen Complexes at Scale"
+      ],
+      "figure": "protein"
+    }
   ],
   "publications": [
-   {
-    "year": "2026",
-    "title": "CIRCE: Chemistry-Informed Reaction-Catalyst Embeddings for Enzyme Retrieval",
-    "venue": "Under submission",
-    "status": "submitted",
-    "hidden": true,
-    "abstract": "Enzymes can make chemical production more selective and sustainable, but identifying enzymes for desired reactions and characterizing enzyme promiscuity remain major bottlenecks. Few computational tools capture both chemistry and reaction context while staying interpretable at scale. We introduce CIRCE, a chemistry-informed reaction–catalyst embedding framework designed for enzyme retrieval and mechanistic analysis."
-   },
-   {
-    "year": "2026",
-    "title": "Architectural Backdoors in Vision-Language Model Supply Chains via Representation Steering",
-    "venue": "Under submission",
-    "status": "submitted",
-    "abstract": "Vision–Language Models (VLMs) are increasingly deployed through a model supply chain in which pretrained checkpoints, architecture definitions, text encoders, and exported computational graphs each introduce new opportunities for compromise. We study how backdoors can be embedded in representation spaces and then activated through the downstream architecture, and we examine when those manipulations persist across model reuse and transfer."
-   },
-   {
-    "year": "2026",
-    "title": "Mind the Modality Gap: From Constitutional AI to Contextual Safety Through Language Bridging",
-    "venue": "Under submission",
-    "status": "submitted",
-    "abstract": "Safety is context-dependent across cultures, jurisdictions, and use cases, yet existing alignment approaches embed a fixed notion of safety and require a separate bespoke pipeline for each domain. We study how representations across modalities and languages can be bridged to make safety policies more contextual and robust to distribution shift."
-   },
-   {
-    "year": "2026",
-    "title": "Neutralizing Proactive Defense using Diffusion-based Upsampling",
-    "venue": "ACM Workshop on Information Hiding and Multimedia Security (IH&MMSec)",
-    "status": "published",
-    "abstract": "The rapid spread of open-source generative models has made it easy to create highly realistic manipulated media, posing a critical threat to content authenticity and provenance. Proactive image protection methods aim to neutralize this risk, but their assumptions may not hold under modern generative pipelines. We study how diffusion-based upsampling can erase or evade several common protective schemes and quantify the consequences for threat modeling."
-   },
-   {
-    "year": "2026",
-    "title": "Harnessing Hyperbolic Geometry for Harmful Prompt Detection and Sanitization",
-    "venue": "ICLR 2026",
-    "status": "published",
-    "abstract": "Vision–Language Models (VLMs) have become essential for tasks such as image synthesis, captioning, and retrieval by aligning textual and visual information in a shared embedding space. In this work, we show that harmful and benign prompts can be separated more naturally in hyperbolic space, and we exploit that geometry to improve both detection and sanitization."
-   },
-   {
-    "year": "2026",
-    "title": "Semantic Steering via Hyperbolic Geometry",
-    "venue": "Beyond Euclidean Workshop, ECCV 2026",
-    "status": "published",
-    "abstract": "As modern text-to-image (T2I) models draw closer to synthesizing highly realistic content, the threat of unsafe content generation grows, and it becomes paramount to exercise control over the semantic directions that the model follows. We show that hyperbolic geometry offers a more stable and interpretable basis for semantic steering than standard Euclidean alternatives."
-   },
-   {
-    "year": "2026",
-    "title": "Anchored Protein Engineering",
-    "venue": "Under submission",
-    "status": "submitted",
-    "abstract": "Inspired by recent work on discrete diffusion for anchored unmasking, we introduce a new training-free framework for protein engineering that can generate higher-order variants while preserving the structural constraints of a bound protein interface."
-   },
-   {
-    "year": "2026",
-    "title": "Folding scFv–Antigen Complexes at Scale",
-    "venue": "GEM Workshop, ICLR 2026",
-    "status": "published",
-    "abstract": "Accurate modeling of antibody–antigen (Ab–Ag) complexes is central to biologic development, yet the reliability and failures of modern Ab–Ag folding pipelines remain poorly understood. We benchmark large-scale complex folding to identify where models succeed, where they fail, and what this means for engineering and evaluation."
-   },
-   {
-    "year": "2025",
-    "title": "What is Adversarial Training for Diffusion Models?",
-    "venue": "ICLR 2026",
-    "status": "published",
-    "abstract": "We answer the question in the title, showing that adversarial training (AT) for diffusion models (DMs) fundamentally differs from classifiers: while AT in classifiers enforces output robustness, the challenge in DMs is to preserve data fidelity while controlling the generative trajectory under adversarial perturbations."
-   },
-   {
-    "year": "2025",
-    "title": "Implicit Inversion turns CLIP into a Decoder",
-    "venue": "ICLR 2026",
-    "status": "published",
-    "abstract": "CLIP is a discriminative model trained to align images and text in a shared embedding space. Due to its multimodal structure, it serves as the backbone of many generative pipelines, yet the inversion problem remains underexplored. We show that implicit inversion can recover a decoder-like behavior from CLIP, with implications for controllable generation and representation understanding."
-   },
-   {
-    "year": "2025",
-    "title": "Understanding Adversarial Training with Energy-based Models",
-    "venue": "arXiv preprint",
-    "status": "preprint",
-    "abstract": "We aim at using the Energy-based Model (EBM) framework to better understand adversarial training (AT) in classifiers, and additionally to analyze the intrinsic generative capabilities that emerge from robustly trained discriminative models."
-   },
-   {
-    "year": "2024",
-    "title": "Shedding More Light on Robust Classifiers under the Lens of Energy-based Models",
-    "venue": "ECCV 2024",
-    "status": "published",
-    "abstract": "By reinterpreting a robust discriminative classifier as an Energy-based Model (EBM), we offer a new take on the dynamics of adversarial training (AT). Our analysis of the energy landscape provides a clearer explanation of robust overfitting and the geometric behavior of decision boundaries."
-   }
+    {
+      "year": "2026",
+      "title": "CIRCE: Chemistry-Informed Reaction-Catalyst Embeddings for Enzyme Retrieval",
+      "venue": "Under submission",
+      "status": "submitted",
+      "hidden": true,
+      "abstract": "Enzymes can make chemical production more selective and sustainable, but identifying enzymes for desired reactions and characterizing enzyme promiscuity remain major bottlenecks. Few computational tools capture both chemistry and reaction context while staying interpretable at scale. We introduce CIRCE, a chemistry-informed reaction–catalyst embedding framework designed for enzyme retrieval and mechanistic analysis."
+    },
+    {
+      "year": "2026",
+      "title": "Architectural Backdoors in Vision-Language Model Supply Chains via Representation Steering",
+      "venue": "Under submission",
+      "status": "submitted",
+      "abstract": "Vision–Language Models (VLMs) are increasingly deployed through a model supply chain in which pretrained checkpoints, architecture definitions, text encoders, and exported computational graphs each introduce new opportunities for compromise. We study how backdoors can be embedded in representation spaces and then activated through the downstream architecture, and we examine when those manipulations persist across model reuse and transfer.",
+      "hidden": true
+    },
+    {
+      "year": "2026",
+      "title": "Mind the Modality Gap: From Constitutional AI to Contextual Safety Through Language Bridging",
+      "venue": "Under submission",
+      "status": "submitted",
+      "abstract": "Safety is context-dependent across cultures, jurisdictions, and use cases, yet existing alignment approaches embed a fixed notion of safety and require a separate bespoke pipeline for each domain. We study how representations across modalities and languages can be bridged to make safety policies more contextual and robust to distribution shift.",
+      "hidden": true
+    },
+    {
+      "year": "2026",
+      "title": "Neutralizing Proactive Defense using Diffusion-based Upsampling",
+      "venue": "ACM Workshop on Information Hiding and Multimedia Security (IH&MMSec)",
+      "status": "published",
+      "abstract": "The rapid spread of open-source generative models has made it easy to create highly realistic manipulated media, posing a critical threat to content authenticity and provenance. Proactive image protection methods aim to neutralize this risk, but their assumptions may not hold under modern generative pipelines. We study how diffusion-based upsampling can erase or evade several common protective schemes and quantify the consequences for threat modeling."
+    },
+    {
+      "year": "2026",
+      "title": "Harnessing Hyperbolic Geometry for Harmful Prompt Detection and Sanitization",
+      "venue": "ICLR 2026",
+      "status": "published",
+      "abstract": "Vision–Language Models (VLMs) have become essential for tasks such as image synthesis, captioning, and retrieval by aligning textual and visual information in a shared embedding space. In this work, we show that harmful and benign prompts can be separated more naturally in hyperbolic space, and we exploit that geometry to improve both detection and sanitization."
+    },
+    {
+      "year": "2026",
+      "title": "Semantic Steering via Hyperbolic Geometry",
+      "venue": "Beyond Euclidean Workshop, ECCV 2026",
+      "status": "published",
+      "abstract": "As modern text-to-image (T2I) models draw closer to synthesizing highly realistic content, the threat of unsafe content generation grows, and it becomes paramount to exercise control over the semantic directions that the model follows. We show that hyperbolic geometry offers a more stable and interpretable basis for semantic steering than standard Euclidean alternatives.",
+      "highlight": "Oral",
+      "links": [
+        {
+          "label": "Workshop",
+          "url": "https://sites.google.com/view/beyondeuclidean"
+        }
+      ]
+    },
+    {
+      "year": "2026",
+      "title": "APEX: Anchored Protein Engineering via Quantized Expectation",
+      "venue": "NeurIPS 2026",
+      "status": "published",
+      "highlight": "Poster",
+      "abstract": "We introduce APEX, a method for anchored protein engineering that combines quantized expectation with structure-aware editing to generate constrained protein variants while preserving desired interface properties.",
+      "links": [
+        {
+          "label": "Poster",
+          "url": "https://neurips.cc/virtual/2026/poster/153901"
+        }
+      ]
+    },
+    {
+      "year": "2026",
+      "title": "Anchored Protein Engineering",
+      "venue": "Under submission",
+      "status": "submitted",
+      "abstract": "Inspired by recent work on discrete diffusion for anchored unmasking, we introduce a new training-free framework for protein engineering that can generate higher-order variants while preserving the structural constraints of a bound protein interface.",
+      "hidden": true
+    },
+    {
+      "year": "2026",
+      "title": "Folding scFv–Antigen Complexes at Scale",
+      "venue": "GEM Workshop, ICLR 2026",
+      "status": "published",
+      "abstract": "Accurate modeling of antibody–antigen (Ab–Ag) complexes is central to biologic development, yet the reliability and failures of modern Ab–Ag folding pipelines remain poorly understood. We benchmark large-scale complex folding to identify where models succeed, where they fail, and what this means for engineering and evaluation."
+    },
+    {
+      "year": "2025",
+      "title": "What is Adversarial Training for Diffusion Models?",
+      "venue": "ICLR 2026",
+      "status": "published",
+      "abstract": "We answer the question in the title, showing that adversarial training (AT) for diffusion models (DMs) fundamentally differs from classifiers: while AT in classifiers enforces output robustness, the challenge in DMs is to preserve data fidelity while controlling the generative trajectory under adversarial perturbations."
+    },
+    {
+      "year": "2025",
+      "title": "Implicit Inversion turns CLIP into a Decoder",
+      "venue": "ICLR 2026",
+      "status": "published",
+      "abstract": "CLIP is a discriminative model trained to align images and text in a shared embedding space. Due to its multimodal structure, it serves as the backbone of many generative pipelines, yet the inversion problem remains underexplored. We show that implicit inversion can recover a decoder-like behavior from CLIP, with implications for controllable generation and representation understanding."
+    },
+    {
+      "year": "2025",
+      "title": "Understanding Adversarial Training with Energy-based Models",
+      "venue": "arXiv preprint",
+      "status": "preprint",
+      "abstract": "We aim at using the Energy-based Model (EBM) framework to better understand adversarial training (AT) in classifiers, and additionally to analyze the intrinsic generative capabilities that emerge from robustly trained discriminative models."
+    },
+    {
+      "year": "2024",
+      "title": "Shedding More Light on Robust Classifiers under the Lens of Energy-based Models",
+      "venue": "ECCV 2024",
+      "status": "published",
+      "abstract": "By reinterpreting a robust discriminative classifier as an Energy-based Model (EBM), we offer a new take on the dynamics of adversarial training (AT). Our analysis of the energy landscape provides a clearer explanation of robust overfitting and the geometric behavior of decision boundaries."
+    }
   ],
   "background": [
-   {
-    "period": "2025 Nov – present",
-    "title": "Visiting researcher",
-    "org": "NSF AI Institute for Foundations of Machine Learning (IFML), UT Austin",
-    "note": "Visiting period under the supervision of Prof. Adam Klivans, applying representation learning and mechanistic interpretability to protein engineering."
-   },
-   {
-    "period": "2026 – present",
-    "title": "Member",
-    "org": "The Good AI Lab",
-    "note": "A collective of researchers and engineers from universities, labs and companies, working on AI research with social impact."
-   },
-   {
-    "period": "2023 – present",
-    "title": "PhD, National PhD programme in AI for Government and Public Security",
-    "org": "Sapienza University of Rome",
-    "note": "Developing practical defense techniques against the media manipulation enabled by generative AI."
-   },
-   {
-    "period": "2021 – 2023",
-    "title": "M.Sc. Computer Engineering (LM-32), Artificial Intelligence and Intelligent Robotics",
-    "org": "University of Salerno",
-    "note": "Thesis: Automatic Generation of Identity-Preserving Gesture Videos."
-   },
-   {
-    "period": "2023",
-    "title": "Research scholarship, artificial vision for autonomous driving on rail",
-    "org": "RFI and University of Salerno",
-    "note": "Designed the on-board hardware acquisition system, and the real-time anomaly detection along the railway track."
-   },
-   {
-    "period": "2018 – 2021",
-    "title": "B.Sc. Computer Engineering (L-8)",
-    "org": "University of Salerno",
-    "note": "Graduated 110/110 cum laude, and recognised for completing the degree with highest honours in the shortest time possible. Thesis: Automatic Speaker Recognition Using a Neural Network."
-   }
+    {
+      "period": "2025 Nov – present",
+      "title": "Visiting researcher",
+      "org": "NSF AI Institute for Foundations of Machine Learning (IFML), UT Austin",
+      "note": "Visiting period under the supervision of Prof. Adam Klivans, applying representation learning and mechanistic interpretability to protein engineering."
+    },
+    {
+      "period": "2026 – present",
+      "title": "Member",
+      "org": "The Good AI Lab",
+      "note": "A collective of researchers and engineers from universities, labs and companies, working on AI research with social impact."
+    },
+    {
+      "period": "2023 – present",
+      "title": "PhD, National PhD programme in AI for Government and Public Security",
+      "org": "Sapienza University of Rome",
+      "note": "Developing practical defense techniques against the media manipulation enabled by generative AI."
+    },
+    {
+      "period": "2021 – 2023",
+      "title": "M.Sc. Computer Engineering (LM-32), Artificial Intelligence and Intelligent Robotics",
+      "org": "University of Salerno",
+      "note": "Thesis: Automatic Generation of Identity-Preserving Gesture Videos."
+    },
+    {
+      "period": "2023",
+      "title": "Research scholarship, artificial vision for autonomous driving on rail",
+      "org": "RFI and University of Salerno",
+      "note": "Designed the on-board hardware acquisition system, and the real-time anomaly detection along the railway track."
+    },
+    {
+      "period": "2018 – 2021",
+      "title": "B.Sc. Computer Engineering (L-8)",
+      "org": "University of Salerno",
+      "note": "Graduated 110/110 cum laude, and recognised for completing the degree with highest honours in the shortest time possible. Thesis: Automatic Speaker Recognition Using a Neural Network."
+    }
   ],
   "schools": [
-   {
-    "year": "2025",
-    "name": "CISPA – ELLIS Summer School",
-    "where": "Saarbrücken, Germany"
-   },
-   {
-    "year": "2024",
-    "name": "Generative Modeling Summer School",
-    "where": "Eindhoven University of Technology"
-   }
+    {
+      "year": "2025",
+      "name": "CISPA – ELLIS Summer School",
+      "where": "Saarbrücken, Germany"
+    },
+    {
+      "year": "2024",
+      "name": "Generative Modeling Summer School",
+      "where": "Eindhoven University of Technology"
+    }
   ],
   "teaching": [],
   "service": [
-   {
-    "year": "2026",
-    "text": "Co-organizer, 3rd Workshop and Challenge on Unlearning and Model Editing (U&ME), ECCV 2026",
-    "url": "https://sites.google.com/view/u-and-me-workshop/"
-   },
-   {
-    "year": "2026",
-    "text": "Member, The Good AI Lab",
-    "url": "https://thegoodailab.org"
-   }
+    {
+      "year": "2026",
+      "text": "Co-organizer, 3rd Workshop and Challenge on Unlearning and Model Editing (U&ME), ECCV 2026",
+      "url": "https://sites.google.com/view/u-and-me-workshop/"
+    },
+    {
+      "year": "2026",
+      "text": "Member, The Good AI Lab",
+      "url": "https://thegoodailab.org"
+    }
   ],
   "visiting": {
-   "role": "Visiting researcher",
-   "org": "IFML",
-   "orgFull": "NSF AI Institute for Foundations of Machine Learning",
-   "host": "UT Austin",
-   "url": "https://www.ifml.institute/",
-   "note": "applying representation learning and mechanistic interpretability to protein engineering",
-   "period": "November 2025 – present",
-   "supervisor": "Prof. Adam Klivans"
+    "role": "Visiting researcher",
+    "org": "IFML",
+    "orgFull": "NSF AI Institute for Foundations of Machine Learning",
+    "host": "UT Austin",
+    "url": "https://www.ifml.institute/",
+    "note": "applying representation learning and mechanistic interpretability to protein engineering",
+    "period": "November 2025 – present",
+    "supervisor": "Prof. Adam Klivans"
   },
   "news": [
-   {
-    "date": "Oct 2026",
-    "text": "Updated the public CV and refreshed the profile details for the latest academic information."
-   },
-   {
-    "date": "2026",
-    "text": "Co-organizing the 3rd Workshop and Challenge on Unlearning and Model Editing (U&ME) at ECCV 2026.",
-    "url": "https://sites.google.com/view/u-and-me-workshop/"
-   },
-   {
-    "date": "2026",
-    "text": "Joined The Good AI Lab, a collective advancing AI research with a focus on social impact.",
-    "url": "https://thegoodailab.org"
-   },
-   {
-    "date": "Sep 2026",
-    "text": "Semantic Steering via Hyperbolic Geometry was accepted as an oral presentation at the Beyond Euclidean workshop, ECCV 2026.",
-    "paper": "Semantic Steering via Hyperbolic Geometry"
-   },
-   {
-    "date": "Nov 2025",
-    "text": "Started a visiting position at IFML, UT Austin, with Prof. Adam Klivans, on representation learning and mechanistic interpretability for protein engineering."
-   },
-   {
-    "date": "Aug 2025",
-    "text": "Attended the CISPA–ELLIS Summer School at the Helmholtz Center for Information Security, Saarbrücken."
-   },
-   {
-    "date": "Sep 2024",
-    "text": "Presented Shedding More Light on Robust Classifiers under the Lens of Energy-based Models at ECCV 2024.",
-    "paper": "Shedding More Light on Robust Classifiers under the Lens of Energy-based Models"
-   }
+    {
+      "date": "Oct 2026",
+      "text": "My paper \"APEX: Anchored Protein Engineering via Quantized Expectation\" was accepted at NeurIPS 2026 as a poster.",
+      "paper": "APEX: Anchored Protein Engineering via Quantized Expectation",
+      "url": "https://neurips.cc/virtual/2026/poster/153901"
+    },
+    {
+      "date": "Oct 2026",
+      "text": "Updated the public CV and refreshed the profile details for the latest academic information."
+    },
+    {
+      "date": "2026",
+      "text": "Co-organizing the 3rd Workshop and Challenge on Unlearning and Model Editing (U&ME) at ECCV 2026.",
+      "url": "https://sites.google.com/view/u-and-me-workshop/"
+    },
+    {
+      "date": "2026",
+      "text": "Joined The Good AI Lab, a collective advancing AI research with a focus on social impact.",
+      "url": "https://thegoodailab.org"
+    },
+    {
+      "date": "Sep 2026",
+      "text": "Semantic Steering via Hyperbolic Geometry was accepted as an oral presentation at the Beyond Euclidean workshop, ECCV 2026.",
+      "paper": "Semantic Steering via Hyperbolic Geometry"
+    },
+    {
+      "date": "Nov 2025",
+      "text": "Started a visiting position at IFML, UT Austin, with Prof. Adam Klivans, on representation learning and mechanistic interpretability for protein engineering."
+    },
+    {
+      "date": "Aug 2025",
+      "text": "Attended the CISPA–ELLIS Summer School at the Helmholtz Center for Information Security, Saarbrücken."
+    },
+    {
+      "date": "Sep 2024",
+      "text": "Presented Shedding More Light on Robust Classifiers under the Lens of Energy-based Models at ECCV 2024.",
+      "paper": "Shedding More Light on Robust Classifiers under the Lens of Energy-based Models"
+    }
   ],
   "collaborations": {
-   "home": "Sapienza University of Rome",
-   "attribution": "Coastlines from Natural Earth, public domain.",
-   "places": [
-    {
-     "name": "Sapienza University of Rome",
-     "city": "Rome, Italy",
-     "lat": 41.902,
-     "lon": 12.496,
-     "kind": "work",
-     "home": true,
-     "note": "PhD, AI for Government and Public Security."
-    },
-    {
-     "name": "IFML, UT Austin",
-     "city": "Austin, Texas",
-     "lat": 30.286,
-     "lon": -97.739,
-     "kind": "work",
-     "note": "Visiting researcher with Prof. Adam Klivans, on proteins."
-    },
-    {
-     "name": "University of Salerno",
-     "city": "Fisciano, Italy",
-     "lat": 40.775,
-     "lon": 14.789,
-     "kind": "work",
-     "note": "M.Sc. and B.Sc., and the artificial-vision research scholarship."
-    },
-    {
-     "name": "RFI (Rete Ferroviaria Italiana)",
-     "city": "Italy",
-     "lat": 41.85,
-     "lon": 12.62,
-     "kind": "work",
-     "note": "Industrial partner on real-time anomaly detection along the railway track."
-    },
-    {
-     "name": "CISPA Helmholtz Center for Information Security",
-     "city": "Saarbrücken, Germany",
-     "lat": 49.234,
-     "lon": 6.996,
-     "kind": "school",
-     "note": "CISPA – ELLIS Summer School, 2025."
-    },
-    {
-     "name": "Eindhoven University of Technology",
-     "city": "Eindhoven, Netherlands",
-     "lat": 51.448,
-     "lon": 5.49,
-     "kind": "school",
-     "note": "Generative Modeling Summer School, 2024."
-    }
-   ]
+    "home": "Sapienza University of Rome",
+    "attribution": "Coastlines from Natural Earth, public domain.",
+    "places": [
+      {
+        "name": "Sapienza University of Rome",
+        "city": "Rome, Italy",
+        "lat": 41.902,
+        "lon": 12.496,
+        "kind": "work",
+        "home": true,
+        "note": "PhD, AI for Government and Public Security."
+      },
+      {
+        "name": "IFML, UT Austin",
+        "city": "Austin, Texas",
+        "lat": 30.286,
+        "lon": -97.739,
+        "kind": "work",
+        "note": "Visiting researcher with Prof. Adam Klivans, on proteins."
+      },
+      {
+        "name": "University of Salerno",
+        "city": "Fisciano, Italy",
+        "lat": 40.775,
+        "lon": 14.789,
+        "kind": "work",
+        "note": "M.Sc. and B.Sc., and the artificial-vision research scholarship."
+      },
+      {
+        "name": "RFI (Rete Ferroviaria Italiana)",
+        "city": "Italy",
+        "lat": 41.85,
+        "lon": 12.62,
+        "kind": "work",
+        "note": "Industrial partner on real-time anomaly detection along the railway track."
+      },
+      {
+        "name": "CISPA Helmholtz Center for Information Security",
+        "city": "Saarbrücken, Germany",
+        "lat": 49.234,
+        "lon": 6.996,
+        "kind": "school",
+        "note": "CISPA – ELLIS Summer School, 2025."
+      },
+      {
+        "name": "Eindhoven University of Technology",
+        "city": "Eindhoven, Netherlands",
+        "lat": 51.448,
+        "lon": 5.49,
+        "kind": "school",
+        "note": "Generative Modeling Summer School, 2024."
+      }
+    ]
   }
 }

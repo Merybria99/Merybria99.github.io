@@ -50,7 +50,7 @@
       ]
     },
     {
-      "title": "Generative models for proteins",
+      "title": "AI for Biology",
       "body": "On the structure side, benchmarking antibody–antigen complex prediction at scale: cofolding thousands of complexes to ask not only whether models recover the right interface, but whether the evaluation captures the real failure modes.",
       "papers": [
         "APEX: Anchored Protein Engineering via Quantized Expectation",

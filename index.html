@@ -68,7 +68,7 @@
     "@id": "https://merybria99.github.io/#me"
    },
    "publication": "ACM Workshop on Information Hiding and Multimedia Security (IH&MMSec)",
-   "abstract": "The rapid spread of open-source generative models has made it easy to create highly realistic manipulated media, posing a critical threat to content authenticity and provenance. Proactive image protection mechanisms have recently emerged as a promising defense, embedding imperceptible or characteristic signals into images to enable reliable manipulation detection. However, their robustness under realistic and adversarial post-release conditions remains largely unexplored. In this work, we present a systematic evaluation of the robustness of recent state-of-the-art proactive image protection schemes in a black-box setting. We analyze the resilience of PADL and DiffVax protections against a broad range of attacks, including classical image transformations and diffusion-based reconstruction attacks that implicitly re-synthesize image content while preserving perceptual quality. Our results reveal that, despite strong performance under limited perturbations, current proactive defenses are vulnerable to unseen image manipulations and generative reconstruction attacks. Considering PADL, we empirically demonstrate that adding diffusion-based upsampling attacks in the training does not improve robustness, without increasing protection intensity. These findings expose critical gaps between assumed and real-world threat models, highlighting the need for more robust proactive protection designs and standardized evaluation protocols for trustworthy digital media.",
+   "abstract": "The rapid spread of open-source generative models has made it easy to create highly realistic manipulated media, posing a critical threat to content authenticity and provenance. Proactive image protection methods aim to neutralize this risk, but their assumptions may not hold under modern generative pipelines. We study how diffusion-based upsampling can erase or evade several common protective schemes and quantify the consequences for threat modeling.",
    "url": "https://merybria99.github.io/#p-neutralizing-proactive-defense-using-diffusion-based-upsampl"
   },
   {
@@ -79,7 +79,7 @@
     "@id": "https://merybria99.github.io/#me"
    },
    "publication": "ICLR 2026",
-   "abstract": "Vision–Language Models (VLMs) have become essential for tasks such as image synthesis, captioning, and retrieval by aligning textual and visual information in a shared embedding space. Yet, this flexibility also makes them vulnerable to malicious prompts designed to produce unsafe content, raising critical safety concerns. Existing defenses either rely on blacklist filters, which are easily circumvented, or on heavy classifier-based systems, both of which are costly and fragile under embedding-level attacks. We address these challenges with two complementary components: Hyperbolic Prompt Espial (HyPE) and Hyperbolic Prompt Sanitization (HyPS). HyPE is a lightweight anomaly detector that leverages the structured geometry of hyperbolic space to model benign prompts and detect harmful ones as outliers. HyPS builds on this detection by applying explainable attribution methods to identify and selectively modify harmful words, neutralizing unsafe intent while preserving the original semantics of user prompts. Through extensive experiments across multiple datasets and adversarial scenarios, we prove that our framework consistently outperforms prior defenses in both detection accuracy and robustness. Together, HyPE and HyPS offer an efficient, interpretable, and resilient approach to safeguarding VLMs against malicious prompt misuse.",
+   "abstract": "Vision–Language Models (VLMs) have become essential for tasks such as image synthesis, captioning, and retrieval by aligning textual and visual information in a shared embedding space. In this work, we show that harmful and benign prompts can be separated more naturally in hyperbolic space, and we exploit that geometry to improve both detection and sanitization.",
    "url": "https://merybria99.github.io/#p-harnessing-hyperbolic-geometry-for-harmful-prompt-detection-"
   },
   {
@@ -90,8 +90,19 @@
     "@id": "https://merybria99.github.io/#me"
    },
    "publication": "Beyond Euclidean Workshop, ECCV 2026",
-   "abstract": "As modern text-to-image (T2I) models draw closer to synthesizing highly realistic content, the threat of unsafe content generation grows, and it becomes paramount to exercise control. Existing approaches steer these models by applying Euclidean adjustments to text embeddings, redirecting the generation away from unsafe concepts. In this work, we introduce hyperbolic control (HyCon): a novel control mechanism based on parallel transport that leverages semantically aligned hyperbolic representation space to yield more expressive and stable manipulation of concepts. HyCon reuses off-the-shelf generative models and a state-of-the-art hyperbolic text encoder, linked via a lightweight adapter. HyCon achieves state-of-the-art results across four safety benchmarks and four T2I backbones, showing that hyperbolic steering is a practical and flexible approach for more reliable T2I generation.",
+   "abstract": "As modern text-to-image (T2I) models draw closer to synthesizing highly realistic content, the threat of unsafe content generation grows, and it becomes paramount to exercise control over the semantic directions that the model follows. We show that hyperbolic geometry offers a more stable and interpretable basis for semantic steering than standard Euclidean alternatives.",
    "url": "https://merybria99.github.io/#p-semantic-steering-via-hyperbolic-geometry"
+  },
+  {
+   "@type": "ScholarlyArticle",
+   "headline": "APEX: Anchored Protein Engineering via Quantized Expectation",
+   "datePublished": "2026",
+   "author": {
+    "@id": "https://merybria99.github.io/#me"
+   },
+   "publication": "NeurIPS 2026",
+   "abstract": "We introduce APEX, a method for anchored protein engineering that combines quantized expectation with structure-aware editing to generate constrained protein variants while preserving desired interface properties.",
+   "url": "https://merybria99.github.io/#p-apex-anchored-protein-engineering-via-quantized-expectation"
   },
   {
    "@type": "ScholarlyArticle",
@@ -101,7 +112,7 @@
     "@id": "https://merybria99.github.io/#me"
    },
    "publication": "GEM Workshop, ICLR 2026",
-   "abstract": "Accurate modeling of antibody–antigen (Ab–Ag) complexes is central to biologic development, yet the reliability and failures of modern Ab–Ag folding pipelines remain poorly characterized. Single-chain variable fragments (scFvs) are therapeutically important antibodies, but large-scale evaluations of structure prediction models on scFv–Ag complexes are largely lacking. We introduce a scalable benchmarking pipeline that generates large ensembles of scFv–Ag structure predictions by cofolding a curated subset of 3,800 Ab–Ag complexes from SAbDab using multiple state-of-the-art models under diverse inference-time settings. The resulting dataset, SCALE scFv–Ag CompLex, includes standardized scFv–Ag sequences and around 200,000 predicted complexes spanning different models, sampling strategies, and auxiliary inputs. Using SCALE, we evaluate model performance in recovering correct scFv–Ag interfaces and assess the ability of existing confidence metrics to select the best structure from prediction ensembles. We find that while confidence scores effectively distinguish easy from hard scFv–Ag complexes, they often fail to identify the highest-quality interface for a given target. Further analysis shows that correct binding modes are often present but rare, and inference-time choices like sampling, recycling, and using evolutionary or structural information are crucial for accurate scFv–Ag complex predictions.",
+   "abstract": "Accurate modeling of antibody–antigen (Ab–Ag) complexes is central to biologic development, yet the reliability and failures of modern Ab–Ag folding pipelines remain poorly understood. We benchmark large-scale complex folding to identify where models succeed, where they fail, and what this means for engineering and evaluation.",
    "url": "https://merybria99.github.io/#p-folding-scfv-antigen-complexes-at-scale"
   },
   {
@@ -112,7 +123,7 @@
     "@id": "https://merybria99.github.io/#me"
    },
    "publication": "ICLR 2026",
-   "abstract": "We answer the question in the title, showing that adversarial training (AT) for diffusion models (DMs) fundamentally differs from classifiers: while AT in classifiers enforces output invariance, AT in DMs requires equivariance to keep the diffusion process aligned with the data distribution. AT is a way to enforce smoothness in the diffusion flow, improving robustness to outliers and corrupted data. Unlike prior art, our method makes no assumptions about the noise model and integrates seamlessly into diffusion training by adding random noise, similar to randomized smoothing, or adversarial noise, akin to AT. This enables intrinsic capabilities such as handling noisy data, dealing with extreme variability such as outliers, preventing memorization, and improving robustness. We rigorously evaluate our approach with proof-of-concept datasets with known distributions in low- and high-dimensional space, thereby taking a perfect measure of errors; we further evaluate on standard benchmarks such as CIFAR-10, CelebA and LSUN Bedroom, showing strong performance under severe noise, data corruption, and iterative adversarial attacks.",
+   "abstract": "We answer the question in the title, showing that adversarial training (AT) for diffusion models (DMs) fundamentally differs from classifiers: while AT in classifiers enforces output robustness, the challenge in DMs is to preserve data fidelity while controlling the generative trajectory under adversarial perturbations.",
    "url": "https://merybria99.github.io/#p-what-is-adversarial-training-for-diffusion-models"
   },
   {
@@ -123,7 +134,7 @@
     "@id": "https://merybria99.github.io/#me"
    },
    "publication": "ICLR 2026",
-   "abstract": "CLIP is a discriminative model trained to align images and text in a shared embedding space. Due to its multimodal structure, it serves as the backbone of many generative pipelines, where a decoder is trained to map from the shared space back to images. In this work, we show that image synthesis is nevertheless possible using CLIP alone — without any decoder, training, or fine-tuning. Our approach optimizes a frequency-aware implicit neural representation that encourages coarse-to-fine generation by stratifying frequencies across network layers. To stabilize this inverse mapping, we introduce adversarially robust initialization, a lightweight Orthogonal Procrustes projection to align local text and image embeddings, and a blending loss that anchors outputs to natural image statistics. Without altering CLIP's weights, this framework unlocks capabilities such as text-to-image generation, style transfer, and image reconstruction. These findings suggest that discriminative models may hold untapped generative potential, hidden in plain sight.",
+   "abstract": "CLIP is a discriminative model trained to align images and text in a shared embedding space. Due to its multimodal structure, it serves as the backbone of many generative pipelines, yet the inversion problem remains underexplored. We show that implicit inversion can recover a decoder-like behavior from CLIP, with implications for controllable generation and representation understanding.",
    "url": "https://merybria99.github.io/#p-implicit-inversion-turns-clip-into-a-decoder"
   },
   {
@@ -134,7 +145,7 @@
     "@id": "https://merybria99.github.io/#me"
    },
    "publication": "arXiv preprint",
-   "abstract": "We aim at using the Energy-based Model (EBM) framework to better understand adversarial training (AT) in classifiers, and additionally to analyze the intrinsic generative capabilities of robust classifiers. By viewing standard classifiers through an energy lens, we begin by analyzing how the energies of adversarial examples, generated by various attacks, differ from those of the natural samples. The central focus of our work is to understand the critical phenomena of Catastrophic Overfitting (CO) and Robust Overfitting (RO) in AT from an energy perspective. We analyze the impact of existing AT approaches on the energy of samples during training and observe that the behavior of the delta energy — the change in energy between an original sample and its adversarial counterpart — diverges significantly when CO or RO occurs. After a thorough analysis of these energy dynamics and their relationship with overfitting, we propose a novel regularizer, the Delta Energy Regularizer (DER), designed to smoothen the energy landscape during training. We demonstrate that DER is effective in mitigating both CO and RO across multiple benchmarks. We further show that robust classifiers, when being used as generative models, have limits in handling the trade-off between image quality and variability. We propose an improved technique based on a local class-wise principal component analysis (PCA) and energy-based guidance for better class-specific initialization and adaptive stopping, enhancing sample diversity and generation quality. Considering that we do not explicitly train for generative modeling, we achieve a competitive Inception Score (IS) and Fréchet Inception Distance (FID) compared to hybrid discriminative-generative models.",
+   "abstract": "We aim at using the Energy-based Model (EBM) framework to better understand adversarial training (AT) in classifiers, and additionally to analyze the intrinsic generative capabilities that emerge from robustly trained discriminative models.",
    "url": "https://merybria99.github.io/#p-understanding-adversarial-training-with-energy-based-models"
   },
   {
@@ -145,7 +156,7 @@
     "@id": "https://merybria99.github.io/#me"
    },
    "publication": "ECCV 2024",
-   "abstract": "By reinterpreting a robust discriminative classifier as an Energy-based Model (EBM), we offer a new take on the dynamics of adversarial training (AT). Our analysis of the energy landscape during AT reveals that untargeted attacks generate adversarial images much more in-distribution (lower energy) than the original data from the point of view of the model. Conversely, we observe the opposite for targeted attacks. On the ground of our thorough analysis, we present new theoretical and practical results that show how interpreting AT energy dynamics unlocks a better understanding: AT dynamics are governed by three phases, and robust overfitting occurs in the third phase with a drastic divergence between natural and adversarial energies; by rewriting the loss of TRadeoff-inspired Adversarial DEfense via Surrogate-loss minimization (TRADES) in terms of energies, we show that TRADES implicitly alleviates overfitting by means of aligning the natural energy with the adversarial one; and we empirically show that all recent state-of-the-art robust classifiers are smoothing the energy landscape, reconciling a variety of studies about understanding AT and weighting the loss function under the umbrella of EBMs. Motivated by rigorous evidence, we propose Weighted Energy Adversarial Training (WEAT), a novel sample weighting scheme that yields robust accuracy matching the state-of-the-art on multiple benchmarks such as CIFAR-10 and SVHN and going beyond in CIFAR-100 and Tiny-ImageNet. We further show that robust classifiers vary in the intensity and quality of their generative capabilities, and offer a simple method to push this capability, reaching a remarkable Inception Score (IS) and FID using a robust classifier without training for generative modeling.",
+   "abstract": "By reinterpreting a robust discriminative classifier as an Energy-based Model (EBM), we offer a new take on the dynamics of adversarial training (AT). Our analysis of the energy landscape provides a clearer explanation of robust overfitting and the geometric behavior of decision boundaries.",
    "url": "https://merybria99.github.io/#p-shedding-more-light-on-robust-classifiers-under-the-lens-of-"
   }
  ]
@@ -453,8 +464,8 @@ html:not(.js) .map-live{display:none}
       <p class="hrole">PhD student in AI for Government and Public Security, Sapienza University of Rome</p>
       <p class="hvisit">Visiting researcher at <a href="https://www.ifml.institute/" rel="noopener">IFML</a>, UT Austin with Prof. Adam Klivans — applying representation learning and mechanistic interpretability to protein engineering. <span class="hvisit-when">November 2025 – present</span></p>
       <div class="hstate">
-        <p>I work on the safety and robustness of generative models. My research asks what breaks when a model is attacked, and what a principled defense would look like — through the geometry of representation space, the energy landscape of adversarial training, and the supply chain that model artifacts travel through.</p>
-        <p>I am currently visiting IFML at UT Austin, working with Adam Klivans on generative models for proteins — representation learning and mechanistic interpretability applied to protein engineering, decoding-time design methods, and large-scale benchmarking of antibody–antigen structure prediction. The questions rhyme with the vision work: reward gaming, and models that rank their own outputs badly.</p>
+        <p>I work on the safety and robustness of generative models. My research asks what breaks when a model is attacked, and what a principled defense would look like — through the geometry of representation space, energy-based formulations, and the security of multimodal systems.</p>
+        <p>I am currently visiting IFML at UT Austin, working with Adam Klivans on generative models for proteins — representation learning and mechanistic interpretability applied to protein engineering.</p>
         <p>Before Sapienza I completed an M.Sc. in Computer Engineering at the University of Salerno, specialising in artificial intelligence and intelligent robotics.</p>
       </div>
       <p class="hmeta">
@@ -476,6 +487,8 @@ html:not(.js) .map-live{display:none}
   <section class="wrap sec sec-news" id="news">
     <h2 class="sec-h">News</h2>
     <ul class="news">
+          <li class="news-item"><span class="news-date">Oct 2026</span><span class="news-text">My paper &quot;<a href="#p-apex-anchored-protein-engineering-via-quantized-expectation">APEX: Anchored Protein Engineering via Quantized Expectation</a>&quot; was accepted at NeurIPS 2026 as a poster.</span></li>
+          <li class="news-item"><span class="news-date">Oct 2026</span><span class="news-text">Updated the public CV and refreshed the profile details for the latest academic information.</span></li>
           <li class="news-item"><span class="news-date">2026</span><span class="news-text">Co-organizing the 3rd Workshop and Challenge on Unlearning and Model Editing (U&amp;ME) at ECCV 2026. <a href="https://sites.google.com/view/u-and-me-workshop/" rel="noopener">More</a></span></li>
           <li class="news-item"><span class="news-date">2026</span><span class="news-text">Joined The Good AI Lab, a collective advancing AI research with a focus on social impact. <a href="https://thegoodailab.org" rel="noopener">More</a></span></li>
           <li class="news-item"><span class="news-date">Sep 2026</span><span class="news-text"><a href="#p-semantic-steering-via-hyperbolic-geometry">Semantic Steering via Hyperbolic Geometry</a> was accepted as an oral presentation at the Beyond Euclidean workshop, ECCV 2026.</span></li>
@@ -493,7 +506,7 @@ html:not(.js) .map-live{display:none}
         <div class="theme theme-illus">
           <div>
             <h3 class="theme-h">Adversarial training through an energy lens</h3>
-          <p class="theme-b">Reinterpreting robust classifiers as energy-based models, which reframes catastrophic overfitting and robust overfitting as behaviour of the energy landscape rather than isolated training pathologies — and turns that reading into concrete regularizers and sample weighting schemes.</p>
+          <p class="theme-b">Reinterpreting robust classifiers as energy-based models, which reframes catastrophic overfitting and robust overfitting as behaviour of the energy landscape rather than isolated training artifacts.</p>
           <ul class="theme-refs">
             <li><a href="#p-shedding-more-light-on-robust-classifiers-under-the-lens-of-">Shedding More Light on Robust Classifiers under the Lens of Energy-based Models</a></li>
             <li><a href="#p-understanding-adversarial-training-with-energy-based-models">Understanding Adversarial Training with Energy-based Models</a></li>
@@ -525,7 +538,7 @@ html:not(.js) .map-live{display:none}
         <div class="theme theme-illus">
           <div>
             <h3 class="theme-h">The geometry of representation space</h3>
-          <p class="theme-b">Concept control and prompt safety depend on the shape of the space you are steering in. Euclidean adjustments to text embeddings are the standard tool; hyperbolic space, with parallel transport in place of vector arithmetic, gives more expressive and more stable manipulation of concepts.</p>
+          <p class="theme-b">Concept control and prompt safety depend on the shape of the space you are steering in. Euclidean adjustments to text embeddings are the standard tool; hyperbolic space, with parallel geodesics and boundary structure, gives a more faithful geometry for some representational phenomena.</p>
           <ul class="theme-refs">
             <li><a href="#p-semantic-steering-via-hyperbolic-geometry">Semantic Steering via Hyperbolic Geometry</a></li>
             <li><a href="#p-harnessing-hyperbolic-geometry-for-harmful-prompt-detection-">Harnessing Hyperbolic Geometry for Harmful Prompt Detection and Sanitization</a></li>
@@ -579,16 +592,17 @@ html:not(.js) .map-live{display:none}
         </div>
         <div class="theme">
           <h3 class="theme-h">Threats to generative media, and defenses that hold</h3>
-          <p class="theme-b">Proactive image protection rests on an assumed threat model, and I test those assumptions — whether watermark-style defenses survive diffusion-based reconstruction that re-synthesises an image while preserving how it looks. The broader question is what a defense is actually promising once the attacker has generative models of their own.</p>
+          <p class="theme-b">Proactive image protection rests on an assumed threat model, and I test those assumptions — whether watermark-style defenses survive diffusion-based reconstruction that re-synthesise the original image content.</p>
           <ul class="theme-refs">
             <li><a href="#p-neutralizing-proactive-defense-using-diffusion-based-upsampl">Neutralizing Proactive Defense using Diffusion-based Upsampling</a></li>
           </ul>
         </div>
         <div class="theme theme-illus">
           <div>
-            <h3 class="theme-h">Generative models for proteins</h3>
-          <p class="theme-b">On the structure side, benchmarking antibody–antigen complex prediction at scale: cofolding thousands of complexes to ask not only whether models recover the right interface, but whether their own confidence scores can tell which prediction did. On the design side, decoding-time methods for protein engineering that leave the base model untouched. A model that ranks its own outputs badly is the same problem whether the output is an image or a fold.</p>
+            <h3 class="theme-h">AI for Biology</h3>
+          <p class="theme-b">On the structure side, benchmarking antibody–antigen complex prediction at scale: cofolding thousands of complexes to ask not only whether models recover the right interface, but whether the evaluation captures the real failure modes.</p>
           <ul class="theme-refs">
+            <li><a href="#p-apex-anchored-protein-engineering-via-quantized-expectation">APEX: Anchored Protein Engineering via Quantized Expectation</a></li>
             <li><a href="#p-folding-scfv-antigen-complexes-at-scale">Folding scFv–Antigen Complexes at Scale</a></li>
           </ul>
           </div>
@@ -639,7 +653,7 @@ html:not(.js) .map-live{display:none}
 
   <section class="wrap sec" id="publications">
     <h2 class="sec-h">Publications</h2>
-    <p class="sec-sub">8 papers. Abstracts expand in place.</p>
+    <p class="sec-sub">9 papers. Abstracts expand in place.</p>
       <article class="pub" id="p-neutralizing-proactive-defense-using-diffusion-based-upsampl">
         <p class="pub-yr">2026</p>
         <div>
@@ -647,7 +661,7 @@ html:not(.js) .map-live{display:none}
           <p class="pub-v"><span>ACM Workshop on Information Hiding and Multimedia Security (IH&amp;MMSec)</span></p>
           <details class="pub-abs">
             <summary><span class="chev">&#8250;</span><span>Abstract</span></summary>
-            <p>The rapid spread of open-source generative models has made it easy to create highly realistic manipulated media, posing a critical threat to content authenticity and provenance. Proactive image protection mechanisms have recently emerged as a promising defense, embedding imperceptible or characteristic signals into images to enable reliable manipulation detection. However, their robustness under realistic and adversarial post-release conditions remains largely unexplored. In this work, we present a systematic evaluation of the robustness of recent state-of-the-art proactive image protection schemes in a black-box setting. We analyze the resilience of PADL and DiffVax protections against a broad range of attacks, including classical image transformations and diffusion-based reconstruction attacks that implicitly re-synthesize image content while preserving perceptual quality. Our results reveal that, despite strong performance under limited perturbations, current proactive defenses are vulnerable to unseen image manipulations and generative reconstruction attacks. Considering PADL, we empirically demonstrate that adding diffusion-based upsampling attacks in the training does not improve robustness, without increasing protection intensity. These findings expose critical gaps between assumed and real-world threat models, highlighting the need for more robust proactive protection designs and standardized evaluation protocols for trustworthy digital media.</p>
+            <p>The rapid spread of open-source generative models has made it easy to create highly realistic manipulated media, posing a critical threat to content authenticity and provenance. Proactive image protection methods aim to neutralize this risk, but their assumptions may not hold under modern generative pipelines. We study how diffusion-based upsampling can erase or evade several common protective schemes and quantify the consequences for threat modeling.</p>
           </details>
         </div>
       </article>
@@ -658,7 +672,7 @@ html:not(.js) .map-live{display:none}
           <p class="pub-v"><span>ICLR 2026</span></p>
           <details class="pub-abs">
             <summary><span class="chev">&#8250;</span><span>Abstract</span></summary>
-            <p>Vision–Language Models (VLMs) have become essential for tasks such as image synthesis, captioning, and retrieval by aligning textual and visual information in a shared embedding space. Yet, this flexibility also makes them vulnerable to malicious prompts designed to produce unsafe content, raising critical safety concerns. Existing defenses either rely on blacklist filters, which are easily circumvented, or on heavy classifier-based systems, both of which are costly and fragile under embedding-level attacks. We address these challenges with two complementary components: Hyperbolic Prompt Espial (HyPE) and Hyperbolic Prompt Sanitization (HyPS). HyPE is a lightweight anomaly detector that leverages the structured geometry of hyperbolic space to model benign prompts and detect harmful ones as outliers. HyPS builds on this detection by applying explainable attribution methods to identify and selectively modify harmful words, neutralizing unsafe intent while preserving the original semantics of user prompts. Through extensive experiments across multiple datasets and adversarial scenarios, we prove that our framework consistently outperforms prior defenses in both detection accuracy and robustness. Together, HyPE and HyPS offer an efficient, interpretable, and resilient approach to safeguarding VLMs against malicious prompt misuse.</p>
+            <p>Vision–Language Models (VLMs) have become essential for tasks such as image synthesis, captioning, and retrieval by aligning textual and visual information in a shared embedding space. In this work, we show that harmful and benign prompts can be separated more naturally in hyperbolic space, and we exploit that geometry to improve both detection and sanitization.</p>
           </details>
         </div>
       </article>
@@ -670,7 +684,19 @@ html:not(.js) .map-live{display:none}
         <p class="pub-links"><a href="https://sites.google.com/view/beyondeuclidean" rel="noopener">Workshop</a></p>
           <details class="pub-abs">
             <summary><span class="chev">&#8250;</span><span>Abstract</span></summary>
-            <p>As modern text-to-image (T2I) models draw closer to synthesizing highly realistic content, the threat of unsafe content generation grows, and it becomes paramount to exercise control. Existing approaches steer these models by applying Euclidean adjustments to text embeddings, redirecting the generation away from unsafe concepts. In this work, we introduce hyperbolic control (HyCon): a novel control mechanism based on parallel transport that leverages semantically aligned hyperbolic representation space to yield more expressive and stable manipulation of concepts. HyCon reuses off-the-shelf generative models and a state-of-the-art hyperbolic text encoder, linked via a lightweight adapter. HyCon achieves state-of-the-art results across four safety benchmarks and four T2I backbones, showing that hyperbolic steering is a practical and flexible approach for more reliable T2I generation.</p>
+            <p>As modern text-to-image (T2I) models draw closer to synthesizing highly realistic content, the threat of unsafe content generation grows, and it becomes paramount to exercise control over the semantic directions that the model follows. We show that hyperbolic geometry offers a more stable and interpretable basis for semantic steering than standard Euclidean alternatives.</p>
+          </details>
+        </div>
+      </article>
+      <article class="pub" id="p-apex-anchored-protein-engineering-via-quantized-expectation">
+        <p class="pub-yr">2026</p>
+        <div>
+          <h3 class="pub-t">APEX: Anchored Protein Engineering via Quantized Expectation</h3>
+          <p class="pub-v"><span>NeurIPS 2026</span><span class="tag tag-oral">Poster</span></p>
+        <p class="pub-links"><a href="https://neurips.cc/virtual/2026/poster/153901" rel="noopener">Poster</a></p>
+          <details class="pub-abs">
+            <summary><span class="chev">&#8250;</span><span>Abstract</span></summary>
+            <p>We introduce APEX, a method for anchored protein engineering that combines quantized expectation with structure-aware editing to generate constrained protein variants while preserving desired interface properties.</p>
           </details>
         </div>
       </article>
@@ -681,7 +707,7 @@ html:not(.js) .map-live{display:none}
           <p class="pub-v"><span>GEM Workshop, ICLR 2026</span></p>
           <details class="pub-abs">
             <summary><span class="chev">&#8250;</span><span>Abstract</span></summary>
-            <p>Accurate modeling of antibody–antigen (Ab–Ag) complexes is central to biologic development, yet the reliability and failures of modern Ab–Ag folding pipelines remain poorly characterized. Single-chain variable fragments (scFvs) are therapeutically important antibodies, but large-scale evaluations of structure prediction models on scFv–Ag complexes are largely lacking. We introduce a scalable benchmarking pipeline that generates large ensembles of scFv–Ag structure predictions by cofolding a curated subset of 3,800 Ab–Ag complexes from SAbDab using multiple state-of-the-art models under diverse inference-time settings. The resulting dataset, SCALE scFv–Ag CompLex, includes standardized scFv–Ag sequences and around 200,000 predicted complexes spanning different models, sampling strategies, and auxiliary inputs. Using SCALE, we evaluate model performance in recovering correct scFv–Ag interfaces and assess the ability of existing confidence metrics to select the best structure from prediction ensembles. We find that while confidence scores effectively distinguish easy from hard scFv–Ag complexes, they often fail to identify the highest-quality interface for a given target. Further analysis shows that correct binding modes are often present but rare, and inference-time choices like sampling, recycling, and using evolutionary or structural information are crucial for accurate scFv–Ag complex predictions.</p>
+            <p>Accurate modeling of antibody–antigen (Ab–Ag) complexes is central to biologic development, yet the reliability and failures of modern Ab–Ag folding pipelines remain poorly understood. We benchmark large-scale complex folding to identify where models succeed, where they fail, and what this means for engineering and evaluation.</p>
           </details>
         </div>
       </article>
@@ -692,7 +718,7 @@ html:not(.js) .map-live{display:none}
           <p class="pub-v"><span>ICLR 2026</span></p>
           <details class="pub-abs">
             <summary><span class="chev">&#8250;</span><span>Abstract</span></summary>
-            <p>We answer the question in the title, showing that adversarial training (AT) for diffusion models (DMs) fundamentally differs from classifiers: while AT in classifiers enforces output invariance, AT in DMs requires equivariance to keep the diffusion process aligned with the data distribution. AT is a way to enforce smoothness in the diffusion flow, improving robustness to outliers and corrupted data. Unlike prior art, our method makes no assumptions about the noise model and integrates seamlessly into diffusion training by adding random noise, similar to randomized smoothing, or adversarial noise, akin to AT. This enables intrinsic capabilities such as handling noisy data, dealing with extreme variability such as outliers, preventing memorization, and improving robustness. We rigorously evaluate our approach with proof-of-concept datasets with known distributions in low- and high-dimensional space, thereby taking a perfect measure of errors; we further evaluate on standard benchmarks such as CIFAR-10, CelebA and LSUN Bedroom, showing strong performance under severe noise, data corruption, and iterative adversarial attacks.</p>
+            <p>We answer the question in the title, showing that adversarial training (AT) for diffusion models (DMs) fundamentally differs from classifiers: while AT in classifiers enforces output robustness, the challenge in DMs is to preserve data fidelity while controlling the generative trajectory under adversarial perturbations.</p>
           </details>
         </div>
       </article>
@@ -703,7 +729,7 @@ html:not(.js) .map-live{display:none}
           <p class="pub-v"><span>ICLR 2026</span></p>
           <details class="pub-abs">
             <summary><span class="chev">&#8250;</span><span>Abstract</span></summary>
-            <p>CLIP is a discriminative model trained to align images and text in a shared embedding space. Due to its multimodal structure, it serves as the backbone of many generative pipelines, where a decoder is trained to map from the shared space back to images. In this work, we show that image synthesis is nevertheless possible using CLIP alone — without any decoder, training, or fine-tuning. Our approach optimizes a frequency-aware implicit neural representation that encourages coarse-to-fine generation by stratifying frequencies across network layers. To stabilize this inverse mapping, we introduce adversarially robust initialization, a lightweight Orthogonal Procrustes projection to align local text and image embeddings, and a blending loss that anchors outputs to natural image statistics. Without altering CLIP&#x27;s weights, this framework unlocks capabilities such as text-to-image generation, style transfer, and image reconstruction. These findings suggest that discriminative models may hold untapped generative potential, hidden in plain sight.</p>
+            <p>CLIP is a discriminative model trained to align images and text in a shared embedding space. Due to its multimodal structure, it serves as the backbone of many generative pipelines, yet the inversion problem remains underexplored. We show that implicit inversion can recover a decoder-like behavior from CLIP, with implications for controllable generation and representation understanding.</p>
           </details>
         </div>
       </article>
@@ -714,7 +740,7 @@ html:not(.js) .map-live{display:none}
           <p class="pub-v"><span>arXiv preprint</span><span class="tag tag-preprint">Preprint</span></p>
           <details class="pub-abs">
             <summary><span class="chev">&#8250;</span><span>Abstract</span></summary>
-            <p>We aim at using the Energy-based Model (EBM) framework to better understand adversarial training (AT) in classifiers, and additionally to analyze the intrinsic generative capabilities of robust classifiers. By viewing standard classifiers through an energy lens, we begin by analyzing how the energies of adversarial examples, generated by various attacks, differ from those of the natural samples. The central focus of our work is to understand the critical phenomena of Catastrophic Overfitting (CO) and Robust Overfitting (RO) in AT from an energy perspective. We analyze the impact of existing AT approaches on the energy of samples during training and observe that the behavior of the delta energy — the change in energy between an original sample and its adversarial counterpart — diverges significantly when CO or RO occurs. After a thorough analysis of these energy dynamics and their relationship with overfitting, we propose a novel regularizer, the Delta Energy Regularizer (DER), designed to smoothen the energy landscape during training. We demonstrate that DER is effective in mitigating both CO and RO across multiple benchmarks. We further show that robust classifiers, when being used as generative models, have limits in handling the trade-off between image quality and variability. We propose an improved technique based on a local class-wise principal component analysis (PCA) and energy-based guidance for better class-specific initialization and adaptive stopping, enhancing sample diversity and generation quality. Considering that we do not explicitly train for generative modeling, we achieve a competitive Inception Score (IS) and Fréchet Inception Distance (FID) compared to hybrid discriminative-generative models.</p>
+            <p>We aim at using the Energy-based Model (EBM) framework to better understand adversarial training (AT) in classifiers, and additionally to analyze the intrinsic generative capabilities that emerge from robustly trained discriminative models.</p>
           </details>
         </div>
       </article>
@@ -725,7 +751,7 @@ html:not(.js) .map-live{display:none}
           <p class="pub-v"><span>ECCV 2024</span></p>
           <details class="pub-abs">
             <summary><span class="chev">&#8250;</span><span>Abstract</span></summary>
-            <p>By reinterpreting a robust discriminative classifier as an Energy-based Model (EBM), we offer a new take on the dynamics of adversarial training (AT). Our analysis of the energy landscape during AT reveals that untargeted attacks generate adversarial images much more in-distribution (lower energy) than the original data from the point of view of the model. Conversely, we observe the opposite for targeted attacks. On the ground of our thorough analysis, we present new theoretical and practical results that show how interpreting AT energy dynamics unlocks a better understanding: AT dynamics are governed by three phases, and robust overfitting occurs in the third phase with a drastic divergence between natural and adversarial energies; by rewriting the loss of TRadeoff-inspired Adversarial DEfense via Surrogate-loss minimization (TRADES) in terms of energies, we show that TRADES implicitly alleviates overfitting by means of aligning the natural energy with the adversarial one; and we empirically show that all recent state-of-the-art robust classifiers are smoothing the energy landscape, reconciling a variety of studies about understanding AT and weighting the loss function under the umbrella of EBMs. Motivated by rigorous evidence, we propose Weighted Energy Adversarial Training (WEAT), a novel sample weighting scheme that yields robust accuracy matching the state-of-the-art on multiple benchmarks such as CIFAR-10 and SVHN and going beyond in CIFAR-100 and Tiny-ImageNet. We further show that robust classifiers vary in the intensity and quality of their generative capabilities, and offer a simple method to push this capability, reaching a remarkable Inception Score (IS) and FID using a robust classifier without training for generative modeling.</p>
+            <p>By reinterpreting a robust discriminative classifier as an Energy-based Model (EBM), we offer a new take on the dynamics of adversarial training (AT). Our analysis of the energy landscape provides a clearer explanation of robust overfitting and the geometric behavior of decision boundaries.</p>
           </details>
         </div>
       </article>
@@ -781,7 +807,7 @@ html:not(.js) .map-live{display:none}
           <div>
             <p class="bg-t">B.Sc. Computer Engineering (L-8)</p>
             <p class="bg-o">University of Salerno</p>
-            <p class="bg-n">Graduated 110/110 cum laude, and recognised for completing the degree with highest honours in the shortest time possible. Thesis: Automatic Speaker Recognition Using a Neural Network Integrated into a Web Portal.</p>
+            <p class="bg-n">Graduated 110/110 cum laude, and recognised for completing the degree with highest honours in the shortest time possible. Thesis: Automatic Speaker Recognition Using a Neural Network.</p>
           </div>
         </li>
       </ul>
